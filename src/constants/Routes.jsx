@@ -1,9 +1,9 @@
 const Rutas ={
     login: {
-        path: '/sesion/login',
+        path: '/',
     },
     logup: {
-        path: '/sesion/logup',
+        path: '/logup',
     },
     sesion: {
         path: '/dashboard',

@@ -33,7 +33,11 @@ const Logup = () => {
       }).then(res => res.json())
          .then(json => {
             if(!json.success) alert(json.error)
-            else {alert("Registrado correctamente"); nav(Rutas.sesion.path)}
+            else {
+               alert("Registrado correctamente"); 
+               sesionIniciada[1](true);
+               nav(Rutas.sesion.path)
+            }
          })
          .catch(err => console.log(err))
    }
