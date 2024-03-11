@@ -27,7 +27,7 @@ const Logup = () => {
       data.append("email", InputLogupEmail.value)
       data.append("password", InputLogupPass.value)
 
-      await fetch(RoutesBackend.r, {
+      await fetch(RoutesBackend.registrerHost, {
          method: 'POST',
          body: data
       }).then(res => res.json())

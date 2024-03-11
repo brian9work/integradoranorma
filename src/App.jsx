@@ -14,6 +14,7 @@ function Sao(){
          <BrowserRouter basename='/integradoranorma'>
          {/* <BrowserRouter basename='/'> */}
             <Routes>
+               {/* <Route exact path={'/'} element={<SaoHome />} /> */}
                <Route exact path={Rutas.sesion.path} element={<SaoHome />} />
                <Route exact path={Rutas.login.path} element={<Login />} />
                <Route exact path={Rutas.logup.path} element={<Logup />} />

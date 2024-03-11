@@ -23,14 +23,14 @@ const Login = () => {
       data.append("email", InputLoginEmail.value)
       data.append("password", InputLoginPass.value)
 
-      await fetch(RoutesBackend.s, {
+      await fetch(RoutesBackend.sesionHost, {
          method: 'POST',
          body: data
       }).then(res => res.json())
          .then(json => {
             if(!json.success) alert(json.error)
             else {
-               alert("Registrado correctamente");
+               alert("Sesion iniciada correctamente");
                sesionIniciada[1](true);
                nav(Rutas.sesion.path)
             }
