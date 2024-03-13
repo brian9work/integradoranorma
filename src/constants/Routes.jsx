@@ -7,6 +7,15 @@ const Rutas ={
     },
     sesion: {
         path: '/dashboard',
+    },
+    furniture: {
+        path: '/dashboard/furniture',
+    },
+    electronics: {
+        path: '/dashboard/electronics',
+    },
+    offers: {
+        path: '/dashboard/offers',
     }
 }
 
