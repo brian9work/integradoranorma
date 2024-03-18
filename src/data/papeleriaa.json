@@ -1,0 +1,145 @@
+{
+    "categoria": "moviliario",
+    "data": [
+        {
+            "marca": "Estrella",
+            "nombre": "Cuaderno espiral",
+            "imagen": "Cuaderno espiral.jpg",
+            "descripcion": "Haz tus apuntes y anotaciones en este increíble cuaderno Estrella perfecto para plasmar todas las ideas que necesites. ¡Anota todo!",
+            "price": 21.01
+        },
+        {
+            "marca": "NORMA",
+            "nombre": "Cuaderno espiral forma francesa",
+            "imagen": "Cuaderno espiral forma francesa.JPG",
+            "descripcion": "Haz tus apuntes y anotaciones en este increíble cuaderno Norma Jean Book perfecto para plasmar todas las ideas que necesites. ¡Anota todo!",
+            "price": 65.49
+        },
+        {
+            "marca": "SCRIBE",
+            "nombre": "Libreta Forma Francesa cuadro chico pasta dura",
+            "imagen": "Libreta Forma Francesa.jpg",
+            "descripcion": "ibreta de la marca Scribe con pasta dura y encuadernado de alta calidad para lograr conservar en buen estado las hojas, que te inspirarán a crear más todos los días. Hecho con fibras 100% sustentables.",
+            "price": 52.32
+        },
+        {
+            "marca": "Estrella",
+            "nombre": "Cuaderno Profesional Estrella Starkid",
+            "imagen": "Cuaderno Profesional Estrella.jpg", 
+            "descripcion": "Haz tus apuntes y anotaciones en este increíble Cuaderno Profesional Estrella Starkid Blanco perfecto para plasmar todas las ideas que necesites. ¡Anota todo!",
+            "price": 25.30
+        },
+        {
+            "marca": "PILOT",
+            "nombre": "Marcador Permanente Jumbo Negro",
+            "imagen": "Marcador Permanente Jumbo.jpg", 
+            "descripcion": "Plasma tu estilo en múltiples superficies con este paquete de Marcadores Permanentes Jumbo. Tinta de secado rápido, impermeable, de bajo olor contiene una fórmula sin xileno. Marca permanentemente en madera, plástico, metal, vidrio.",
+            "price": 102.25
+        },
+        {
+            "marca": "AZOR",
+            "nombre": "Marcador Azor Didáctico Fino Negro",
+            "imagen": "Marcador Azor.jpg", 
+            "descripcion": "Plasma tu estilo en múltiples superficies con el Marcador Azor Didáctico Fino Negro para pizarrón Magistral.",
+            "price": 12.44
+        },
+        {
+            "marca": "EXPO",
+            "nombre": "Marcadores para Pizarrón",
+            "imagen": "Marcadores para Pizarron.jpg", 
+            "descripcion": "Plasma tu estilo en múltiples superficies con este marcador de agua Expo. Son ideales para utilizar en pizarrón blanco, se borran con facilidad y su punta ayuda a una mejor escritura.",
+            "price": 17.78
+        },
+        {
+            "marca": "AZOR",
+            "nombre": "Marcatextos Resaltador",
+            "imagen": "Marcatextos Resaltador.jpg", 
+            "descripcion": "Plasma tu estilo en múltiples superficies con estos Marcatextos Resaltador Azor Visión Plus.",
+            "price": 59.17
+        },
+        {
+            "marca": "Uniball",
+            "nombre": "Marcador Permanente Uniball",
+            "imagen": "Marcador Permanente Uniball.jpg", 
+            "descripcion": "Plasma tu estilo en múltiples superficies con el Marcador Permanente Uniball Uni-Paint Marker PX-20. ",
+            "price": 58.31
+        },
+        {
+            "marca": "Azor",
+            "nombre": "Bolígrafo Azor Pin Point Punto Ultrafino",
+            "imagen": "Bolígrafo Azor Punto Ultrafino.jpg", 
+            "descripcion": "Haz tus anotaciones con este cómodo bolígrafo Azor Pin Point, obteniendo trazos y líneas precisas.",
+            "price": 50.70
+        },
+        {
+            "marca": "Azor",
+            "nombre": "Bolígrafo Azor Pin Point Punto Mediano",
+            "imagen": "Bolígrafo Azor Punto Mediano.jpg", 
+            "descripcion": "Haz tus anotaciones con este cómodo bolígrafo Azor Pin Point, obteniendo trazos y líneas precisas.",
+            "price": 39.92
+        },
+        {
+            "marca": "Azor",
+            "nombre": "Bolígrafo Azor Pin Point punta de aguja",
+            "imagen": "Bolígrafo Azor punta de aguja.jpg", 
+            "descripcion": "Haz tus anotaciones con este cómodo bolígrafo Azor Pin Point, obteniendo trazos y líneas precisas.",
+            "price": 46.12
+        },
+        {
+            "marca": "Azor",
+            "nombre": "Bolígrafo Azor Pin Point Green punto fino",
+            "imagen": "Bolígrafo Azor Green punto fino.jpg", 
+            "descripcion": "Haz tus anotaciones con este cómodo bolígrafo Azor Pin Point Green, obteniendo trazos y líneas precisas.",
+            "price": 21.58
+        },
+        {
+            "marca": "MAE",
+            "nombre": "Tijera Mae MT escolar",
+            "imagen": "Tijera Mae MT escolar.jpg", 
+            "descripcion": "Estas tijeras Mae con mango de plástico son perfectas para usarse en casa u oficina. ",
+            "price": 34.66
+        },
+        {
+            "marca": "BIC",
+            "nombre": "Corrector en pluma Bic Shake and Squeeze de 8 ml.",
+            "imagen": "Corrector.jpg", 
+            "descripcion": "El Corrector Líquido Blanco Tipo Pluma Bic Shake N Squeeze es un aliado indispensable para corregir errores de escritura de manera rápida y eficiente. ",
+            "price": 26.81
+        },
+        {
+            "marca": "Sablon",
+            "nombre": "REVISTERO PLASTICO CARTA NEGRO 1925NE",
+            "imagen": "REVISTERO PLASTICO.jpg", 
+            "descripcion": "Revistero de plástico color negro con un práctico diseño que quedará perfecto en tu lugar. Colócalo donde prefieras de forma vertical u horizontal y disfruta de tu espacio al máximo.",
+            "price": 74.17
+        },
+        {
+            "marca": "Sablon",
+            "nombre": "Portaclips de malla negro 3118me",
+            "imagen": "Portaclips de malla.jpg", 
+            "descripcion": "Este portaclips de malla color negro te permitirá tener tus clips sobre tu escritorio de forma ordenada y evitará que los pierdas. ¡Busca el tuyo ahora!",
+            "price": 54.25
+        },
+        {
+            "marca": "Devek",
+            "nombre": "Cinta adhesiva Diurex",
+            "imagen": "Cinta adhesiva Diurex.jpg", 
+            "descripcion": "Cinta adhesiva Devek transparente Diurex de corte fácil, suave y simple. Ofrece una adhesividad instantánea al papel, cartón y vidrio, lo que la hace ideal para pegar, sellar, unir y reparar.",
+            "price": 7.02
+        },
+        {
+            "marca": "Corty",
+            "nombre": "Cutter ancho 5025 punta flecha de 18 mm",
+            "imagen": "Cutter.jpg", 
+            "descripcion": "Cutter con punta de flecha de 18 mm. y navaja con mecanismo de seguridad, perfecto para cortes rectos y exactos. Pruébalo y enamórate de su práctico diseño.",
+            "price": 14.12
+        },
+        {
+            "marca": "FIFA",
+            "nombre": "Grapa standar",
+            "imagen": "Grapa standar.JPG", 
+            "descripcion": "Caja con 5040 grapas standard con largo de pata de 6.35 mm., compatibles con cualquier engrapadora standard. Su punta cincelada facilita el uso y tienen capacidad para hasta 25 hojas.",
+            "price": 51.82
+        }
+    ]
+}

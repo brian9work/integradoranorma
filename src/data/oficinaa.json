@@ -1,0 +1,154 @@
+{
+    "categoria": "moviliario",
+    "data": [
+        {
+            "marca": "Requiez",
+            "nombre": "Silla para Cómputo RS-470",
+            "imagen": "Silla para Cómputo RS-470.jpg",
+            "descripcion": "Silla con asiento y Respaldo con diseño ergonómico para máximo confort.",
+            "especificaciones": "Acojinamiento en poliuretano inyectado de 53 kg/ m³ de densidad con retardante de flama. Ajuste de altura del respaldo. Con brazos fijos RA-08.",
+            "dimensiones": "Frente: 50 cm,Fondo: 59 cm,Altura Total: 87 - 102 cm, Altura Piso-Asiento: 43 - 52 cm.",
+            "price": "Precio de venta$ 5,657.00"
+        },
+        {
+            "marca": "H2",
+            "nombre": "Silla operativa Mesh",
+            "imagen": "Silla Operativa H2.jpg",
+            "descripcion": "Silla operativa con moderno respaldo en mesh y descansabrazo con altura ajustable y funcionalidades ideales para un usuario operativo. Su diseño es moderno y ágil y sobrio. ",
+            "especificaciones": "Cuenta con asiento acolchonado con forro de tela con retardante de fuego según norma DS5852. Descansabrazos ajustable",
+            "price": "Precio de venta$ 3,456.00"
+        },
+        {
+            "marca": "Offiho",
+            "nombre": "Silla Operativa Prochair",
+            "imagen": "Silla Operativa Prochair.jpg",
+            "descripcion": "Silla operativa con asiento y respaldo de hule espuma de poliuretano inyectado con densidad de 60 kgs/m3 con retardante a la flama y alta resilencia.",
+            "especificaciones": "En acero tipo multimodal de tres palancas; una para el accionamiento y bloqueo del pistón neumático, otra para ajustar y bloquear el ángulo de inclinación del respaldo.",
+            "price": "$ 2,599.00"
+        },
+         {
+            "marca": "Requiez",
+            "nombre": "Silla Operativa para Analista Confort ",
+            "imagen": "Silla Operativa para Analista Confort .jpg",
+            "descripcion": "Silla operativa para analista con asiento y respaldo con diseño ergonómico para máximo confort. ",
+            "especificaciones": "Acojinamientos en poliuretano inyectado de 53 kg/m³ de densidad con retardante de flama. Con brazos fijos RA-08.",
+            "price": "$ 5,546.00"
+        },
+         {
+            "marca": "Techno",
+            "nombre": "Silla Operativa Active ",
+            "imagen": "Silla Operativa Active .jpg",
+            "descripcion": "Silla operativa active disponible en gris y negro",
+            "especificaciones": "Con mecanismo reclinable, brazos fijos de polipropileno y base cromada.",
+            "price": "$ 2,755.00"
+        },
+ {
+            "marca": "Techno",
+            "nombre": "Escritorio Ejecutivo Tech Black Chrome",
+            "imagen": "Escritorio Ejecutivo Tech Black Chrome.jpg",
+            "descripcion": "Escritorio Ejecutivo Tech Black Chrome con base metálica importada en acabado pintura color negro con cromo",
+            "especificaciones": "Pantalla metálica troquelada importada en acabado pintura color negro y cubierta en melamina.",
+            "price": "$ 9,505.00"
+        },
+ {
+            "marca": "Versa",
+            "nombre": "Escritorio Axio en L con Faldón",
+            "imagen": "Escritorio Axio en L con Faldón.jpg",
+            "descripcion": "Escritorio en melamina con lateral rectangular con groomet  y estructura en color blanco",
+            "especificaciones": "Faldón en polipropileno en color blanco con diseño curvo y herrajes laterales plásticos para su fijación.",
+            "price": "$ 13,765.00"
+        },
+ {
+            "marca": "Techno",
+            "nombre": "Escritorio Semi Ejecutivo Tech Z/Chrome",
+            "imagen": "Escritorio Semi Ejecutivo Tech.jpg",
+            "descripcion": "Escritorio semi ejecutivo Tech Z/Chrome o Z/White con base metálica importada en acabado cromo o acabado en pintura color blanco.",
+            "especificaciones": "Sin pantalla, con un pedestal de 2 papeleros y 1 de archivo con jaladeras rectas de aluminio mate y cubierta en melamina.",
+            "price": "$ 18,425.00"
+        },
+ {
+            "marca": "Versa",
+            "nombre": "Escritorio Evo Tipo Ala",
+            "imagen": "Escritorio Evo Tipo Ala.jpg",
+            "descripcion": "Escritorio ergonómico tipo ala, 2 groomets pasacables, patas en aluminio y faldón metálico troquelado, acabado en pintura epoxica. ",
+            "price": "$ 11,285.00"
+        },
+ {
+            "marca": "Estephany",
+            "nombre": "Conjunto de Escritorio Grapa y Credenza",
+            "imagen": "Conjunto de Escritorio Grapa y Credenza.jpg",
+            "descripcion": "Conjunto para oficina compuesto por un escritorio grapa sin cajonera (7054) y credenza con 2 puertas y 2 cajones horizontales (7045). Elaborado en melamina.",
+            "price": "$ 13,384.00"
+        },
+ {
+            "marca": "Techno",
+            "nombre": "Mesa de Juntas Tech SQ/Black",
+            "imagen": "Mesa de Juntas Tech SQBlack.jpg",
+            "descripcion": "Mesa de juntas Tech SQ/Black con base metálica importada con travesaños y esquineros metálicos con acabado en pintura color negro y cubierta en melamina. ",
+            "price": "$ 8,595.00"
+        },
+ {
+            "marca": "Estephany",
+            "nombre": "Mesa Redonda 7028",
+            "imagen": "Mesa Redonda 7028.jpg",
+            "descripcion": "Mesa redonda con patas de melamina.",
+            "price": "$ 3,943.00"
+        },
+ {
+            "marca": "Techno",
+            "nombre": "Mesa de Juntas de Consejo Tech",
+            "imagen": "Mesa de Juntas de Consejo Tech.jpg",
+            "descripcion": "Mesa de juntas de consejo Tech SQ/Black, cuenta con 2 cubiertas de melamina y 2 bases metálicas importadas con travesaños y esquineros metálicos, con acabado en pintura color negro. ",
+            "price": "$ 17,185.00"
+        },
+ {
+            "marca": "Techno",
+            "nombre": "Mesa de Juntas Tech SQ",
+            "imagen": "Mesa de Juntas Tech SQ.jpg",
+            "descripcion": "Mesa de juntas Tech SQ/Alum, con base metálica importada en acabado aluminio cepillado con esquineros metálicos cromados y cubierta en melamina. ",
+            "price": "$ 12,870.00"
+        },
+ {
+            "marca": "Labenze",
+            "nombre": "Base de Mesa Rectangular Metrópolis Natural",
+            "imagen": "Base de Mesa Rectangular.jpg",
+            "descripcion": "Base de mesa rectangular con cuatro patas y travesaño en madera de haya natural, con soporte de cubierta en aluminio pulido.Cristal templado transparente rectangular de 1.80 x 0.90 mts.",
+            "price": "$ 35,195.00"
+        },
+ {
+            "marca": "AMBIANT",
+            "nombre": "Librero Expo",
+            "imagen": "Librero Expo.jpg",
+            "descripcion": "Librero con divisiones y dos puertas corredizas inferiores, fabricado en melamina de 16mm.",
+            "price": "$ 8,693.00"
+        },
+ {
+            "marca": "Ofik",
+            "nombre": "Locker Metálico de 1 Puerta Perforado ",
+            "imagen": "Locker Metálico de 1 Puerta Perforado .jpg",
+            "descripcion": "Locker perforado de 1 puerta,  fabricado con lámina de acero rolada en frío calibre 24, acabado en pintura en polvo epoxi-poliester aplicada electroestáticamente horneada a 200° centígrados y ensamblado con soldadura por resistencia.",
+            "price": "$ 3,380.00"
+        },
+ {
+            "marca": "VERSA",
+            "nombre": "Credenza Baja Altea con Cajonera y Gaveta",
+            "imagen": "Credenza Baja Altea con Cajonera y Gaveta.jpg",
+            "descripcion": "Credenza baja de melamina con 1 cajonera, 1 cajón + 1 gaveta. 4 patas cortas en aluminio altura 12 cm, cajonera con cerradura y gaveta con accesorio para folder colgante, entrepaño metálico troquelado brick con ajuste de altura y jaladeras niza. ",
+            "price": "$ 8,635.00"
+        },
+ {
+            "marca": "Estephany",
+            "nombre": "Librero de Piso 7016",
+            "imagen": "Librero de Piso 7016.jpg",
+            "descripcion": "Librero de piso con entrepaños, elaborado en melamina.",
+            "price": "$ 5,987.00"
+        },
+               {
+            "marca": "Techno",
+            "nombre": "Credenza Móvil",
+            "imagen": "Credenza Móvil.jpg",
+            "descripcion": "Credenza móvil con 1 papelero, 1 de archivo, 1 puerta corrediza, rodajas importadas con seguro, jaladeras rectas de aluminio mate, en melamina. Variedad de colores en melamina.",
+            "price": "$ 7,210.00"
+        }
+    ]
+}

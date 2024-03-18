@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 backend
 backend2
+src/data/media
 
 dist
 dist-ssr

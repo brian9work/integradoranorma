@@ -32,9 +32,9 @@ const Product = ({ url, name, price }) => {
 
 const Products = ({ data }) => {
     return (
-        <div className='mt-5 '>
+        <div className='mt-5 container mx-auto'>
             <h1>{data.typeofProducts}</h1>
-            <div className="row">
+            <div className=" row">
                 {
                     data.data.map((product, index) => {
                         return (

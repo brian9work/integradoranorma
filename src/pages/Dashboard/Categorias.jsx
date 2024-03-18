@@ -8,7 +8,7 @@ import Rutas from '../../constants/Routes';
 const Categoria = ({ icon, path, children }) => {
     let nav = useNavigate();
     return (
-        <div className="cotainer col-6 py-2 pt-4 shadow-sm row mt-3 rounded-4" style={{ alignItems: "center" }}
+        <div className="cotainercol-md-3 col-lg-3 col-6 pt-4 shadow-sm row mt-3 rounded-4" style={{ alignItems: "center" }}
             onClick={()=>{
                 nav(path)
             }}
@@ -30,7 +30,7 @@ const Categorias = () => {
         {icon:<MdOutlineLocalOffer />,name:"Ofertas",path:Rutas.offers.path},
     ]
     return (
-        <div className="container-fluid row mb-1 d-flex justify-content-between">
+        <div className="container mx-auto row mb-1 d-flex justify-content-between">
             {rutas.map((r,i) =>{
                 return <Categoria
                     key={i}

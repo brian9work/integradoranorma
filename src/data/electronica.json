@@ -1,0 +1,145 @@
+{
+    "categoria": "electronica",
+    "data": [
+        {
+            "marca": "Sony",
+            "nombre": "Sony WH-1000XM4",
+            "descripcion": "Auriculares inalámbricos con cancelación de ruido líder en su clase.",
+            "especificaciones": "Cancelación de ruido adaptativa, hasta 30 horas de duración de la batería, control táctil, compatible con asistentes de voz.",
+            "dimensiones": ""
+        },
+        {
+            "marca": "Samsung",
+            "nombre": "Samsung Galaxy S21 Ultra",
+            "descripcion": "Smartphone con cámara de 108 MP y zoom de 100x.",
+            "especificaciones": "Pantalla Dynamic AMOLED 2X de 6.8 pulgadas, Exynos 2100 (5 nm), 12 GB de RAM, 5000 mAh de batería.",
+            "dimensiones": "165.1 x 75.6 x 8.9 mm"
+        },
+        {
+            "marca": "Apple",
+            "nombre": "Apple Watch Series 7",
+            "descripcion": "Smartwatch con pantalla siempre encendida y detección avanzada de caídas.",
+            "especificaciones": "Pantalla Retina siempre activa, resistente al agua hasta 50 metros, seguimiento avanzado del estado físico.",
+            "dimensiones": ""
+        },
+        {
+            "marca": "Bose",
+            "nombre": "Bose QuietComfort Earbuds",
+            "descripcion": "Auriculares inalámbricos con cancelación de ruido y sonido envolvente.",
+            "especificaciones": "Cancelación de ruido ajustable, hasta 6 horas de reproducción, resistente al sudor y al agua.",
+            "dimensiones": ""
+        },
+        {
+            "marca": "Canon",
+            "nombre": "Canon EOS R5",
+            "descripcion": "Cámara mirrorless de alta resolución con capacidad de grabación de video 8K.",
+            "especificaciones": "Sensor CMOS de formato completo de 45 MP, AF de 1053 puntos, estabilización de imagen de 5 ejes.",
+            "dimensiones": "138.5 x 97.5 x 88 mm"
+        },
+        {
+            "marca": "DJI",
+            "nombre": "DJI Mavic Air 2",
+            "descripcion": "Dron plegable con cámara de alta resolución y modos de vuelo inteligentes.",
+            "especificaciones": "Cámara 4K/60fps, tiempo de vuelo de hasta 34 minutos, distancia máxima de transmisión de video de 10 km.",
+            "dimensiones": "180 x 97 x 84 mm (plegado)"
+        },
+        {
+            "marca": "Google",
+            "nombre": "Google Nest Hub Max",
+            "descripcion": "Altavoz inteligente con pantalla de 10 pulgadas y reconocimiento facial.",
+            "especificaciones": "Asistente de Google integrado, cámara de 6.5 MP, compatible con servicios de streaming.",
+            "dimensiones": "250.1 x 182.5 x 101.4 mm"
+        },
+        {
+            "marca": "LG",
+            "nombre": "LG CX OLED TV",
+            "descripcion": "Televisor OLED con calidad de imagen excepcional y tecnología de inteligencia artificial.",
+            "especificaciones": "Resolución 4K, Dolby Vision IQ y Dolby Atmos, procesador α9 Gen 3, Smart TV webOS.",
+            "dimensiones": "1449 x 833 x 47 mm (sin soporte)"
+        },
+        {
+            "marca": "Microsoft",
+            "nombre": "Microsoft Surface Pro 7",
+            "descripcion": "Tablet 2 en 1 con procesador Intel Core de décima generación.",
+            "especificaciones": "Pantalla PixelSense de 12.3 pulgadas, hasta 16 GB de RAM, hasta 1 TB de almacenamiento SSD.",
+            "dimensiones": "292 x 201 x 8.5 mm"
+        },
+        {
+            "marca": "Nintendo",
+            "nombre": "Nintendo Switch",
+            "descripcion": "Consola de videojuegos híbrida que se puede usar como consola de sobremesa y portátil.",
+            "especificaciones": "Pantalla táctil de 6.2 pulgadas, controles Joy-Con desmontables, compatible con juegos de Nintendo Switch.",
+            "dimensiones": "102 x 239 x 13.9 mm (con Joy-Con)"
+        },
+        {
+            "marca": "Nvidia",
+            "nombre": "Nvidia GeForce RTX 3080",
+            "descripcion": "Tarjeta gráfica de última generación para juegos y creación de contenido.",
+            "especificaciones": "10 GB de memoria GDDR6X, arquitectura Ampere, trazado de rayos en tiempo real, DLSS.",
+            "dimensiones": ""
+        },
+        {
+            "marca": "OnePlus",
+            "nombre": "OnePlus 9 Pro",
+            "descripcion": "Smartphone con cámara Hasselblad y carga rápida de 65 W.",
+            "especificaciones": "Pantalla Fluid AMOLED de 6.7 pulgadas, Snapdragon 888, hasta 12 GB de RAM, 4500 mAh de batería.",
+            "dimensiones": "163.2 x 73.6 x 8.7 mm"
+        },
+        {
+            "marca": "PlayStation",
+            "nombre": "PlayStation 5",
+            "descripcion": "Consola de próxima generación con gráficos de alta fidelidad y carga ultrarrápida.",
+            "especificaciones": "CPU AMD Zen 2 personalizada, GPU AMD RDNA 2 personalizada, SSD de 825 GB, retrocompatibilidad con PS4.",
+            "dimensiones": "390 x 104 x 260 mm"
+        },
+        {
+            "marca": "Samsung",
+            "nombre": "Samsung Odyssey G9",
+            "descripcion": "Monitor curvo gaming ultrapanorámico de 49 pulgadas con tasa de refresco de 240 Hz.",
+            "especificaciones": "Resolución 5120 x 1440, panel QLED, HDR1000, tiempo de respuesta de 1 ms, G-Sync y FreeSync Premium Pro.",
+            "dimensiones": "1149.3 x 537.2 x 416.4 mm (con soporte)"
+        },
+        {
+            "marca": "Sony",
+            "nombre": "Sony PlayStation VR",
+            "descripcion": "Sistema de realidad virtual para PlayStation 4 y PlayStation 5.",
+            "especificaciones": "Pantalla OLED de 5.7 pulgadas, seguimiento de 360 grados",
+            "dimensiones": ""
+        },
+        {
+            "marca": "Logitech",
+            "nombre": "Logitech G Pro X",
+            "descripcion": "Auriculares con micrófono extraíble y sonido envolvente.",
+            "especificaciones": "Transductores PRO-G de 50 mm, micrófono Blue VO!CE, cables intercambiables.",
+            "dimensiones": ""
+        },
+        {
+            "marca": "Amazon",
+            "nombre": "Amazon Echo Show 10",
+            "descripcion": "Altavoz inteligente con pantalla HD de 10.1 pulgadas y movimiento automático.",
+            "especificaciones": "Asistente de Alexa integrado, cámara de 13 MP, compatible con videollamadas.",
+            "dimensiones": "251 x 230 x 172 mm"
+        },
+        {
+            "marca": "Razer",
+            "nombre": "Razer Blade 15",
+            "descripcion": "Portátil gaming con pantalla Full HD de 15.6 pulgadas y teclado RGB retroiluminado.",
+            "especificaciones": "Procesador Intel Core i7 de décima generación, GPU NVIDIA GeForce RTX 3070, hasta 16 GB de RAM, SSD de 512 GB.",
+            "dimensiones": "355 x 235 x 17.8 mm"
+        },
+        {
+            "marca": "Xiaomi",
+            "nombre": "Xiaomi Mi Band 6",
+            "descripcion": "Pulsera de actividad con monitorización de la salud y pantalla AMOLED a color.",
+            "especificaciones": "Monitorización del ritmo cardíaco y del sueño, resistente al agua hasta 50 metros, seguimiento de actividades deportivas.",
+            "dimensiones": ""
+        },
+        {
+            "marca": "Garmin",
+            "nombre": "Garmin Forerunner 945",
+            "descripcion": "Reloj GPS multideporte con música, mapas y métricas avanzadas.",
+            "especificaciones": "Resistencia al agua hasta 50 metros, duración de la batería de hasta 2 semanas en modo reloj inteligente, almacenamiento de música.",
+            "dimensiones": "47 x 47 x 13.7 mm"
+        }
+    ]
+}

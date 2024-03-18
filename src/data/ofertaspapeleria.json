@@ -1,0 +1,185 @@
+{
+    "categoria": "papeleria",
+    "data": [
+        {
+            "nombre": "Bloc de notas",
+            "marca": "Post-it",
+            "descripcion": "Bloc de notas adhesivas de colores surtidos",
+            "especificaciones": "Tamaño: 3x3 pulgadas, 100 hojas por bloc",
+            "precio": 5.99,
+            "descuento": 20,
+            "dimensiones": "76 x 76 mm"
+        },
+        {
+            "nombre": "Plumones de punta fina",
+            "marca": "Sharpie",
+            "descripcion": "Set de 12 plumones de colores variados",
+            "especificaciones": "Punta fina de 0.3 mm, tinta de secado rápido",
+            "precio": 12.49,
+            "descuento": 15,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Lápices de colores",
+            "marca": "Prismacolor",
+            "descripcion": "Set de 24 lápices de colores suaves y vibrantes",
+            "especificaciones": "Cuerpo hexagonal, resistente a la rotura",
+            "precio": 21.99,
+            "descuento": 10,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Libreta de cuero",
+            "marca": "Moleskine",
+            "descripcion": "Libreta de tapa dura con papel de alta calidad",
+            "especificaciones": "Tamaño grande (A5), 240 páginas punteadas",
+            "precio": 17.95,
+            "descuento": 25,
+            "dimensiones": "210 x 130 mm"
+        },
+        {
+            "nombre": "Rotuladores de pizarra blanca",
+            "marca": "Expo",
+            "descripcion": "Set de 4 rotuladores para pizarra blanca",
+            "especificaciones": "Punta cónica, tinta de borrado fácil",
+            "precio": 7.99,
+            "descuento": 15,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Calculadora científica",
+            "marca": "Texas Instruments",
+            "descripcion": "Calculadora científica para cálculos avanzados",
+            "especificaciones": "Funciones trigonométricas, estadísticas, y algebraicas",
+            "precio": 19.99,
+            "descuento": 10,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Cinta adhesiva",
+            "marca": "Scotch",
+            "descripcion": "Rollo de cinta adhesiva transparente",
+            "especificaciones": "Longitud: 20 metros, ancho: 18 mm",
+            "precio": 3.49,
+            "descuento": 20,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Gomas de borrar",
+            "marca": "Faber-Castell",
+            "descripcion": "Pack de 5 gomas de borrar de plástico",
+            "especificaciones": "Suaves y duraderas, borran sin dejar marcas",
+            "precio": 2.99,
+            "descuento": 10,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Grapas metálicas",
+            "marca": "Bostitch",
+            "descripcion": "Caja de 5000 grapas estándar",
+            "especificaciones": "Calibre 24/6, galvanizadas para mayor resistencia a la corrosión",
+            "precio": 4.79,
+            "descuento": 15,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Resaltadores",
+            "marca": "Stabilo",
+            "descripcion": "Set de 6 resaltadores de colores pastel",
+            "especificaciones": "Punta biselada, tinta de secado rápido",
+            "precio": 8.99,
+            "descuento": 10,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Bolígrafos",
+            "marca": "Pilot",
+            "descripcion": "Pack de 12 bolígrafos de tinta gel",
+            "especificaciones": "Punta de 0.7 mm, tinta gel de colores variados",
+            "precio": 9.49,
+            "descuento": 15,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Destructora de papel",
+            "marca": "AmazonBasics",
+            "descripcion": "Destructora de papel de corte cruzado",
+            "especificaciones": "Capacidad para 8 hojas, ciclo de trabajo continuo de 3 minutos",
+            "precio": 34.99,
+            "descuento": 20,
+            "dimensiones": "330 x 140 x 324 mm"
+        },
+        {
+            "nombre": "Carpeta de archivos",
+            "marca": "Smead",
+            "descripcion": "Carpeta de archivos expandible con cierre de cuerda",
+            "especificaciones": "Tamaño carta, 13 compartimentos",
+            "precio": 14.95,
+            "descuento": 10,
+            "dimensiones": "310 x 240 mm"
+        },
+        {
+            "nombre": "Marcadores permanentes",
+            "marca": "Sharpie",
+            "descripcion": "Set de 6 marcadores permanentes de colores surtidos",
+            "especificaciones": "Tinta resistente al agua y a la decoloración",
+            "precio": 5.49,
+            "descuento": 15,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Cuaderno espiral",
+            "marca": "Five Star",
+            "descripcion": "Cuaderno espiral con tapa dura y hojas perforadas",
+            "especificaciones": "Tamaño carta, 100 hojas de papel rayado",
+            "precio": 6.99,
+            "descuento": 10,
+            "dimensiones": "280 x 216 mm"
+        },
+        {
+            "nombre": "Pegamento en barra",
+            "marca": "Elmer's",
+            "descripcion": "Barra de pegamento lavable",
+            "especificaciones": "40 gramos, sin ácido ni solventes",
+            "precio": 1.99,
+            "descuento": 20,
+            "dimensiones": ""
+        },
+        {
+            "nombre": "Regla de metal",
+            "marca": "Westcott",
+            "descripcion": "Regla de acero inoxidable con graduaciones en pulgadas y centímetros",
+            "especificaciones": "Longitud: 30 cm, borde biselado para mayor precisión",
+            "precio": 3.29,
+            "descuento": 10,
+            "dimensiones": "305 x 30 mm"
+        },
+        {
+            "nombre": "Agenda semanal",
+            "marca": "AT-A-GLANCE",
+            "descripcion": "Agenda semanal de tapa dura",
+            "especificaciones": "Tamaño bolsillo, vista de semana completa",
+            "precio": 7.49,
+            "descuento": 15,
+            "dimensiones": "152 x 89 mm"
+        },
+        {
+            "nombre": "Carpeta de archivos colgante",
+            "marca": "Pendaflex",
+            "descripcion": "Carpeta de archivos colgante de plástico",
+            "especificaciones": "Tamaño carta, paquete de 25 unidades",
+            "precio": 17.99,
+            "descuento": 10,
+            "dimensiones": "355 x 241 x 152 mm"
+        },
+        {
+            "nombre": "Tijeras de precisión",
+            "marca": "Fiskars",
+            "descripcion": "Tijeras de punta fina para trabajos detallados",
+            "especificaciones": "Longitud: 15 cm, hojas de acero inoxidable",
+            "precio": 8.99,
+            "descuento": 20,
+            "dimensiones": ""
+        }
+    ]
+}
