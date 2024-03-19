@@ -5,18 +5,27 @@ const Rutas ={
     logup: {
         path: '/logup',
     },
-    sesion: {
-        path: '/dashboard',
+    store:{
+        path: '/store',
+        origin: '/store/papeleria',
     },
-    furniture: {
-        path: '/dashboard/furniture',
+    cart:{
+        path: '/cart',
     },
-    electronics: {
-        path: '/dashboard/electronics',
-    },
-    offers: {
-        path: '/dashboard/offers',
-    }
+
+
+    // sesion: {
+    //     path: '/dashboard',
+    // },
+    // furniture: {
+    //     path: '/dashboard/furniture',
+    // },
+    // electronics: {
+    //     path: '/dashboard/electronics',
+    // },
+    // offers: {
+    //     path: '/dashboard/offers',
+    // }
 }
 
 export default Rutas;

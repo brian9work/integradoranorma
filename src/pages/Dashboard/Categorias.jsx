@@ -24,11 +24,12 @@ const Categoria = ({ icon, path, children }) => {
 const Categorias = () => {
     
     const rutas = [
-        {icon:<LuBook />,name:"Papeleria",path:Rutas.sesion.path},
-        {icon:<MdPrint />,name:"Electronica",path:Rutas.electronics.path},
-        {icon:<LuSofa />,name:"Mobiliario",path:Rutas.furniture.path},
-        {icon:<MdOutlineLocalOffer />,name:"Ofertas",path:Rutas.offers.path},
+        {icon:<LuBook />,name:"Papeleria",path:Rutas.store.path+"/papeleria"},
+        {icon:<MdPrint />,name:"Electronica",path:Rutas.store.path+"/electronica"},
+        {icon:<LuSofa />,name:"Mobiliario",path:Rutas.store.path+"/moviliario"},
+        {icon:<MdOutlineLocalOffer />,name:"Ofertas",path:Rutas.store.path+"/ofertas"},
     ]
+
     return (
         <div className="container mx-auto row mb-1 d-flex justify-content-between">
             {rutas.map((r,i) =>{

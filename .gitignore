@@ -8,8 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-backend
-backend2
+backend3
 src/data/media
 
 dist

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Images from '../assets/Images';
 import Input from '../components/Input';
 import Button from '../components/Button';
@@ -23,21 +23,28 @@ const Login = () => {
       data.append("email", InputLoginEmail.value)
       data.append("password", InputLoginPass.value)
 
-      await fetch(RoutesBackend.sesionHost, {
+      await fetch(RoutesBackend.iniciarSesion, {
          method: 'POST',
          body: data
       }).then(res => res.json())
          .then(json => {
-            if(!json.success) alert(json.error)
+            console.log(json);
+            if(!json.success) alert(json.data)
             else {
                alert("Sesion iniciada correctamente");
                sesionIniciada[1](true);
-               nav(Rutas.sesion.path)
+               nav(Rutas.store.origin)
+               sessionStorage.setItem("sesion", 1)
+               sessionStorage.setItem("iduser", json.id)
+               sessionStorage.setItem("is_user", json.is_user)
             }
             console.log(json);
          })
          .catch(err => console.log(err))
    }
+   useEffect(() => {
+      if(sessionStorage.getItem("sesion")) nav(Rutas.store.origin)
+   })
    return (
       <div>
          <div className="login d-flex justify-content-center align-items-center">

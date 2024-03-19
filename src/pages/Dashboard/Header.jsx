@@ -5,11 +5,13 @@ import Rutas from '../../constants/Routes';
 import { FaRegUser, FaRegHeart } from "react-icons/fa";
 import { ImSwitch } from "react-icons/im";
 import { FiShoppingCart } from "react-icons/fi";
+import { MdStorefront } from "react-icons/md";
 
 const menuItems = [
+   { path: Rutas.store.path+"/papeleria", icon: <MdStorefront />, text: "Tienda" },
    { path: "/", icon: <FaRegUser />, text: "Mi cuenta" },
    { path: "/", icon: <FaRegHeart />, text: "Favoritos" },
-   { path: "/", icon: <FiShoppingCart />, text: "Carrito" },
+   { path: Rutas.cart.path, icon: <FiShoppingCart />, text: "Carrito" },
    { path: "/", icon: <ImSwitch />, text: "Cerrar Sesion" },
 ]
 
