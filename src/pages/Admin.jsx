@@ -10,9 +10,16 @@ import Product from './admin/pages/Product';
 import AddProduct from './admin/pages/AddProduct';
 import Nav from './admin/components/Nav';
 import UpdateProduct from './admin/pages/UpdateProduct';
+import Brands from './admin/pages/Brands';
 
 const typeOfPage = () => {
     const { page } = useParams()
+    if (page === "brands") return (
+        <>
+            <Nav>Marca</Nav>
+            <Brands/>
+        </>
+    )
     if (page === "products") return (
         <>
             <Nav>Productos</Nav>

@@ -10,10 +10,14 @@ const Nav = ({path,children="Sin nombre"}) => {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb p-3 bg-body-tertiary rounded-3">
                     <li className="breadcrumb-item">
-                        <a className="link-body-emphasis" href="#">
+                        <h6 className="link-body-emphasis"
+                            onClick={() =>{
+                                nav(Rutas.admin.origin)
+                            }}
+                        >
                             <TiHomeOutline />
                             <span className="visually-hidden">Home</span>
-                        </a>
+                        </h6>
                     </li>
                     <li className="breadcrumb-item"
                         onClick={() =>{

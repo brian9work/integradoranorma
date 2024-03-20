@@ -22,6 +22,9 @@ const Rutas ={
             getAll: '/admin/products',
             add: '/admin/addproduct',
             update: '/admin/updateproduct?',
+        },
+        brands:{
+            origin: '/admin/brands',
         }
     },
 }

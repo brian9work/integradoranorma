@@ -3,12 +3,14 @@ import Rutas from '../../../constants/Routes';
 import { FaRegAddressCard, FaRegAddressBook } from "react-icons/fa";
 import { PiStorefrontBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
-import { RiAddFill } from "react-icons/ri";
+import { RiAddFill,RiAddLine } from "react-icons/ri";
+import { FaRegRegistered } from "react-icons/fa6";
 
 
 const dataMain = [
     { path: Rutas.admin.products.add, icon: <RiAddFill />, name: "Agregar Producto" },
-    { path: Rutas.admin.products.getAll, icon: <PiStorefrontBold />, name: "Ver Productos" }
+    { path: Rutas.admin.products.getAll, icon: <PiStorefrontBold />, name: "Ver Productos" },
+    { path: Rutas.admin.brands.origin, icon: <FaRegRegistered />, name: "Marcas" }
 ]
 const ComponentMain = ({ path, icon, children }) => {
     let nav = useNavigate();
