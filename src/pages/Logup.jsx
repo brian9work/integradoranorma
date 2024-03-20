@@ -27,16 +27,20 @@ const Logup = () => {
       data.append("email", InputLogupEmail.value)
       data.append("password", InputLogupPass.value)
 
-      await fetch(RoutesBackend.registrerHost, {
+      await fetch(RoutesBackend.registrar, {
          method: 'POST',
          body: data
       }).then(res => res.json())
          .then(json => {
-            if(!json.success) alert(json.error)
+            console.log(json)
+            if(!json.success) alert(json.data)
             else {
                alert("Registrado correctamente"); 
-               sesionIniciada[1](true);
-               nav(Rutas.sesion.path)
+               // sesionIniciada[1](true);
+               nav(Rutas.store.origin)
+               sessionStorage.setItem("sesion", 1)
+               sessionStorage.setItem("iduser", json.id)
+               sessionStorage.setItem("is_user", true)
             }
          })
          .catch(err => console.log(err))

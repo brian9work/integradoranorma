@@ -12,6 +12,7 @@ import SaoContext from './pages/Context';
 // import Offers from './pages/Offers';
 import Dashboard from './pages/store/Dashboard';
 import Cart from './pages/cart/Cart';
+import Admin from './pages/Admin';
 
 function Sao(){
    return (
@@ -30,6 +31,7 @@ function Sao(){
 
                <Route exact path={Rutas.store.path+"/:type"} element={<Dashboard />} /> 
                <Route exact path={Rutas.cart.path} element={<Cart />} /> 
+               <Route exact path={Rutas.admin.path+"/:page"} element={<Admin />} /> 
               
             </Routes>
          </BrowserRouter>

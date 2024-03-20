@@ -25,7 +25,6 @@ const Dashboard = () => {
         })
         .then(res => res.json())
         .then(json => {
-            console.log(json.data)
             setProducts(json.data)
         })
         .catch(err => console.log(err))
@@ -49,7 +48,14 @@ const Dashboard = () => {
                         }}
                     />
             }
-            <h2 className='mt-5'>Cargando</h2>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </>
     );
 }

@@ -23,8 +23,21 @@ if($resUser){
     }
 }
 
-$senUser = "INSERT INTO user (name, lastnameF, lastnameM, email, password) VALUES ('$name', '$spelitF', '$spelitM', '$email', '$password')";
+$senUser = "INSERT INTO user (name, lastnameF, lastnameM, email, password, id_address, id_user, status) VALUES ('$name', '$spelitF', '$spelitM', '$email', '$password',1,3,1)";
 $resUser=mysqli_query($con,$senUser);
 if(!$resUser) die(json_encode(["success" => false,"data" => "Hubo un error al insertar en usuarios"]));
-echo json_encode(["success" => true]);
-die();
+
+$sentenciaSesion = "SELECT id,id_user FROM user WHERE email='$email' and password='$password'";
+$resUser=mysqli_query($con,$sentenciaSesion);
+if($resUser){
+    while ($row = mysqli_fetch_assoc($resUser)) {
+        $id = $row['id'];
+        $id_user = $row['id_user'];
+    }
+        die(json_encode([
+            "success" => true,
+            "data" => "Usuario Registrado",
+            "id" => $id,
+            "is_user" => ($id_user==="3")
+        ]));
+}

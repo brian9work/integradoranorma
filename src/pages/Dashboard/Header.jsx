@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Images from '../../assets/Images'
 import { Link } from 'react-router-dom'
 import Rutas from '../../constants/Routes';
-import { FaRegUser, FaRegHeart } from "react-icons/fa";
+import { FaRegUser, FaRegHeart, FaUserSecret } from "react-icons/fa";
 import { ImSwitch } from "react-icons/im";
 import { FiShoppingCart } from "react-icons/fi";
 import { MdStorefront } from "react-icons/md";
 
 const menuItems = [
-   { path: Rutas.store.path+"/papeleria", icon: <MdStorefront />, text: "Tienda" },
+   { path: Rutas.store.origin, icon: <MdStorefront />, text: "Tienda" },
    { path: "/", icon: <FaRegUser />, text: "Mi cuenta" },
    { path: "/", icon: <FaRegHeart />, text: "Favoritos" },
    { path: Rutas.cart.path, icon: <FiShoppingCart />, text: "Carrito" },
@@ -43,7 +43,6 @@ const Header = () => {
             <div className={`menu ${menu ? "act" : ""}`}>
                <span
                   onClick={() => {
-                     console.log(menu)
                      setMenu(!menu);
                   }}
                >
@@ -61,6 +60,13 @@ const Header = () => {
                         </Link>
                      )
                   })}
+                  {
+                     (sessionStorage.getItem("is_user") === "true") ? <></> :
+                     <Link to={Rutas.admin.origin}>
+                           <FaUserSecret />
+                           <p>Admin</p>
+                        </Link>
+                  }
                </nav>
             </div>
          </header>

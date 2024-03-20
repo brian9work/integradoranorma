@@ -1,6 +1,7 @@
 import React from 'react';
-import { MdFavoriteBorder } from "react-icons/md";
+// import { MdFavoriteBorder } from "react-icons/md";
 import RutasBackend from '../constants/RoutesBackend';
+import { MdAddShoppingCart } from "react-icons/md";
 
 
 const Product = ({ id, url, name, price }) => {
@@ -30,7 +31,7 @@ const Product = ({ id, url, name, price }) => {
                     </div>
                     <div className="col-2 fs-1 text-end">
                         {/* {id} */}
-                        <MdFavoriteBorder
+                        <MdAddShoppingCart
                             onClick={e =>{
                                 addToCart({
                                     id_user:sessionStorage.getItem('iduser'),
