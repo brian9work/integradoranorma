@@ -10,9 +10,9 @@ import { MdStorefront } from "react-icons/md";
 const menuItems = [
    { path: Rutas.store.origin, icon: <MdStorefront />, text: "Tienda" },
    { path: "/", icon: <FaRegUser />, text: "Mi cuenta" },
-   { path: "/", icon: <FaRegHeart />, text: "Favoritos" },
+   // { path: "/", icon: <FaRegHeart />, text: "Favoritos" },
    { path: Rutas.cart.path, icon: <FiShoppingCart />, text: "Carrito" },
-   { path: "/", icon: <ImSwitch />, text: "Cerrar Sesion" },
+   { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Cerrar Sesion" },
 ]
 
 const Header = () => {

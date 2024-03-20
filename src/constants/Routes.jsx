@@ -9,6 +9,9 @@ const Rutas ={
         path: '/store',
         origin: '/store/papeleria',
     },
+    closeSesion:{ 
+        path:'/store/closeSesion'
+    },
     cart:{
         path: '/cart',
     },

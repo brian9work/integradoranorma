@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import RutasBackend from '../../constants/RoutesBackend';
+import Rutas from '../../constants/Routes';
 import Header from '../Dashboard/Header';
 import Button from '../../components/Button';
+import { useNavigate, useParams } from 'react-router-dom'
 
 const Product = ({ data }) => {
     const deleteProduct = (id_product)=>{
@@ -40,7 +42,7 @@ const Product = ({ data }) => {
     return (
         <div className='productCartSao shadow-sm mb-4 py-2 px-3 rounded-3 row' style={{maxHeight:"250px"}}>
             <div className='col-4 productCartSaoImg'
-                style={{backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/220px-Image_created_with_a_mobile_phone.png)'}}
+                style={{backgroundImage: `url(${data.imagen})`}}
             >
             </div>
             <div className="col-5">
@@ -74,7 +76,9 @@ const Product = ({ data }) => {
 }
 
 const Cart = () => {
+    let nav = useNavigate();
     const [products, serProducts] = useState([])
+    const [total, serTotal] = useState(0)
     const getProducts = async () => {
         let data = new FormData()
         data.append("id_user", sessionStorage.getItem("iduser"))
@@ -84,7 +88,11 @@ const Cart = () => {
         })
             .then(res => res.json())
             .then(json => {
-                console.log(json.data)
+                if(json.data.length<=0) {
+                    alert("Carrito vacio por favor escoja algo")
+                    nav(Rutas.store.origin)
+                    return
+                }
                 serProducts(json.data)
             })
             .catch(err => console.log(err))
@@ -96,8 +104,8 @@ const Cart = () => {
         <>
             <Header />
             <div className="container my-5 pd-5 row mx-auto" style={{maxWidth:'1100px'}}>
-                <h5>Todos los productos</h5>
-                <div className="container mb-5 col-7">
+                <h5 className='col-12' >Todos los productos</h5>
+                <div className="container mb-5 col-12 col-md-7">
                     {(!products) ? <h2>Cargando</h2> :
                         products.map((product, index) => {
                             return (
@@ -109,18 +117,18 @@ const Cart = () => {
                         })
                     }
                 </div>
-                <div className="container mb-5 shadow-sm pt-3 col-4">
+                <div className="container mb-5 shadow-sm py-3 col-12 col-md-4">
                     <h5>Resumen del Pedido:</h5>
                     <div className="row">
-                        <div className="col-8">
+                        <div className="col-4">
                             <p>Total:</p>
                         </div>
-                        <div className="col-4">
+                        <div className="col-8 text-end row">
                             <p>$
                                 {(!products) ? <>-</> :
                                     <>
                                         {products.reduce((acc, cur) => {
-                                            return parseInt(acc) + parseInt(cur.price)
+                                            return parseInt(acc) + (parseInt(cur.price)*parseInt(cur.quantity))
                                         }, 0)}
                                     </>
                                 }

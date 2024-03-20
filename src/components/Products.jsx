@@ -2,6 +2,7 @@ import React from 'react';
 // import { MdFavoriteBorder } from "react-icons/md";
 import RutasBackend from '../constants/RoutesBackend';
 import { MdAddShoppingCart } from "react-icons/md";
+import Button from './Button';
 
 
 const Product = ({ id, url, name, price }) => {
@@ -21,24 +22,34 @@ const Product = ({ id, url, name, price }) => {
         .catch(err => console.log(err))
     }
     return (
-        <div className="card shadow-sm col-6 col-lg-3 col-md-4">
-            <img src={url} className="card-img-top" alt="..." />
+        <div className="card shadow-sm col-6 col-lg-3 col-md-4 pt-3">
+            <img src={url} className="card-img-top" alt="..." style={{width: "100%",height:"150px"}} />
             <div className="card-body">
                 <div className='row'>
-                    <div className='col-10'>
-                        <h5 className="card-title fs-4">{name}</h5>
-                        <h6 className="card-subtitle mb-2  fs-5" style={{ color: "#fe6347" }}>$ {price}</h6>
+                    <div className='col-12'>
+                        <h5 className="card-title fs-6">{name}</h5>
+                        <h6 className="card-subtitle mb-2 fs-6" style={{ color: "#fe6347" }}>$ {price}</h6>
                     </div>
-                    <div className="col-2 fs-1 text-end">
+                    <div className="col-12 fs-1 text-end" style={{cursor:"pointer"}}>
+                        <Button
+                            funcion={e =>{
+                                addToCart({
+                                    id_user:sessionStorage.getItem('iduser'),
+                                    id_product:id
+                                })
+                            }}
+                        >
+                            Agregar
+                        </Button>
                         {/* {id} */}
-                        <MdAddShoppingCart
+                        {/* <MdAddShoppingCart
                             onClick={e =>{
                                 addToCart({
                                     id_user:sessionStorage.getItem('iduser'),
                                     id_product:id
                                 })
                             }}
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>
@@ -58,7 +69,7 @@ const Product = ({ id, url, name, price }) => {
 const Products = ({ data }) => {
     return (
         <div className='mt-5 container mx-auto'>
-            <h1>{data.typeofProducts}</h1>
+            <h3>{data.typeofProducts}</h3>
             <div className=" row">
                 {
                     data.data.map((product, index) => {

@@ -8,7 +8,7 @@ import Rutas from '../../constants/Routes';
 const Categoria = ({ icon, path, children }) => {
     let nav = useNavigate();
     return (
-        <div className="cotainercol-md-3 col-lg-3 col-6 pt-4 shadow-sm row mt-3 rounded-4" style={{ alignItems: "center" }}
+        <div className="cotainer col-md-3 col-lg-3 col-6 pt-4 shadow-sm row mt-3 rounded-4" style={{ alignItems: "center", cursor: "pointer" }}
             onClick={()=>{
                 nav(path)
             }}

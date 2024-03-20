@@ -13,6 +13,7 @@ import SaoContext from './pages/Context';
 import Dashboard from './pages/store/Dashboard';
 import Cart from './pages/cart/Cart';
 import Admin from './pages/Admin';
+import CloseSesion from './pages/Dashboard/CloseSesion';
 
 function Sao(){
    return (
@@ -30,6 +31,7 @@ function Sao(){
                <Route exact path={Rutas.logup.path} element={<Logup />} /> 
 
                <Route exact path={Rutas.store.path+"/:type"} element={<Dashboard />} /> 
+               <Route exact path={Rutas.closeSesion.path} element={<CloseSesion />} /> 
                <Route exact path={Rutas.cart.path} element={<Cart />} /> 
                <Route exact path={Rutas.admin.path+"/:page"} element={<Admin />} /> 
               
