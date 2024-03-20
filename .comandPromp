@@ -1,0 +1,5 @@
+git add .
+git commit -m "no se qu ele movi"
+git push
+npm run build
+npm run deploy
