@@ -296,6 +296,43 @@ img{
         }
     }
 }
+.inputSaoSec{
+    width: 100%;
+    margin-bottom: 10px;
+    label{
+        display: block;
+        small{
+            margin-left: 3px;
+            color: red;
+        }
+    }
+    input,select{
+        display: block;
+        width: 100%;
+        padding: 5px 10px;
+        border: 0;
+        border-bottom: .6px solid rgb(143, 143, 143);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        outline: none;
+    }
+    span{
+        margin-top: 2px;
+        display: block;
+        text-align: end;
+        font-size: 13px;
+        // b{}
+    }
+    &.select{
+        select{
+            margin-top: 5px;
+            border: 0;
+            box-shadow: 0px 0px 2px #aaa;
+            border-radius: 10px;
+            padding: 10px 10px;
+        }
+    }
+}
 .buttonSao {
     display: flex;
     align-items: center;

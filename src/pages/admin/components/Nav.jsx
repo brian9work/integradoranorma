@@ -6,7 +6,7 @@ import Rutas from '../../../constants/Routes';
 const Nav = ({path,children="Sin nombre"}) => {
     let nav = useNavigate();
     return (
-        <div className="container mt-5 mb-2">
+        <div className="container mt-5 mb-2" style={{cursor:"pointer"}}>
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb p-3 bg-body-tertiary rounded-3">
                     <li className="breadcrumb-item">
