@@ -9,6 +9,7 @@ import RutasBrackend from '../constants/RoutesBackend'
 import Product from './admin/pages/Product';
 import AddProduct from './admin/pages/AddProduct';
 import Nav from './admin/components/Nav';
+import UpdateProduct from './admin/pages/UpdateProduct';
 
 const typeOfPage = () => {
     const { page } = useParams()
@@ -22,6 +23,13 @@ const typeOfPage = () => {
         <>
             <Nav>Agregar Producto</Nav>
             <AddProduct />
+        </>
+    )
+    const tmpPage = page.split("?")
+    if (tmpPage[0] === "updateproduct") return (
+        <>
+            <Nav>Editar Producto</Nav>
+            <UpdateProduct />
         </>
     )
 

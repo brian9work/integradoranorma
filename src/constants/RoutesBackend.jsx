@@ -1,5 +1,6 @@
 
 const host= "http://localhost/normaint/backend/"
+// const host= "https://portafolio.xantheapp.com/api/integradoraNorma/backend/"
 
 const RutasBackend ={
     // r: 'http://localhost/normaint/backend2/registrar.php',
@@ -22,6 +23,9 @@ const RutasBackend ={
     getCategories: host+"categories/getAll.php",
     getBrands: host+"brands/getAll.php",
     addProduct: host+"products/add.php",
+    updateProduct: host+"products/update.php",
+    getProductById: host+"products/getById.php",
+    deleteProduct: host+"products/delete.php",
 
 
 }

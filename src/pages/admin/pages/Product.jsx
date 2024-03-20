@@ -15,7 +15,17 @@ const Product = () => {
                 setProducts(data.data)
             })
             .catch(err => console.log(err))
-
+    }
+    const deleteProduct = async (id,name) => {
+        if(confirm("¿Esta seguro de eliminar el producto?: "+name))
+        await fetch(RutasBackend.deleteProduct+"?id_product="+id)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                alert(data.data)
+                if(data.success) window.location.reload()
+            })
+            .catch(err => console.log(err))
     }
 
     useEffect(() => {
@@ -56,14 +66,21 @@ const Product = () => {
                                 <td>{product.stock}</td>
                                 <td>{product.description}</td>
                                 <td>$ {product.price} MXN</td>
-                                <td><img src={product.image} alt={product.name} style={{ width: '50px' }} /></td>
+                                <td><img src={product.imagen} alt={product.imagen} style={{ width: '50px' }} /></td>
                                 <td>
                                     <button className="btn btn-primary"
                                         onClick={() => {
-                                            nav(Rutas.admin.products.add+"?id="+product.id)
+                                            nav(Rutas.admin.products.update+product.id)
                                         }}
                                     >Editar</button>
-                                    <button className="btn btn-danger">Eliminar</button>
+                                    <button className="btn btn-danger"
+                                        onClick={() => {
+                                            deleteProduct(
+                                                product.id,
+                                                product.name
+                                            )
+                                        }}
+                                    >Eliminar</button>
                                 </td>
                             </tr>
                         ))}

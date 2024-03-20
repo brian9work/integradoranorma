@@ -18,6 +18,7 @@ const Rutas ={
         products: {
             getAll: '/admin/products',
             add: '/admin/addproduct',
+            update: '/admin/updateproduct?',
         }
     },
 }
