@@ -5,7 +5,7 @@ include("../cors.php");
 if(!isset($_POST['id_category'])) die(json_encode(["success" => false,"error" => "Error a recibir el id de la categoria"]));
 if(!isset($_POST['id_brand'])) die(json_encode(["success" => false,"error" => "Error a recibir el id de la marca"]));
 if(!isset($_POST['name'])) die(json_encode(["success" => false,"error" => "Error a recibir el name"]));
-if(!isset($_POST['imagen'])) die(json_encode(["success" => false,"error" => "Error a recibir el imagen"]));
+if(!isset($_FILES['imagen'])) die(json_encode(["success" => false,"error" => "Error a recibir el imagen"]));
 if(!isset($_POST['description'])) die(json_encode(["success" => false,"error" => "Error a recibir el description"]));
 if(!isset($_POST['specifications'])) die(json_encode(["success" => false,"error" => "Error a recibir el specifications"]));
 if(!isset($_POST['dimensions'])) die(json_encode(["success" => false,"error" => "Error a recibir el dimensions"]));
@@ -16,7 +16,7 @@ if(!isset($_POST['discount'])) die(json_encode(["success" => false,"error" => "E
 $id_category = $_POST['id_category'];
 $id_brand = $_POST['id_brand'];
 $name = $_POST['name'];
-$imagen = $_POST['imagen'];
+$imagen = $_FILES['imagen'];
 $description = $_POST['description'];
 $specifications = $_POST['specifications'];
 $dimensions = $_POST['dimensions'];

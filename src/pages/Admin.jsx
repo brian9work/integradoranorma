@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './Dashboard/Header';
 import Rutas from '../constants/Routes';
 import { FaRegAddressCard, FaRegAddressBook } from "react-icons/fa";
@@ -49,6 +49,13 @@ const typeOfPage = () => {
 }
 
 const Admin = () => {
+    let nav = useNavigate();
+    useEffect(() => {
+        if(sessionStorage.getItem("iduser")!=="1"){
+            nav(Rutas.store.origin)
+        }
+    },[])
+    
     return (
         <>
         <Header />

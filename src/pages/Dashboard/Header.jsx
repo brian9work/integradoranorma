@@ -7,7 +7,7 @@ import { ImSwitch } from "react-icons/im";
 import { FiShoppingCart } from "react-icons/fi";
 import { MdStorefront } from "react-icons/md";
 
-const menuItems = [
+let menuItems = [
    { path: Rutas.store.origin, icon: <MdStorefront />, text: "Tienda" },
    { path: "/", icon: <FaRegUser />, text: "Mi cuenta" },
    // { path: "/", icon: <FaRegHeart />, text: "Favoritos" },
@@ -16,6 +16,13 @@ const menuItems = [
 ]
 
 const Header = () => {
+   // let nav = useNavigate();
+   useEffect(() => {
+       if(sessionStorage.getItem("sesion")!=="1"){
+           menuItems = []
+       }
+   },[])
+   // let nav = useNavigate();
    let [menu, setMenu] = useState(false)
    return (
       <div className="headerSao">
@@ -52,7 +59,8 @@ const Header = () => {
                   </svg>
                </span>
                <nav>
-                  {menuItems.map((menuItem, i) => {
+                  {
+                  menuItems.map((menuItem, i) => {
                      return (
                         <Link to={menuItem.path} key={i}>
                            {menuItem.icon}
