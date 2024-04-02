@@ -1,6 +1,7 @@
 <?php
 include("../cn.php");
 include("../cors.php");
+include("../search.php");
 
 if(!isset($_POST['id_user'])) die(json_encode(["success" => false,"error" => "Error a recibir el id del usuario"]));
 if(!isset($_POST['id_product'])) die(json_encode(["success" => false,"error" => "Error a recibir el id del producto"]));
@@ -8,17 +9,9 @@ if(!isset($_POST['id_product'])) die(json_encode(["success" => false,"error" => 
 $id_user = $_POST['id_user'];
 $id_product = $_POST['id_product'];
 
-$searchUser = "SELECT * FROM user WHERE id='$id_user'";
-$resSearchUser=mysqli_query($con,$searchUser);
-if($resSearchUser){
-    if(mysqli_num_rows($resSearchUser)<1){
-        die(json_encode(["success" => false,"data" => "El usuario no existe"]));}}
+if(!Search::search_user($id_user)) die(json_encode(["success" => false,"data" => "El usuario no existe"]));
+if(!Search::search_product($id_product)) die(json_encode(["success" => false,"data" => "El producto no existe"]));
 
-$searchProduct = "SELECT * FROM product WHERE id='$id_product'";
-$resSearchProduct=mysqli_query($con,$searchProduct);
-if($resSearchProduct){
-    if(mysqli_num_rows($resSearchProduct)<1){
-        die(json_encode(["success" => false,"data" => "El producto no existe"]));}}
 
 $searchProduct = "SELECT COUNT(*) FROM cart WHERE id_user='$id_user' AND id_product='$id_product'";
 $resSearchProduct=mysqli_query($con,$searchProduct);

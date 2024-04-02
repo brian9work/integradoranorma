@@ -5,12 +5,17 @@ import { PiStorefrontBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { RiAddFill,RiAddLine } from "react-icons/ri";
 import { FaRegRegistered } from "react-icons/fa6";
+import { LuUsers } from "react-icons/lu";
+import { GrMoney, GrUserAdmin } from "react-icons/gr";
 
 
 const dataMain = [
     { path: Rutas.admin.products.add, icon: <RiAddFill />, name: "Agregar Producto" },
     { path: Rutas.admin.products.getAll, icon: <PiStorefrontBold />, name: "Ver Productos" },
-    { path: Rutas.admin.brands.origin, icon: <FaRegRegistered />, name: "Marcas" }
+    { path: Rutas.admin.brands.origin, icon: <FaRegRegistered />, name: "Marcas" },
+    { path: Rutas.admin.admins.origin, icon: <GrUserAdmin  />, name: "Administradores" },
+    { path: Rutas.admin.users.origin, icon: <LuUsers />, name: "Usuarios" },
+    { path: Rutas.admin.sales.origin, icon: <GrMoney  />, name: "Ventas" },
 ]
 const ComponentMain = ({ path, icon, children }) => {
     let nav = useNavigate();

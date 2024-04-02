@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Images from '../assets/Images';
 import Input from '../components/Input';
 import Button from '../components/Button';
@@ -6,8 +6,10 @@ import { useNavigate } from "react-router-dom";
 import Rutas from '../constants/Routes';
 import RoutesBackend from '../constants/RoutesBackend';
 import axios from 'axios';
+import SaoContext from './Context';
 
 const Logup = () => {
+   const { sesionIniciada } = useContext(SaoContext);
    let nav = useNavigate();
    const formulario = async (e) => {
       e.preventDefault()
@@ -37,10 +39,11 @@ const Logup = () => {
             else {
                alert("Registrado correctamente"); 
                // sesionIniciada[1](true);
+               sesionIniciada[1](true);
+               localStorage.setItem("sesion", 1)
+               localStorage.setItem("iduser", json.id)
+               localStorage.setItem("is_user", true)
                nav(Rutas.store.origin)
-               sessionStorage.setItem("sesion", 1)
-               sessionStorage.setItem("iduser", json.id)
-               sessionStorage.setItem("is_user", true)
             }
          })
          .catch(err => console.log(err))

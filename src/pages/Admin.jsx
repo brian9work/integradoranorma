@@ -11,9 +11,30 @@ import AddProduct from './admin/pages/AddProduct';
 import Nav from './admin/components/Nav';
 import UpdateProduct from './admin/pages/UpdateProduct';
 import Brands from './admin/pages/Brands';
+import AllUsers from './admin/pages/AllUsers';
+import Sales from './admin/pages/Sales';
+import Admins from './admin/pages/Admins';
 
 const typeOfPage = () => {
     const { page } = useParams()
+    if (page === "admins") return (
+        <>
+            <Nav>Administradores</Nav>
+            <Admins/>
+        </>
+    )
+    if (page === "sales") return (
+        <>
+            <Nav>Ventas</Nav>
+            <Sales/>
+        </>
+    )
+    if (page === "users") return (
+        <>
+            <Nav>Usuarios</Nav>
+            <AllUsers/>
+        </>
+    )
     if (page === "brands") return (
         <>
             <Nav>Marca</Nav>
@@ -51,7 +72,7 @@ const typeOfPage = () => {
 const Admin = () => {
     let nav = useNavigate();
     useEffect(() => {
-        if(sessionStorage.getItem("iduser")!=="1"){
+        if(localStorage.getItem("iduser")!=="1"){
             nav(Rutas.store.origin)
         }
     },[])

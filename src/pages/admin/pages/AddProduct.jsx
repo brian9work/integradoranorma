@@ -35,12 +35,15 @@ const AddProduct = () => {
             InputQuantity,
             InputPrice,
         } = form
-
+        // console.log(inputFile)
+        // console.log(inputFile.files)
+        // console.log(inputFile.files[0])
+        // return ;
         const data = new FormData()
         data.append("id_category", selectCategory.value)
         data.append("id_brand", selectBrand.value)
         data.append("name", InputName.value)
-        data.append("imagen", inputFile[0])
+        data.append("imagen", inputFile.files[0])
         data.append("description", InputDescription.value)
         data.append("specifications", InputSpecification.value)
         data.append("dimensions", InputDimencions.value)
@@ -54,12 +57,13 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
+                // console.log(data)
                 if (data.success) {
                     alert("Producto agregado correctamente")
                     nav(Rutas.admin.products.getAll)
                 }
                 console.log(data)
-                // setBrands(data.data)
+                setBrands(data.data)
             })
             .catch(err => console.log(err))
     }
@@ -130,7 +134,7 @@ const AddProduct = () => {
                                         attributs={{
                                             type: 'text',
                                             minLength: '0',
-                                            required: true,
+                                            // required: true,
                                             name: 'InputName',
                                             placeholder: ""
                                         }}
@@ -143,7 +147,7 @@ const AddProduct = () => {
                                         attributs={{
                                             type: 'text',
                                             minLength: '0',
-                                            // required: true,
+                                            // // required: true,
                                             name: 'InputDescription',
                                             placeholder: ""
                                         }}
@@ -156,7 +160,7 @@ const AddProduct = () => {
                                         attributs={{
                                             type: 'text',
                                             minLength: '0',
-                                            // required: true,
+                                            // // required: true,
                                             name: 'InputSpecification',
                                             placeholder: ""
                                         }}
@@ -181,7 +185,7 @@ const AddProduct = () => {
                                         attributs={{
                                             type: 'number',
                                             minLength: '0',
-                                            // required: true,
+                                            // // required: true,
                                             name: 'InputQuantity',
                                             placeholder: "1"
                                         }}
@@ -194,7 +198,7 @@ const AddProduct = () => {
                                         attributs={{
                                             type: 'text',
                                             minLength: '0',
-                                            // required: true,
+                                            // // required: true,
                                             name: 'InputPrice',
                                             placeholder: ""
                                         }}

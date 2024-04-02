@@ -3,6 +3,7 @@ import Login from './pages/Login'
 import Logup from './pages/Logup'
 import Rutas from './constants/Routes'
 import './styles/app.css'
+import './styles/loader.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // import Index from './pages/Index'
 import SaoContext from './pages/Context';
@@ -14,6 +15,9 @@ import Dashboard from './pages/store/Dashboard';
 import Cart from './pages/cart/Cart';
 import Admin from './pages/Admin';
 import CloseSesion from './pages/Dashboard/CloseSesion';
+import Sales from './pages/sales/Sales';
+import OrderDetails from './pages/sales/details/OrderDetails';
+import Buy from './pages/sales/Buy';
 
 function Sao(){
    return (
@@ -30,7 +34,12 @@ function Sao(){
                <Route exact path={Rutas.login.path} element={<Login />} />
                <Route exact path={Rutas.logup.path} element={<Logup />} /> 
 
+               <Route exact path={Rutas.store.path} element={<Dashboard />} /> 
+               <Route exact path={Rutas.store.slash} element={<Dashboard />} /> 
                <Route exact path={Rutas.store.path+"/:type"} element={<Dashboard />} /> 
+               <Route exact path={Rutas.sales.path} element={<Sales />} />
+               <Route exact path={Rutas.sales.details+"/:id"} element={<OrderDetails />} /> 
+               <Route exact path={Rutas.sales.buy} element={<Buy />} /> 
                <Route exact path={Rutas.closeSesion.path} element={<CloseSesion />} /> 
                <Route exact path={Rutas.cart.path} element={<Cart />} /> 
                <Route exact path={Rutas.admin.path+"/:page"} element={<Admin />} /> 
@@ -41,7 +50,7 @@ function Sao(){
    )
 }
 function App() {
-   const sesionIniciada = useState(true);
+   const sesionIniciada = useState(localStorage.getItem("sesion")==="1");
    return (
       <>
          <SaoContext.Provider value={{

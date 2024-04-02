@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Images from '../../assets/Images'
 import { Link } from 'react-router-dom'
 import Rutas from '../../constants/Routes';
@@ -6,29 +6,48 @@ import { FaRegUser, FaRegHeart, FaUserSecret } from "react-icons/fa";
 import { ImSwitch } from "react-icons/im";
 import { FiShoppingCart } from "react-icons/fi";
 import { MdStorefront } from "react-icons/md";
+import { BsBagHeart } from "react-icons/bs";
+import SaoContext from '../Context';
+
 
 let menuItems = [
    { path: Rutas.store.origin, icon: <MdStorefront />, text: "Tienda" },
    { path: "/", icon: <FaRegUser />, text: "Mi cuenta" },
    // { path: "/", icon: <FaRegHeart />, text: "Favoritos" },
    { path: Rutas.cart.path, icon: <FiShoppingCart />, text: "Carrito" },
+   { path: Rutas.sales.path, icon: <BsBagHeart />, text: "Pedidos" },
    { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Cerrar Sesion" },
 ]
 
 const Header = () => {
    // let nav = useNavigate();
+   
+
+   const { sesionIniciada } = useContext(SaoContext);
    useEffect(() => {
-       if(sessionStorage.getItem("sesion")!=="1"){
-           menuItems = []
-       }
-   },[])
+      // console.log(sesionIniciada[0]);
+      if (!sesionIniciada[0]) {
+         menuItems = [
+            // { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Salir" },
+            { path: Rutas.login.path, icon: <ImSwitch />, text: "ingresar" },
+            { path: Rutas.logup.path, icon: <ImSwitch />, text: "Crear cuenta" },
+         ]
+      }
+      // if (!localStorage.getItem("sesion")) {
+      //    menuItems = [
+      //       // { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Salir" },
+      //       { path: Rutas.login.path, icon: <ImSwitch />, text: "ingresar" },
+      //       { path: Rutas.logup.path, icon: <ImSwitch />, text: "Crear cuenta" },
+      //    ]
+      // }
+   }, [])
    // let nav = useNavigate();
    let [menu, setMenu] = useState(false)
    return (
       <div className="headerSao">
          <header>
             <div className='imagen'>
-               <Link to={Rutas.sesion}>
+               <Link to={Rutas.store.slash}>
                   <img src={Images.logo} alt="logo-Sao" />
                </Link>
             </div>
@@ -59,8 +78,15 @@ const Header = () => {
                   </svg>
                </span>
                <nav>
-                  {
-                  menuItems.map((menuItem, i) => {
+                  {/* {
+                     (!localStorage.getItem("sesion")) ?
+                        menuItems = [
+                           // { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Salir" },
+                           { path: Rutas.login.path, icon: <ImSwitch />, text: "ingresar" },
+                           { path: Rutas.logup.path, icon: <ImSwitch />, text: "Crear cuenta" },
+                        ] : menuItems = menuItems
+                  } */}
+                  {menuItems.map((menuItem, i) => {
                      return (
                         <Link to={menuItem.path} key={i}>
                            {menuItem.icon}
@@ -69,11 +95,11 @@ const Header = () => {
                      )
                   })}
                   {
-                     (sessionStorage.getItem("is_user") === "true") ? <></> :
+                     (localStorage.getItem("is_user") === "false") &&
                      <Link to={Rutas.admin.origin}>
-                           <FaUserSecret />
-                           <p>Admin</p>
-                        </Link>
+                        <FaUserSecret />
+                        <p>Admin</p>
+                     </Link>
                   }
                </nav>
             </div>

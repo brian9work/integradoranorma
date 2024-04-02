@@ -6,43 +6,43 @@ import Button from '../../components/Button';
 import { useNavigate, useParams } from 'react-router-dom'
 
 const Product = ({ data }) => {
-    const deleteProduct = (id_product)=>{
+    const deleteProduct = (id_product) => {
         let data = new FormData()
-        data.append("id_user", sessionStorage.getItem("iduser"))
+        data.append("id_user", localStorage.getItem("iduser"))
         data.append("id_product", id_product)
         fetch(RutasBackend.remove, {
             method: "POST",
             body: data,
         })
-        .then(res => res.json())
-        .then(json => {
-            alert(json.data)
-            if(json.success) window.location.reload()
-            console.log(json)
-        })
-        .catch(err => console.log(err))
+            .then(res => res.json())
+            .then(json => {
+                alert(json.data)
+                if (json.success) window.location.reload()
+                console.log(json)
+            })
+            .catch(err => console.log(err))
     }
-    const quantity = (type,id_product)=>{
+    const quantity = (type, id_product) => {
         let data = new FormData()
-        data.append("id_user", sessionStorage.getItem("iduser"))
+        data.append("id_user", localStorage.getItem("iduser"))
         data.append("id_product", id_product)
         data.append("add", type)
         fetch(RutasBackend.quantity, {
             method: "POST",
             body: data,
         })
-        .then(res => res.json())
-        .then(json => {
-            alert(json.data)
-            if(json.success) window.location.reload()
-            console.log(json)
-        })
-        .catch(err => console.log(err))
+            .then(res => res.json())
+            .then(json => {
+                alert(json.data)
+                if (json.success) window.location.reload()
+                console.log(json)
+            })
+            .catch(err => console.log(err))
     }
     return (
-        <div className='productCartSao shadow-sm mb-4 py-2 px-3 rounded-3 row' style={{maxHeight:"250px"}}>
+        <div className='productCartSao shadow-sm mb-4 py-2 px-3 rounded-3 row' style={{ maxHeight: "250px" }}>
             <div className='col-4 productCartSaoImg'
-                style={{backgroundImage: `url(${data.imagen})`}}
+                style={{ backgroundImage: `url(${data.imagen})` }}
             >
             </div>
             <div className="col-5">
@@ -53,20 +53,20 @@ const Product = ({ data }) => {
                 <span className='col-12 '>Costo: <b>$ {data.price}</b></span>
                 <span className='col-12 mb-3'>Total: <b> ${data.price * data.quantity}</b></span>
                 <span className="input-group-text col-4"
-                    style={{cursor: 'pointer'}}
-                    onClick={()=>{
-                        quantity(0,data.id_product)
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => {
+                        quantity(0, data.id_product)
                     }}
                 >-</span>
                 <span className="input-group-text col-4 bg-white">{data.quantity}</span>
                 <span className="input-group-text col-4"
-                    style={{cursor: 'pointer'}}
-                    onClick={()=>{
-                        quantity(1,data.id_product)
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => {
+                        quantity(1, data.id_product)
                     }}
                 >+</span>
                 <button className='btn btn-danger mt-3'
-                    onClick={()=>{
+                    onClick={() => {
                         deleteProduct(data.id_product)
                     }}
                 >Eliminar</button>
@@ -78,17 +78,18 @@ const Product = ({ data }) => {
 const Cart = () => {
     let nav = useNavigate();
     const [products, serProducts] = useState([])
+    const [paymenMethods, serPaymenMethods] = useState([])
     const [total, serTotal] = useState(0)
     const getProducts = async () => {
         let data = new FormData()
-        data.append("id_user", sessionStorage.getItem("iduser"))
+        data.append("id_user", localStorage.getItem("iduser"))
         await fetch(RutasBackend.getCart, {
             method: "POST",
             body: data,
         })
             .then(res => res.json())
             .then(json => {
-                if(json.data.length<=0) {
+                if (json.data.length <= 0) {
                     alert("Carrito vacio por favor escoja algo")
                     nav(Rutas.store.origin)
                     return
@@ -97,13 +98,24 @@ const Cart = () => {
             })
             .catch(err => console.log(err))
     }
+    const getBrands = async () => {
+        let data = new FormData()
+        await fetch(RutasBackend.getAllPaymentMethods)
+            .then(res => res.json())
+            .then(json => {
+                // console.log(json.data)
+                serPaymenMethods(json.data)
+            })
+            .catch(err => console.log(err))
+    }
     useEffect(() => {
         getProducts()
+        getBrands()
     }, [])
     return (
         <>
             <Header />
-            <div className="container my-5 pd-5 row mx-auto" style={{maxWidth:'1100px'}}>
+            <div className="container my-5 pd-5 row mx-auto" style={{ maxWidth: '1100px' }}>
                 <h5 className='col-12' >Todos los productos</h5>
                 <div className="container mb-5 col-12 col-md-7">
                     {(!products) ? <h2>Cargando</h2> :
@@ -125,17 +137,39 @@ const Cart = () => {
                         </div>
                         <div className="col-8 text-end row">
                             <p>$
-                                {(!products) ? <>-</> :
+                                {(products) &&
                                     <>
                                         {products.reduce((acc, cur) => {
-                                            return parseInt(acc) + (parseInt(cur.price)*parseInt(cur.quantity))
+                                            return (parseFloat(acc) + (parseFloat(cur.price) * parseFloat(cur.quantity))).toFixed(2);
                                         }, 0)}
                                     </>
                                 }
                             </p>
                         </div>
                     </div>
-                    <Button>Pagar</Button>
+                    <Button
+                        funcion={() => {
+                            nav(Rutas.sales.buy)
+                        }}
+                    >Pagar</Button>
+                    <div className="mt-4">
+                        <p>Metodos de pago:</p>
+                        <div className="row mt-2">
+                            {paymenMethods.map((pm, index) => {
+                                return (
+                                    <div className="col" key={index}>
+                                        <img src={pm.imagen} alt={pm.payment_method} />
+                                        {/* <div className="form-check">
+                                            <input className="form-check-input" type="radio" name="flexRadioDefault" id={"flexRadioDefault"+index} />
+                                            <label className="form-check-label" htmlFor={"flexRadioDefault"+index}>
+                                                {pm.payment_method}
+                                            </label>
+                                        </div> */}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

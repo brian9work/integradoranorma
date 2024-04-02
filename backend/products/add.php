@@ -13,10 +13,29 @@ if(!isset($_POST['stock'])) die(json_encode(["success" => false,"error" => "Erro
 if(!isset($_POST['price'])) die(json_encode(["success" => false,"error" => "Error a recibir el price"]));
 if(!isset($_POST['discount'])) die(json_encode(["success" => false,"error" => "Error a recibir el discount"]));
 
+$car = './assets/products/';
+if (!file_exists($car)) { mkdir($car, 0777); }
+    
+$file = $_FILES['imagen'];
+$fileName = $file['name'];
+$fileTmpName = $file['tmp_name'];
+$fileSize = $file['size'];
+$fileError = $file['error'];
+$fileType = $file['type'];
+
+$fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+$fileNameNew = uniqid('', true) . "." . $fileExt;
+$fileDest = $car . $fileNameNew;
+$mov = move_uploaded_file($fileTmpName, $fileDest);
+if(!$mov) die("Error al mover la imagen");
+
+$rutaImagen="/assets/products/".$fileNameNew;
+
 $id_category = $_POST['id_category'];
 $id_brand = $_POST['id_brand'];
 $name = $_POST['name'];
-$imagen = $_FILES['imagen'];
+$imagen = $rutaImagen;
 $description = $_POST['description'];
 $specifications = $_POST['specifications'];
 $dimensions = $_POST['dimensions'];

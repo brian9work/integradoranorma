@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Rutas from '../../constants/Routes';
+import SaoContext from '../Context';
 
 const CloseSesion = () => {
     let nav = useNavigate();
-    sessionStorage.removeItem("is_user")
-    sessionStorage.removeItem("sesion")
-    sessionStorage.removeItem("iduser")
+    const { sesionIniciada } = useContext(SaoContext);
+    localStorage.removeItem("is_user")
+    localStorage.removeItem("sesion")
+    localStorage.removeItem("iduser")
     useEffect(()=>{
         nav(Rutas.login.path)
+        sesionIniciada[1](false)
     },[])
     return (
         <div>

@@ -66,7 +66,7 @@ const Product = () => {
                                 <td>{product.stock}</td>
                                 <td>{product.description}</td>
                                 <td>$ {product.price} MXN</td>
-                                <td><img src={product.imagen} alt={product.imagen} style={{ width: '50px' }} /></td>
+                                <td><img src={RutasBackend.imagenes+product.imagen} alt={product.imagen} style={{ width: '50px' }} /></td>
                                 <td>
                                     <button className="btn btn-primary"
                                         onClick={() => {

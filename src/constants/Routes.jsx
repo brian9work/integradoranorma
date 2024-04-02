@@ -1,19 +1,25 @@
 const Rutas ={
     login: {
-        path: '/',
+        path: '/sesion/login',
     },
     logup: {
-        path: '/logup',
+        path: '/sesion/logup',
     },
     store:{
-        path: '/store',
-        origin: '/store/papeleria',
+        path: '',
+        slash: '/',
+        origin: '/papeleria',
     },
     closeSesion:{ 
         path:'/store/closeSesion'
     },
     cart:{
-        path: '/cart',
+        path: '/carrito',
+    },
+    sales:{
+        buy: '/comprar',
+        path: '/ventas',
+        details: '/ventas/detalles',
     },
     admin:{
         path: '/admin',
@@ -25,6 +31,16 @@ const Rutas ={
         },
         brands:{
             origin: '/admin/brands',
+        },
+        users:{
+            origin: '/admin/users',
+        },
+        sales:{
+            origin: '/admin/sales',
+            details: '/admin/sale/details/:id',
+        },
+        admins:{
+            origin: '/admin/admins',
         }
     },
 }

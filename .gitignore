@@ -9,6 +9,8 @@ lerna-debug.log*
 
 node_modules
 backend3
+php
+backend/products/assets/products/*
 src/data/media
 
 dist

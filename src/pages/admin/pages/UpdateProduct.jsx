@@ -67,7 +67,7 @@ const UpdateProduct = () => {
         data.append("id_category", selectCategory.value)
         data.append("id_brand", selectBrand.value)
         data.append("name", InputName.value)
-        data.append("imagen", "")
+        data.append("imagen", inputFile.files[0])
         data.append("description", InputDescription.value)
         data.append("specifications", InputSpecification.value)
         data.append("dimensions", InputDimencions.value)
