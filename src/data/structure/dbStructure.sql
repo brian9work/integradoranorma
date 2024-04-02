@@ -38,24 +38,21 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `integradoranorma5`.`address` ;
 
-CREATE TABLE IF NOT EXISTS `integradoranorma5`.`address` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `id_country` INT NOT NULL,
-  `state` VARCHAR(100) NOT NULL,
-  `localidad` VARCHAR(100) NOT NULL,
-  `principal_street` VARCHAR(100) NOT NULL,
-  `street1` VARCHAR(100) NULL DEFAULT NULL,
-  `street2` VARCHAR(100) NULL DEFAULT NULL,
-  `detalles` LONGTEXT NULL DEFAULT NULL,
-  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+CREATE TABLE IF NOT EXISTS `address` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_country` int NOT NULL,
+  `state` varchar(100) NOT NULL,
+  `locality` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `main_street` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `street1` varchar(100) DEFAULT NULL,
+  `street2` varchar(100) DEFAULT NULL,
+  `references` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `address-cat_country` (`id_country` ASC) VISIBLE,
-  CONSTRAINT `address-cat_country`
-    FOREIGN KEY (`id_country`)
-    REFERENCES `integradoranorma5`.`cat_country` (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `address-cat_country` (`id_country`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb3;
+
 
 
 -- -----------------------------------------------------

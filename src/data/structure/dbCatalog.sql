@@ -1,7 +1,10 @@
+INSERT INTO `cat_country` (`id`, `country`) VALUES
+(1, 'mexico');
+
 --
 -- Dumping data for table `address`
 --
-INSERT INTO `address` (`id_country`, `state`, `localidad`, `principal_street`, `street1`, `street2`, `detalles`) VALUES
+INSERT INTO `address` (`id_country`, `state`, `locality`, `main_street`, `street1`, `street2`, `references`) VALUES
 (1, 'estado', 'localidad', 'calle', NULL, NULL, NULL);
 
 --
