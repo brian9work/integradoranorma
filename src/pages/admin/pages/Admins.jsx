@@ -9,7 +9,6 @@ const Admins = () => {
         await fetch(RutasBackend.getAdmins)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setAdmins(data.data)
             })
             .catch(err => console.log(err))

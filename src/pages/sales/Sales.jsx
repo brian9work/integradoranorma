@@ -17,7 +17,6 @@ const Sales = () => {
       })
          .then(res => res.json())
          .then(data => {
-            console.log(data)
             setUsers(data.data)
          })
          .catch(err => console.log(err))
@@ -66,7 +65,7 @@ const Sales = () => {
                                     <span>{u.id}</span>
                                  </td>
                                  <td className=''>
-                                    <img src={u.imagen}
+                                    <img src={RutasBackend.imagenes+u.imagen}
                                        style={{ width: "100%", height: "70px" }}
                                        alt="" />
                                  </td>

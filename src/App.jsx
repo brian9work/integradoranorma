@@ -18,6 +18,8 @@ import CloseSesion from './pages/Dashboard/CloseSesion';
 import Sales from './pages/sales/Sales';
 import OrderDetails from './pages/sales/details/OrderDetails';
 import Buy from './pages/sales/Buy';
+import Header from './pages/Dashboard/Header';
+import DetailsOfBuy from './pages/admin/pages/DetailsOfBuy';
 
 function Sao(){
    return (
@@ -43,6 +45,7 @@ function Sao(){
                <Route exact path={Rutas.closeSesion.path} element={<CloseSesion />} /> 
                <Route exact path={Rutas.cart.path} element={<Cart />} /> 
                <Route exact path={Rutas.admin.path+"/:page"} element={<Admin />} /> 
+               <Route exact path={Rutas.admin.sales.details} element={<DetailsOfBuy />} /> 
               
             </Routes>
          </BrowserRouter>

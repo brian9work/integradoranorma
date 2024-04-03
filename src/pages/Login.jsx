@@ -23,14 +23,12 @@ const Login = () => {
       data.append("email", InputLoginEmail.value)
       data.append("password", InputLoginPass.value)
 
-      console.log(RoutesBackend.iniciarSesion)
 
       await fetch(RoutesBackend.iniciarSesion, {
          method: 'POST',
          body: data
       }).then(res => res.json())
          .then(json => {
-            console.log(json);
             if(!json.success) alert(json.data)
             else {
                alert("Sesion iniciada correctamente");
@@ -40,13 +38,11 @@ const Login = () => {
                localStorage.setItem("iduser", json.id)
                localStorage.setItem("is_user", json.is_user)
             }
-            console.log(json);
          })
          .catch(err => console.log(err))
    }
    useEffect(() => {
       if(localStorage.getItem("sesion")) nav(Rutas.store.origin)
-      console.log(sesionIniciada[0])
    })
    return (
       <div>

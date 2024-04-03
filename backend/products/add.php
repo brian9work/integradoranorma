@@ -55,7 +55,7 @@ if($resSearchBrand){
     if(mysqli_num_rows($resSearchBrand)<1){
         die(json_encode(["success" => false,"data" => "La marca no existe"]));}}
 
-$addProduct = "INSERT INTO product (id_category, id_brand, name, imagen, description, specifications, dimensions, stock, price, discount) VALUES ($id_category, $id_brand, '$name', '$imagen', '$description', '$specifications', '$dimensions', '$stock', '$price', '0')";
+$addProduct = "INSERT INTO product (id_category, id_brand, name, imagen, description, specifications, dimensions, stock, price, discount) VALUES ($id_category, $id_brand, '$name', '$imagen', '$description', '$specifications', '$dimensions', $stock, $price, '0')";
 
 $resProduct=mysqli_query($con,$addProduct);
 if(!$resProduct) die(json_encode(["success" => false,"data" => "Hubo un error al insertar en el producto"]));

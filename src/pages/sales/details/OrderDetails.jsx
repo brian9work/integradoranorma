@@ -10,46 +10,25 @@ import { BiReceipt } from "react-icons/bi";
 import { useNavigate, useParams } from 'react-router-dom'
 import RoutesBackend from '../../../constants/RoutesBackend';
 import Rutas from '../../../constants/Routes';
+import RutasBackend from '../../../constants/RoutesBackend';
 
 const dataOrderDetails = [
-   {
-      icon: <CgNotes />,
-      title: "Se creo tu orden",
-      date: "01-01-2000",
-      disabled: false,
-   },
-   {
-      icon: <GrMoney />,
-      title: "Pago Recibido",
-      date: "01-01-2000",
-      disabled: false,
-   },
-   {
-      icon: <BsSend />,
-      title: "Tu orden se envio a la marca",
-      date: "01-01-2000",
-      disabled: false,
-   },
-   {
-      icon: <BiReceipt />,
-      title: "La marca recibio la marca",
-      date: "01-01-2000",
-      disabled: true,
-   },
-   {
-      icon: <PiPackageBold />,
-      title: "Tu pedido se esta haciendo",
-      date: "01-01-2000",
-      disabled: true,
-   },
-   {
-      icon: <TbCar />,
-      title: "La marca a enviado tu pedido",
-      date: "01-01-2000",
-      disabled: true,
-   },
+   <CgNotes />,
+   <GrMoney />,
+   <BsSend />,
+   <BiReceipt />,
+   <PiPackageBold />,
+   <TbCar />,
 ]
-const componentOrderDetail = (orderDetails,id_process) => {
+export const ComponentOrderDetail = (orderDetails,id_process) => {
+   const dataOrderDetails = [
+      <CgNotes />,
+      <GrMoney />,
+      <BsSend />,
+      <BiReceipt />,
+      <PiPackageBold />,
+      <TbCar />,
+   ]
    return orderDetails.map((data, i) => {
       return (
          <div 
@@ -59,7 +38,7 @@ const componentOrderDetail = (orderDetails,id_process) => {
             <div className="row">
                <div className="col-12 text-center">
                   <span style={{ fontSize: "50px",color: (!((i+1)<=parseInt(id_process))) ? "#999" : "#ffa600" }}>
-                     {dataOrderDetails[i].icon}
+                     {dataOrderDetails[i]}
                   </span>
                </div>
                <div className='col-12'
@@ -90,6 +69,24 @@ const componentOrderDetail = (orderDetails,id_process) => {
       )
    })
 
+}
+export const Card=(details)=>{
+   return (
+      <div className="container mx-auto row mt-3 bg-body-tertiary p-4 rounded-4 shadow-sm">
+      <div className="col-4">
+         <img src={RutasBackend.imagenes+details.imagen} alt="" />
+      </div>
+      <div className="col-8">
+         <h5>{details.name}</h5>
+         <h6>{details.description}</h6>
+         <h6>Metodo de pago: <b>{details.payment_method}</b> </h6>
+         <h6>Status: <b>{details.payment_status}</b> </h6>
+         <div className="mt-2">
+            <p>Fecha de compra: <b>{details.created_at}</b> </p>
+         </div>
+      </div>
+   </div>
+   )
 }
 
 const OrderDetails = () => {
@@ -132,25 +129,12 @@ const OrderDetails = () => {
             </div>
             {
                details &&
-               <div className="container mx-auto row mt-3 bg-body-tertiary p-4 rounded-4 shadow-sm">
-                  <div className="col-4">
-                     <img src={details.imagen} alt="" />
-                  </div>
-                  <div className="col-8">
-                     <h5>{details.name}</h5>
-                     <h6>{details.description}</h6>
-                     <h6>Metodo de pago: <b>{details.payment_method}</b> </h6>
-                     <h6>Status: <b>{details.payment_status}</b> </h6>
-                     <div className="mt-2">
-                        <p>Fecha de compra: <b>{details.created_at}</b> </p>
-                     </div>
-                  </div>
-               </div>
+               Card(details)
             }
             {
                (historyProcess && details.id_process) && 
                <div className="mt-5 row p-5">
-                  {componentOrderDetail(historyProcess,details.id_process)}
+                  {ComponentOrderDetail(historyProcess,details.id_process)}
                </div>
             }
          </div>

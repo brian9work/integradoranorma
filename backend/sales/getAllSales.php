@@ -1,6 +1,7 @@
 <?php
 include("../cn.php");
 include("../cors.php");
+include("../utils.php");
 
 if(!isset($_POST['id_user'])) die(json_encode(["success" => false,"error" => "Error a recibir el id del usuario"]));
 $id_user = $_POST['id_user'];
@@ -14,17 +15,16 @@ $getUsers = "SELECT s.*,u.name AS name_user,u.email,p.name AS name_product,p.pri
     INNER JOIN cat_payment_status ps ON pa.id_status=ps.id
     ORDER BY s.id
 ;";
-    // WHERE s.id_user='1' ORDER BY s.id
 $resUsers=mysqli_query($con,$getUsers);
 
 $json = array();
 while ($row = mysqli_fetch_assoc($resUsers)) {
     $json[] = $row;
 }
-die(json_encode([
-    "success" => true,
-    "data" => $json
-]));
+response(
+    1,
+    $json
+);
 
 
 

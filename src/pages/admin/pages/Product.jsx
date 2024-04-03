@@ -11,7 +11,6 @@ const Product = () => {
         await fetch(RutasBackend.getAllProducts)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setProducts(data.data)
             })
             .catch(err => console.log(err))
@@ -21,7 +20,6 @@ const Product = () => {
         await fetch(RutasBackend.deleteProduct+"?id_product="+id)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 alert(data.data)
                 if(data.success) window.location.reload()
             })

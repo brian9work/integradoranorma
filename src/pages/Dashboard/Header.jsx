@@ -21,11 +21,8 @@ let menuItems = [
 
 const Header = () => {
    // let nav = useNavigate();
-   
-
    const { sesionIniciada } = useContext(SaoContext);
    useEffect(() => {
-      // console.log(sesionIniciada[0]);
       if (!sesionIniciada[0]) {
          menuItems = [
             // { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Salir" },

@@ -34,6 +34,8 @@ const RutasBackend ={
 
     getAllPaymentInformation: host+"buy/getAllPaymentInformation.php",
     addPayment: host+"buy/add.php",
+    updateProcess: host+"buy/updateProcess.php",
+
 
 
 

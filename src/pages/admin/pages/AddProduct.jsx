@@ -35,10 +35,6 @@ const AddProduct = () => {
             InputQuantity,
             InputPrice,
         } = form
-        // console.log(inputFile)
-        // console.log(inputFile.files)
-        // console.log(inputFile.files[0])
-        // return ;
         const data = new FormData()
         data.append("id_category", selectCategory.value)
         data.append("id_brand", selectBrand.value)
@@ -57,12 +53,10 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 if (data.success) {
                     alert("Producto agregado correctamente")
                     nav(Rutas.admin.products.getAll)
                 }
-                console.log(data)
                 setBrands(data.data)
             })
             .catch(err => console.log(err))
@@ -70,12 +64,10 @@ const AddProduct = () => {
     const loadImage = async (e)=>{
         const imagen = document.getElementById('imagen')
         const file = e
-        console.log(e)
         const reader = new FileReader()
         reader.onload = function (e) {
             imagen.src = e.target.result
         }
-        console.log(reader.readAsDataURL(file))
     
     }
 

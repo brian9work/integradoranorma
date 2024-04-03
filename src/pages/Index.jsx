@@ -9,7 +9,6 @@ const Index = () => {
     if(!sesionIniciada[0]){
         nav(Rutas.login.path)
     }
-    console.log(sesionIniciada[0])
     return (
         <div>
             <h1>Index</h1>

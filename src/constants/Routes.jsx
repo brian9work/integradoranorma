@@ -6,9 +6,9 @@ const Rutas ={
         path: '/sesion/logup',
     },
     store:{
-        path: '',
-        slash: '/',
-        origin: '/papeleria',
+        path: '/home',
+        slash: '/home',
+        origin: '/home',
     },
     closeSesion:{ 
         path:'/store/closeSesion'
@@ -37,6 +37,7 @@ const Rutas ={
         },
         sales:{
             origin: '/admin/sales',
+            detailsOrigin: '/admin/sale/details/',
             details: '/admin/sale/details/:id',
         },
         admins:{

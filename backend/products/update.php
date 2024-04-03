@@ -1,6 +1,8 @@
 <?php
 include("../cn.php");
 include("../cors.php");
+include("../search.php");
+include("../response.php");
 
 if(!isset($_POST['id'])) die(json_encode(["success" => false,"error" => "Error a recibir el id"]));
 if(!isset($_POST['id_category'])) die(json_encode(["success" => false,"error" => "Error a recibir el id de la categoria"]));
@@ -27,17 +29,9 @@ $stock = $_POST['stock'];
 $price = $_POST['price'];
 $discount = $_POST['discount'];
 
-$searchCategory = "SELECT * FROM cat_category WHERE id='$id_category'";
-$resSearchCategory=mysqli_query($con,$searchCategory);
-if($resSearchCategory){
-    if(mysqli_num_rows($resSearchCategory)<1){
-        die(json_encode(["success" => false,"data" => "La categoria no existe"]));}}
+if(!search::search_cat_category($id_category)) response(0, "La categoria no existe");
+if(!search::search_cat_brand($id_brand)) response(0, "La marca no existe");
 
-$searchBrand = "SELECT * FROM cat_brand WHERE id='$id_brand'";
-$resSearchBrand=mysqli_query($con,$searchBrand);
-if($resSearchBrand){
-    if(mysqli_num_rows($resSearchBrand)<1){
-        die(json_encode(["success" => false,"data" => "La marca no existe"]));}}
 
 $addProduct = "INSERT INTO product (id_category, id_brand, name, imagen, description, specifications, dimensions, stock, price, discount) VALUES ('$id_category', '$id_brand', '$name', '$imagen', '$description', '$specifications', '$dimensions', '$stock', '$price', '0')";
 $addProduct = "UPDATE product SET 
@@ -54,13 +48,8 @@ $addProduct = "UPDATE product SET
     WHERE id='$id'
 ";
 $resProduct=mysqli_query($con,$addProduct);
-if(!$resProduct) die(json_encode(["success" => false,"data" => "Hubo un error al insertar en el producto"]));
-die(json_encode(["success" => true,"data" => "Producto actualizado"]));
-
-
-
-
-// INSERT INTO product (id, id_category, id_brand, name, imagen, description, specifications, dimensions, stock, price, discount, status, created_at, last_update) VALUES (NULL, '', '', '', '', '', '', NULL, '', '', '0', '1', '2024-03-19 20:46:26.000000', CURRENT_TIMESTAMP)
+if(!$resProduct) response(0, "Hubo un error al insertar en el producto" );
+response(1, "Producto Actualizado");
 
 
 

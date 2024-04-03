@@ -79,6 +79,10 @@ foreach($json as $cartRow){
     $insertSale = "INSERT INTO sale (id_user, id_product, id_payment, id_process, total, quantity) VALUES ('$id_user', '$id_product', '$idPayment', '$idHistoryProcess', '$total', '$quantity')";
     $response=mysqli_query($con,$insertSale);
     if(!$response) response(0,"Hubo un error al insertar el pago");
+
+    $deleteCart = "DELETE FROM cart WHERE id_user='$id_user' AND id_product='$id_product'";
+    $response=mysqli_query($con,$deleteCart);
+    if(!$response) response(0,"Hubo un error al eliminar del pago");
     
     
 }

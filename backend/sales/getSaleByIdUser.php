@@ -1,6 +1,7 @@
 <?php
 include("../cn.php");
 include("../cors.php");
+include("../utils.php");
 
 if(!isset($_POST['id_user'])) die(json_encode(["success" => false,"error" => "Error a recibir el id del usuario"]));
 $id_user = $_POST['id_user'];
@@ -21,10 +22,10 @@ $json = array();
 while ($row = mysqli_fetch_assoc($resUsers)) {
     $json[] = $row;
 }
-die(json_encode([
-    "success" => true,
-    "data" => $json
-]));
+response(
+    1,
+    $json
+);
 
 
 

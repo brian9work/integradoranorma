@@ -1,11 +1,12 @@
 import React from 'react';
+import RutasBackend from '../../../constants/RoutesBackend';
 
 const ComponentCart = ({ data }) => {
    return (
       <div className="container-fluid col-12 col-md-6 col-lg-4 mb-3">
          <div className="container shadow-sm rounded-3 row p-2 mx-auto">
             <div className="col-4">
-               <img src={data.imagen} alt={data.name} />
+               <img src={RutasBackend.imagenes+data.imagen} alt={data.name} />
             </div>
             <div className="col-8 pl-2">
                <h5>{data.name}</h5>

@@ -1,6 +1,7 @@
 <?php
 include("../cn.php");
 include("../cors.php");
+include("../utils.php");
 
 $getProducts = "SELECT p.id,p.name,p.imagen,p.description,p.dimensions,p.stock,p.price,cc.category,cb.brand
     FROM product p
@@ -15,10 +16,10 @@ $json = array();
 while ($row = mysqli_fetch_assoc($resProducts)) {
     $json[] = $row;
 }
-die(json_encode([
-    "success" => true,
-    "data" => $json
-]));
+response(
+    1,
+    $json
+);
 
 
 

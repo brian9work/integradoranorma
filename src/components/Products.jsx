@@ -17,7 +17,6 @@ const Product = ({ id, url, name, price }) => {
             .then(res => res.json())
             .then(json => {
                 alert(json.data)
-                console.log(json)
             })
             .catch(err => console.log(err))
     }

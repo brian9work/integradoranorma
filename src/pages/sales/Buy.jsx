@@ -3,14 +3,17 @@ import Header from '../Dashboard/Header';
 import Loader from '../../components/Loader';
 import Input from '../../components/Input';
 import FormAddress from './buy/FormAddress';
+import { useNavigate } from "react-router-dom";
 import FormBuy from './buy/FormBuy';
 import Cart from './buy/Cart';
 import RutasBackend from '../../constants/RoutesBackend';
 import { Button } from '../../components/InputSec';
+import Rutas from '../../constants/Routes';
 // import Button from '../../components/Button';
 
 
 const Buy = () => {
+   let nav = useNavigate();
    const [load,setLoad] = useState(false)
    const [arrayProducts, setArrayProducts] = useState([])
    const [arrayAddress, setArrayAddress] = useState([[]])
@@ -25,7 +28,6 @@ const Buy = () => {
       })
       .then(response => response.json())
       .then(json => {
-         // console.log(json)
          const {data} = json
          const {cart,address,paymentMethods} = data
          setArrayPaymentMethod(paymentMethods)
@@ -71,49 +73,18 @@ const Buy = () => {
       data.append("inputBuyExpiration",inputBuyExpiration.value)
       data.append("inputBuyCVV",inputBuyCVV.value)
 
-      
-      // console.log(inputBuyCountry.value)
-      // console.log(inputBuyState.value)
-      // console.log(inputBuylocality.value)
-      // console.log(inputBuyMainStreet.value)
-      // console.log(inputBuyStreet1.value)
-      // console.log(inputBuyStreet2.value)
-      // console.log(inputBuyReferences.value)
-      // console.log(inputBuyPM.checked)
-      // console.log(inputBuyTitular.value)
-      // console.log(inputBuyNumberCard.value)
-      // console.log(inputBuyExpiration.value)
-      // console.log(inputBuyCVV.value)
-
       await fetch(RutasBackend.addPayment,{
          method: "POST",
          body: data,
       })
       .then(response => response.json())
       .then(json => {
-         if(json.success) alert(json.data)
-         console.log(json)
+         if(json.success) {
+            alert(json.data)
+            nav(Rutas.sales.path)
+         }
       })
       .catch(err => console.log(err))
-      
-      // data.append("inputBuyCountry",localStorage.getItem("iduser"))
-      // data.append("inputBuyState",localStorage.getItem("iduser"))
-      // data.append("inputBuylocality",localStorage.getItem("iduser"))
-      // data.append("inputBuyMainStreet",localStorage.getItem("iduser"))
-      // data.append("inputBuyStreet1",localStorage.getItem("iduser"))
-      // data.append("inputBuyStreet2",localStorage.getItem("iduser"))
-      // data.append("inputBuyReferences",localStorage.getItem("iduser"))
-      // data.append("inputBuyPM",localStorage.getItem("iduser"))
-      // data.append("inputBuyTitular",localStorage.getItem("iduser"))
-      // data.append("inputBuyNumberCard",localStorage.getItem("iduser"))
-      // data.append("inputBuyExpiration",localStorage.getItem("iduser"))
-      // data.append("inputBuyCVV",localStorage.getItem("iduser"))
-
-
-      
-
-      // console.log(form)
-      // alert("hola")
    }
 
    useEffect(() => {

@@ -1,6 +1,7 @@
 <?php
 include("../cn.php");
 include("../cors.php");
+include("../utils.php");
 
 if(!isset($_GET['category'])) die("Error a recibir la categoria");
 
@@ -24,22 +25,11 @@ $resUser=mysqli_query($con,$sentenciaSesion);
 $json = array();
 while ($row = mysqli_fetch_assoc($resUser)) {
     $json[] = $row;
-    // $json[] = array(
-    //     'id' => $r['id'],
-    //     'name' => $r['name'],
-    //     'imagen' => $r['imagen'],
-    //     'description' => $r['description'],
-    //     'dimensions' => $r['dimensions'],
-    //     'stock' => $r['stock'],
-    //     'price' => $r['price'],
-    //     'category' => $r['category'],
-    //     'brand' => $r['brand'],
-    // );
 }
-die(json_encode([
-    "success" => true,
-    "data" => $json
-]));
+response(
+    1,
+    $json
+);
 
 
 

@@ -11,10 +11,6 @@ const FormAddress = ({address}) => {
         inputBuyStreet2:address.id==1 ? "" : address.street2,
         inputBuyReferences:address.id==1 ? "" : address.references,
     })
-    // useEffect(() => {
-    //     console.log(address)
-    //     console.log(valuesAddress)
-    // },[])
     const change = (e)=>{
         setValuesAddress({
             ...valuesAddress,

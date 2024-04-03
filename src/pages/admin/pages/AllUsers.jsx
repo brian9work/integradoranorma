@@ -8,7 +8,6 @@ const AllUsers = () => {
         await fetch(RutasBackend.getAllUsers)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setUsers(data.data)
             })
             .catch(err => console.log(err))

@@ -18,7 +18,6 @@ const Product = ({ data }) => {
             .then(json => {
                 alert(json.data)
                 if (json.success) window.location.reload()
-                console.log(json)
             })
             .catch(err => console.log(err))
     }
@@ -35,14 +34,13 @@ const Product = ({ data }) => {
             .then(json => {
                 alert(json.data)
                 if (json.success) window.location.reload()
-                console.log(json)
             })
             .catch(err => console.log(err))
     }
     return (
         <div className='productCartSao shadow-sm mb-4 py-2 px-3 rounded-3 row' style={{ maxHeight: "250px" }}>
             <div className='col-4 productCartSaoImg'
-                style={{ backgroundImage: `url(${data.imagen})` }}
+                style={{ backgroundImage: `url(${RutasBackend.imagenes}${data.imagen})` }}
             >
             </div>
             <div className="col-5">
@@ -103,7 +101,6 @@ const Cart = () => {
         await fetch(RutasBackend.getAllPaymentMethods)
             .then(res => res.json())
             .then(json => {
-                // console.log(json.data)
                 serPaymenMethods(json.data)
             })
             .catch(err => console.log(err))

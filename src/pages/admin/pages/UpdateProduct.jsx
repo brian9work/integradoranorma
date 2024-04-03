@@ -81,13 +81,10 @@ const UpdateProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if(data.success) {
                     alert("Producto editado correctamente")
                     nav(Rutas.admin.products.getAll)
                 }
-                console.log(data)
-                // setBrands(data.data)
             })
             .catch(err => console.log(err))
 
