@@ -12,13 +12,17 @@ const AddProduct = () => {
     const getCategories = async () => {
         await fetch(RutasBackend.getCategories)
             .then(res => res.json())
-            .then(data => setCategories(data.data))
+            .then(data => {
+                setCategories(data.data)
+            })
             .catch(err => console.log(err))
     }
     const getBrands = async () => {
         await fetch(RutasBackend.getBrands)
             .then(res => res.json())
-            .then(data => setBrands(data.data))
+            .then(data => {
+                setBrands(data.data)
+            })
             .catch(err => console.log(err))
     }
     const addProduct = async (e) => {
