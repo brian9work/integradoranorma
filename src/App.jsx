@@ -26,7 +26,7 @@ function Sao(){
       <div>
          {/* <BrowserRouter basename='/'> */}
          {/* <Route exact path={'/'} element={<SaoHome />} /> */}
-         <BrowserRouter basename='/integradoranorma'>
+         <BrowserRouter basename='/'>
             <Routes>
                {/* <Route exact path={Rutas.sesion.path} element={<SaoHome />} />
                <Route exact path={Rutas.furniture.path} element={<Furniture />} />
