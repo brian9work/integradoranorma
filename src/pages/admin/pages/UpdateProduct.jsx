@@ -12,6 +12,15 @@ const UpdateProduct = () => {
     const [categories, setCategories] = useState([])
     const [brands, setBrands] = useState([])
 
+    
+    const loadImage = async (e)=>{
+        const imagen = document.getElementById('imagen')
+        const file = e
+        const reader = new FileReader()
+        reader.onload = function (e) {
+            imagen.src = e.target.result
+        }
+    }
 
     const traerProducto = async () => {
         const data = new FormData()
@@ -44,7 +53,7 @@ const UpdateProduct = () => {
                 InputDimencions.value = d.dimensions
                 InputQuantity.value = d.stock
                 InputPrice.value = d.price
-                document.getElementById("imagen").setAttribute("src",d.imagen)
+                document.getElementById("imagen").setAttribute("src",RutasBackend.imagenes+d.imagen)
             })
             .catch(err => console.log(err))
     }
@@ -54,6 +63,7 @@ const UpdateProduct = () => {
         const {
             selectCategory,
             selectBrand,
+            inputFile,
             InputName,
             InputDescription,
             InputSpecification,
@@ -82,7 +92,7 @@ const UpdateProduct = () => {
             .then(res => res.json())
             .then(data => {
                 if(data.success) {
-                    alert("Producto editado correctamente")
+                    alert("Producto actualizado correctamente")
                     nav(Rutas.admin.products.getAll)
                 }
             })
@@ -102,7 +112,20 @@ const UpdateProduct = () => {
                         <div className="row">
                             <div className="col-12 row mt-4 mb-3">
                                 <div className="col-6 mx-auto">
-                                    <img src="" alt="" style={{width:"100%",height:"100px"}} id='imagen' />
+                                <label 
+                                        className='d-block container-fluid ' 
+                                        htmlFor="inputFile" 
+                                        style={{background:"#eee"}}>
+                                        <img 
+                                        className='mx-auto'
+                                        src="https://cdn.icon-icons.com/icons2/2348/PNG/512/image_picture_icon_143003.png" alt="" style={{ width: "100%", height: "300px" }} id='imagen' />
+                                    </label>
+                                    <input type="file" name="inputFile" id="inputFile"
+                                    style={{display: "none"}}
+                                        onChange={(e) => {
+                                            loadImage(e.target.files[0])
+                                        }}
+                                    />
                                 </div>
                             </div>
                             <div className="mt-3 col-12 col-md-6">

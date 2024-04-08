@@ -72,7 +72,6 @@ const AddProduct = () => {
         reader.onload = function (e) {
             imagen.src = e.target.result
         }
-    
     }
 
     useEffect(() => {
