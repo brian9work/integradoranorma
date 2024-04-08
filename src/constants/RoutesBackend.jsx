@@ -1,6 +1,6 @@
 
-const host= "http://localhost/normaint/backend/"
-// const host= "https://portafolio.xantheapp.com/api/integradoranorma/backend/"
+// const host= "http://localhost/normaint/backend/"
+const host= "https://portafolio.xantheapp.com/api/integradoranorma/backend/"
 
 const RutasBackend ={
     imagenes: host+"products",
