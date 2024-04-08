@@ -6,9 +6,9 @@ const Rutas ={
         path: '/sesion/logup',
     },
     store:{
-        path: '/home',
+        path: '/',
         slash: '/home',
-        origin: '/home',
+        origin: '/',
     },
     closeSesion:{ 
         path:'/store/closeSesion'

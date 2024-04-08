@@ -13,7 +13,7 @@ php
 backend/products/assets/products/*
 src/data/media
 
-dist
+# dist
 dist-ssr
 *.local
 
