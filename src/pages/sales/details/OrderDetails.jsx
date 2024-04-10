@@ -112,8 +112,22 @@ const OrderDetails = () => {
             console.error(error)
          })
    }
+   const actualizarEstado = async () => {
+       await fetch(RutasBackend.updateProcess+"?id_pedido="+id
+       ).then((response) =>response.json())
+       .then((response) => {
+           if(!response.success){
+               alert(response.data)
+               // window.location.reload()
+           }
+           // console.log(response)
+       })
+       .catch((error) => console.error(error))
+       // alert('Actualizar Estado')
+   }
 
    useEffect(() => {
+      actualizarEstado()
       getDetails(id)
    }, [])
 

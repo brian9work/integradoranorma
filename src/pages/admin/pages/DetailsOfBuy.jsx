@@ -70,7 +70,6 @@ const DetailsOfBuy = () => {
                     Actualizar Proceso
                 </Button>
             </div>
-            <h1>DetailsOfBuy</h1>
         </>
     );
 }

@@ -27,6 +27,7 @@ const RutasBackend ={
 
     getAllUsers: host+"users/getAll.php",
     getAdmins: host+"users/getAdmins.php",
+    getUserById: host+"users/getById.php",
 
     getAllSales: host+"sales/getAllSales.php",
     getSalesByIdUser: host+"sales/getSaleByIdUser.php",

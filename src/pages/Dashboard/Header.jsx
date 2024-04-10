@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 let menuItems = [
    { path: Rutas.store.origin, icon: <MdStorefront />, text: "Tienda" },
-   { path: "/", icon: <FaRegUser />, text: "Mi cuenta" },
+   { path: Rutas.user.path, icon: <FaRegUser />, text: "Mi cuenta" },
    // { path: "/", icon: <FaRegHeart />, text: "Favoritos" },
    { path: Rutas.cart.path, icon: <FiShoppingCart />, text: "Carrito" },
    { path: Rutas.sales.path, icon: <BsBagHeart />, text: "Pedidos" },

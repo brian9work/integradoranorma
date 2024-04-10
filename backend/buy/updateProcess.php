@@ -27,7 +27,7 @@ $response = mysqli_query($con, $select);
 $idProcessActual=0;
 while ($row = mysqli_fetch_assoc($response)) { $idProcessActual = $row['id_process']; }
 
-if($idProcessActual==6) response(0, "El proceso ya esta finalizado");
+if($idProcessActual==6) response(1, "El proceso ya esta finalizado");
 if($idProcessActual==1) {
     $select = "SELECT * FROM payment WHERE id=$idPayment";
     $response = mysqli_query($con, $select);
@@ -44,28 +44,3 @@ $select = "UPDATE history_process SET id_process='$idProcessActual' WHERE id=$id
 $response = mysqli_query($con, $select);
 if(!$response) response(0, "Hubo un error al actualizar el proceso");
 response(1, "Actualizado correctamente");
-
-
-// die($idProcess);
-
-// $updateProcess = "UPDATE history_process SET id_status=3 WHERE id=$idProcess";
-
-// $updateProcess = "UPDATE 
-// ";
-
-// $addProduct = "UPDATE product SET 
-//         id_category='$id_category', 
-//         id_brand='$id_brand', 
-//         name='$name', 
-//         imagen='$imagen', 
-//         description='$description', 
-//         specifications='$specifications', 
-//         dimensions='$dimensions', 
-//         stock='$stock', 
-//         price='$price', 
-//         discount='$discount'
-//     WHERE id='$id'
-// ";
-// $resProduct=mysqli_query($con,$addProduct);
-// if(!$resProduct) response(0, "Hubo un error al insertar en el producto" );
-// response(1, "Producto Actualizado");

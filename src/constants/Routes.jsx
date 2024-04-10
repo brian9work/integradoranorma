@@ -8,9 +8,12 @@ const Rutas ={
     store:{
         path: '/',
         slash: '/home',
-        origin: '/',
+        origin: '/home',
         search: '/buscar',
         viewProduct: '/producto'
+    },
+    user:{
+        path: '/micuenta',
     },
     closeSesion:{ 
         path:'/store/closeSesion'

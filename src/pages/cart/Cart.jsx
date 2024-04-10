@@ -9,6 +9,8 @@ const Product = ({ data }) => {
     const [pz,setPz] = useState(parseInt(data.quantity))
     let nav = useNavigate();
     const deleteProduct = (id_product) => {
+        const comp=document.getElementById("productInCart"+id_product)
+        
         let data = new FormData()
         data.append("id_user", localStorage.getItem("iduser"))
         data.append("id_product", id_product)
@@ -19,7 +21,10 @@ const Product = ({ data }) => {
             .then(res => res.json())
             .then(json => {
                 alert(json.data)
-                if (json.success) window.location.reload()
+                if (json.success) {
+                    comp.parentNode.removeChild(comp)
+                    // window.location.reload()
+                }
             })
             .catch(err => console.log(err))
     }
@@ -46,7 +51,9 @@ const Product = ({ data }) => {
             .catch(err => console.log(err))
     }
     return (
-        <div className='productCartSao shadow-sm mb-4 py-2 px-3 rounded-3 row' style={{ maxHeight: "250px" }}>
+        <div className='productCartSao shadow-sm mb-4 py-2 px-3 rounded-3 row' 
+            id={'productInCart'+data.id_product}
+            style={{ maxHeight: "250px" }}>
             <div className='col-4 productCartSaoImg'
                 style={{ backgroundImage: `url(${RutasBackend.imagenes}${data.imagen})` }}
             >
@@ -72,7 +79,7 @@ const Product = ({ data }) => {
                     }}
                 >+</span>
                 <button className='btn btn-danger mt-3'
-                    onClick={() => {
+                    onClick={(e) => {
                         deleteProduct(data.id_product)
                     }}
                 >Eliminar</button>

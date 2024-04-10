@@ -22,6 +22,7 @@ import OrderDetails from './pages/sales/details/OrderDetails';
 import Buy from './pages/sales/Buy';
 import Header from './pages/Dashboard/Header';
 import DetailsOfBuy from './pages/admin/pages/DetailsOfBuy';
+import User from './pages/user/User';
 
 function Sao(){
    return (
@@ -38,6 +39,7 @@ function Sao(){
                <Route exact path={Rutas.login.path} element={<Login />} />
                <Route exact path={Rutas.logup.path} element={<Logup />} /> 
 
+               <Route exact path={Rutas.user.path} element={<User />} /> 
                <Route exact path={Rutas.store.path} element={<Dashboard />} /> 
                <Route exact path={Rutas.store.slash} element={<Dashboard />} /> 
                <Route exact path={Rutas.store.path+"/:type"} element={<Dashboard />} /> 

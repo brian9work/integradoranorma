@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
-    "git": "git add . && git commit -m 'integracion del buscador' && git push",
+    "git": "git add . && git commit -m 'update' && git push -u origin main",
     "des": "npm run build && npm run deploy" 
   },
   "dependencies": {
