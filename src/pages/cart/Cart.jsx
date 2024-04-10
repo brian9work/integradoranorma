@@ -92,7 +92,6 @@ const Cart = () => {
     let nav = useNavigate();
     const [products, serProducts] = useState([])
     const [paymenMethods, serPaymenMethods] = useState([])
-    const [total, setTotal] = useState(0)
     const getProducts = async () => {
         let data = new FormData()
         data.append("id_user", localStorage.getItem("iduser"))
@@ -112,7 +111,6 @@ const Cart = () => {
             .catch(err => console.log(err))
     }
     const getBrands = async () => {
-        let data = new FormData()
         await fetch(RutasBackend.getAllPaymentMethods)
             .then(res => res.json())
             .then(json => {

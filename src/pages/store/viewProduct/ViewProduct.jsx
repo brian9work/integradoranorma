@@ -22,7 +22,11 @@ export default function ViewProduct() {
       })
           .then(res => res.json())
           .then(json => {
-              alert(json.data)
+            if(!json.success){
+                alert(json.data)
+                nav(Rutas.logup.path)
+                return;
+            }
           })
           .catch(err => console.log(err))
   }
