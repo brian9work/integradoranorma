@@ -101,7 +101,7 @@ const Sales = () => {
                               </td>
                               <td className='py-3'>{u.quantity}</td>
                               <td className='py-3'>$ {u.price}</td>
-                              <td className='py-3'>{u.quantity * u.price}</td>
+                              <td className='py-3'>{(u.quantity * u.price).toFixed(2)}</td>
                               <td>
                                  <button className="btn btn-primary"
                                     onClick={() => {

@@ -92,7 +92,7 @@ const Sales = () => {
                                     <span>${u.price}</span>
                                  </td>
                                  <td className=''>
-                                    <span>{u.quantity * u.price}</span>
+                                    <span>{(u.quantity * u.price).toFixed(2)}</span>
                                  </td>
                                  <td>
                                     <span>
@@ -100,7 +100,7 @@ const Sales = () => {
                                           onClick={() => {
                                              nav(Rutas.sales.details+"/"+u.id)
                                           }}
-                                          className="btn btn-info text-light">Detalles</button>
+                                          className="btn btn-info text-light">Detalles ss</button>
                                     </span>
                                  </td>
                               </tr>

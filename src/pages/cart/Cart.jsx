@@ -85,7 +85,7 @@ const Cart = () => {
     let nav = useNavigate();
     const [products, serProducts] = useState([])
     const [paymenMethods, serPaymenMethods] = useState([])
-    const [total, serTotal] = useState(0)
+    const [total, setTotal] = useState(0)
     const getProducts = async () => {
         let data = new FormData()
         data.append("id_user", localStorage.getItem("iduser"))

@@ -24,13 +24,14 @@ const Product = ({ id, url, name, price }) => {
             .catch(err => console.log(err))
     }
     return (
-        <div className="container-fluid col-6 col-lg-3 col-md-4 mb-4"
-            onClick={e => {
-                nav(Rutas.store.viewProduct + "/" + id)
-            }}
-        >
+        <div className="container-fluid col-6 col-lg-3 col-md-4 mb-4">
             <div className="card shadow-sm pt-3 rounded-4">
-                <img src={RutasBackend.imagenes+url} className="card-img-top" alt={url} style={{ width: "100%", height: "150px" }} />
+                <img src={RutasBackend.imagenes+url} className="card-img-top" alt={url} 
+                    style={{ width: "100%", height: "150px" }}
+                    onClick={e => {
+                        nav(Rutas.store.viewProduct + "/" + id)
+                    }}
+                />
                 <div className="card-body">
                     <div className='row'>
                         <div className='col-12'>
