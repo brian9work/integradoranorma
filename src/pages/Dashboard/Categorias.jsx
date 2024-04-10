@@ -24,8 +24,8 @@ const Categoria = ({ icon, path, children }) => {
 const Categorias = () => {
     
     const rutas = [
-        {icon:<LuBook />,name:"Papeleria",path:Rutas.store.path+"/papeleria"},
-        {icon:<MdPrint />,name:"Electronica",path:Rutas.store.path+"/electronica"},
+        {icon:<LuBook />,name:"Papelería",path:Rutas.store.path+"/papeleria"},
+        {icon:<MdPrint />,name:"Electrónica",path:Rutas.store.path+"/electronica"},
         {icon:<LuSofa />,name:"Mobiliario",path:Rutas.store.path+"/moviliario"},
         {icon:<MdOutlineLocalOffer />,name:"Ofertas",path:Rutas.store.path+"/ofertas"},
     ]

@@ -6,6 +6,8 @@ import Button from '../../components/Button';
 import { useNavigate, useParams } from 'react-router-dom'
 
 const Product = ({ data }) => {
+    const [pz,setPz] = useState(parseInt(data.quantity))
+    let nav = useNavigate();
     const deleteProduct = (id_product) => {
         let data = new FormData()
         data.append("id_user", localStorage.getItem("iduser"))
@@ -33,7 +35,13 @@ const Product = ({ data }) => {
             .then(res => res.json())
             .then(json => {
                 alert(json.data)
-                if (json.success) window.location.reload()
+                if (json.success) {
+                    setPz(type? pz+1 : pz-1 )
+                    // data={
+                    //     ...data,
+                    //     quantity:5
+                    // }
+                }
             })
             .catch(err => console.log(err))
     }
@@ -49,14 +57,14 @@ const Product = ({ data }) => {
             </div>
             <div className="col-3 row" style={{ height: "50%" }}>
                 <span className='col-12 '>Costo: <b>$ {data.price}</b></span>
-                <span className='col-12 mb-3'>Total: <b> ${data.price * data.quantity}</b></span>
+                <span className='col-12 mb-3'>Total: <b> ${data.price * pz}</b></span>
                 <span className="input-group-text col-4"
                     style={{ cursor: 'pointer' }}
                     onClick={() => {
                         quantity(0, data.id_product)
                     }}
                 >-</span>
-                <span className="input-group-text col-4 bg-white">{data.quantity}</span>
+                <span className="input-group-text col-4 bg-white">{pz}</span>
                 <span className="input-group-text col-4"
                     style={{ cursor: 'pointer' }}
                     onClick={() => {
@@ -124,10 +132,10 @@ const Cart = () => {
                                 />
                             )
                         })
-                    }
+                    } 
                 </div>
                 <div className="container mb-5 shadow-sm py-3 col-12 col-md-4">
-                    <h5>Resumen del Pedido:</h5>
+                    <h5>Resumen del pedido:</h5>
                     <div className="row">
                         <div className="col-4">
                             <p>Total:</p>
@@ -150,7 +158,7 @@ const Cart = () => {
                         }}
                     >Pagar</Button>
                     <div className="mt-4">
-                        <p>Metodos de pago:</p>
+                        <p>Métodos de pago:</p>
                         <div className="row mt-2">
                             {paymenMethods.map((pm, index) => {
                                 return (

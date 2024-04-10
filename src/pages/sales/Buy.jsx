@@ -41,7 +41,6 @@ const Buy = () => {
    }
 
    const buy = async (e)=>{
-      console.log("click");
       e.preventDefault()
       const form = e.target
       const {
@@ -74,13 +73,14 @@ const Buy = () => {
       data.append("inputBuyExpiration",inputBuyExpiration.value)
       data.append("inputBuyCVV",inputBuyCVV.value)
 
-      console.log("data");
       await fetch(RutasBackend.addPayment,{
          method: "POST",
          body: data,
       })
       .then(response => response.json())
       .then(json => {
+         // console.log(json)
+         // return;
          if(json.success) {
             alert(json.data)
             nav(Rutas.sales.path)

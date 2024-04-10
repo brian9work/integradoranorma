@@ -12,6 +12,8 @@ import SaoContext from './pages/Context';
 // import Electronics from './pages/Electronics';
 // import Offers from './pages/Offers';
 import Dashboard from './pages/store/Dashboard';
+import Search from './pages/store/search/Search';
+import ViewProduct from './pages/store/viewProduct/ViewProduct';
 import Cart from './pages/cart/Cart';
 import Admin from './pages/Admin';
 import CloseSesion from './pages/Dashboard/CloseSesion';
@@ -39,6 +41,8 @@ function Sao(){
                <Route exact path={Rutas.store.path} element={<Dashboard />} /> 
                <Route exact path={Rutas.store.slash} element={<Dashboard />} /> 
                <Route exact path={Rutas.store.path+"/:type"} element={<Dashboard />} /> 
+               <Route exact path={Rutas.store.search+"/:search"} element={<Search />} /> 
+               <Route exact path={Rutas.store.viewProduct+"/:id"} element={<ViewProduct />} /> 
                <Route exact path={Rutas.sales.path} element={<Sales />} />
                <Route exact path={Rutas.sales.details+"/:id"} element={<OrderDetails />} /> 
                <Route exact path={Rutas.sales.buy} element={<Buy />} /> 

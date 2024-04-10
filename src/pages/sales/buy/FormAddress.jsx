@@ -51,7 +51,7 @@ const FormAddress = ({address}) => {
     ]
     return (
         <div className="container-fluid mt-3">
-            <h5>Datos de direccion: </h5>
+            <h5>Datos de dirección: </h5>
             <div className="row mt-2">
                 <div className="container-fluid col-12 col-md-6 col-lg-4 mb-2">
                     <label htmlFor="">Pais
@@ -60,7 +60,7 @@ const FormAddress = ({address}) => {
                         </small>
                     </label>
                     <select name="inputBuyCountry" className="form-control" required>
-                        <option value="1">Mexico</option>
+                        <option value="1">México</option>
                         {/* <option value="2">USA</option> */}
                     </select>
                 </div>

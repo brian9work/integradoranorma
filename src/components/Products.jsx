@@ -2,10 +2,13 @@ import React from 'react';
 // import { MdFavoriteBorder } from "react-icons/md";
 import RutasBackend from '../constants/RoutesBackend';
 import { MdAddShoppingCart } from "react-icons/md";
+import { useNavigate, useParams } from 'react-router-dom'
 import Button from './Button';
+import Rutas from '../constants/Routes';
 
 
 const Product = ({ id, url, name, price }) => {
+    const nav = useNavigate();
     const addToCart = async ({ id_user, id_product }) => {
         let data = new FormData()
         data.append("id_user", id_user)
@@ -21,9 +24,13 @@ const Product = ({ id, url, name, price }) => {
             .catch(err => console.log(err))
     }
     return (
-        <div className="container-fluid col-6 col-lg-3 col-md-4 mb-4">
+        <div className="container-fluid col-6 col-lg-3 col-md-4 mb-4"
+            onClick={e => {
+                nav(Rutas.store.viewProduct + "/" + id)
+            }}
+        >
             <div className="card shadow-sm pt-3 rounded-4">
-                <img src={RutasBackend.imagenes+url} className="card-img-top" alt="..." style={{ width: "100%", height: "150px" }} />
+                <img src={RutasBackend.imagenes+url} className="card-img-top" alt={url} style={{ width: "100%", height: "150px" }} />
                 <div className="card-body">
                     <div className='row'>
                         <div className='col-12'>
@@ -41,15 +48,6 @@ const Product = ({ id, url, name, price }) => {
                             >
                                 Agregar
                             </Button>
-                            {/* {id} */}
-                            {/* <MdAddShoppingCart
-                            onClick={e =>{
-                                addToCart({
-                                    id_user:localStorage.getItem('iduser'),
-                                    id_product:id
-                                })
-                            }}
-                        /> */}
                         </div>
                     </div>
                 </div>
@@ -70,6 +68,7 @@ const Product = ({ id, url, name, price }) => {
 const Products = ({ data }) => {
     return (
         <div className='mt-5 container mx-auto'>
+            
             <h3>{data.typeofProducts}</h3>
             <div className=" row">
                 {

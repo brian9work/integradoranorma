@@ -34,7 +34,7 @@ const Sales = () => {
          </div>
          <div className="table-responsive">
          <table
-            className="table table-striped shadow-sm"
+            className=" table table-striped shadow-sm"
             style={{ background: "red" }}
          >
             <thead>
@@ -45,11 +45,12 @@ const Sales = () => {
                   <th className='py-3'>Imagen</th>
                   <th className='py-3'>Producto</th>
                   <th className='py-3'>Categoria</th>
-                  <th className='py-3'>Metodo</th>
-                  <th className='py-3'>Status</th>
-                  <th className='py-3'>Pz</th>
+                  <th className='py-3'>Método</th>
+                  <th className='py-3'>Estatus</th>
+                  <th className='py-3'>Cantidad</th>
                   <th className='py-3'>Precio</th>
                   <th className='py-3'>Total</th>
+                  <th className='py-3'></th>
                   <th className='py-3'></th>
                </tr>
             </thead>
@@ -74,7 +75,7 @@ const Sales = () => {
                               <td className='py-3'>{u.category}</td>
                               <td className='py-3'>{u.payment_method}</td>
                               <td className='py-3'>
-                                 <span
+                                 {/* <span
                                     style={{
                                        display: 'block',
                                        fontWeight: "bold",
@@ -90,7 +91,13 @@ const Sales = () => {
                                     }}
                                  >
                                     {u.payment_status}
-                                 </span>
+                                 </span> */}
+                                 
+                                 <span>
+                                       <b className={'colorStatus'+u.id_payment_status} >
+                                          {u.payment_status}
+                                       </b>
+                                    </span>
                               </td>
                               <td className='py-3'>{u.quantity}</td>
                               <td className='py-3'>$ {u.price}</td>
@@ -101,6 +108,8 @@ const Sales = () => {
                                        nav(Rutas.admin.sales.detailsOrigin + u.id)
                                     }}
                                  >Editar</button>
+                              </td>
+                              <td>
                                  <button className="btn btn-danger">Eliminar</button>
                               </td>
                            </tr>

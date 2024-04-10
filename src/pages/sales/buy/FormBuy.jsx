@@ -23,10 +23,10 @@ const Inputs = [
       nombre: 'Nombre del titular', maxLength: 50,
       attributs: { type: 'text', minLength: '1', required: true, name: 'inputBuyTitular' }
    }, {
-      nombre: 'Numero de tarjeta', maxLength: 16,
+      nombre: 'Número de tarjeta', maxLength: 16,
       attributs: { type: 'tel', minLength: '16', required: true, name: 'inputBuyNumberCard' }
    }, {
-      nombre: 'Fecha de expiracion', maxLength: 7,
+      nombre: 'Fecha de expiración', maxLength: 7,
       attributs: { type: 'text', minLength: '4', required: true, name: 'inputBuyExpiration', placeholder: 'MM / YYYY' }
    }, {
       nombre: 'CVV', maxLength: 3,
@@ -41,7 +41,7 @@ const FormBuy = ({paymentMethod}) => {
          <div className="row mt-2">
             <div className="container-fluid col-12 row gap-4 mb-5">
                <div className="col-12 ">
-                  <h6>Metodo de pago:</h6>
+                  <h6>Método de pago:</h6>
                </div>
                {paymentMethod.map((pm, index) => {
                   return (

@@ -21,7 +21,7 @@ const Admins = () => {
     return (
         <div className="container mb-5" >
             <div className="container-fluid mt-5 row justify-content-end">
-                <button className="btn btn-primary col py-2" style={{maxWidth: "250px"}}>Agregar Administrador</button>
+                <button className="btn btn-primary col py-2" style={{maxWidth: "250px"}}>Agregar administrador</button>
             </div>
             <div className="row">
                 <div className="col-12 mb-2">
@@ -36,8 +36,8 @@ const Admins = () => {
                     <tr className=''>
                         <th className='py-3' >#</th>
                         <th className='py-3' >Nombre</th>
-                        <th className='py-3' >apellidos</th>
-                        <th className='py-3' >correo</th>
+                        <th className='py-3' >Apellidos</th>
+                        <th className='py-3' >Correo</th>
                         <th className='py-3' ></th>
                     </tr>
                 </thead>

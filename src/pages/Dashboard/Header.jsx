@@ -8,6 +8,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { MdStorefront } from "react-icons/md";
 import { BsBagHeart } from "react-icons/bs";
 import SaoContext from '../Context';
+import { useNavigate } from "react-router-dom";
 
 
 let menuItems = [
@@ -16,10 +17,12 @@ let menuItems = [
    // { path: "/", icon: <FaRegHeart />, text: "Favoritos" },
    { path: Rutas.cart.path, icon: <FiShoppingCart />, text: "Carrito" },
    { path: Rutas.sales.path, icon: <BsBagHeart />, text: "Pedidos" },
-   { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Cerrar Sesion" },
+   { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Cerrar sesión" },
 ]
 
 const Header = () => {
+   let [menu, setMenu] = useState(false)
+   let nav = useNavigate();
    // let nav = useNavigate();
    const { sesionIniciada } = useContext(SaoContext);
    useEffect(() => {
@@ -38,8 +41,14 @@ const Header = () => {
       //    ]
       // }
    }, [])
+   const submit=(e)=>{
+      e.preventDefault();
+      let busqueda =e.target.busqueda.value
+      if(busqueda.length>0){
+         nav(Rutas.store.search+"/"+busqueda)
+      }
+   }
    // let nav = useNavigate();
-   let [menu, setMenu] = useState(false)
    return (
       <div className="headerSao">
          <header>
@@ -49,7 +58,9 @@ const Header = () => {
                </Link>
             </div>
             <div className='buscador'>
-               <form>
+               <form onSubmit={e =>{
+                  submit(e)
+               }}>
                   <div>
                      <span>
                         <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512"
@@ -59,7 +70,7 @@ const Header = () => {
                            </path>
                         </svg>
                      </span>
-                     <input type="text" placeholder="¿Que desea encontrar?" />
+                     <input type="text" placeholder="¿Qué desea buscar?" name='busqueda' />
                   </div>
                </form>
             </div>

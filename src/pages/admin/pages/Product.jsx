@@ -48,7 +48,8 @@ const Product = () => {
                         <th className='py-3' >Detalles</th>
                         <th className='py-3' >Precio</th>
                         <th className='py-3' >Imagen</th>
-                        <th className='py-3' >Acciones</th>
+                        <th className='py-3' ></th>
+                        <th className='py-3' ></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,6 +72,8 @@ const Product = () => {
                                             nav(Rutas.admin.products.update+product.id)
                                         }}
                                     >Editar</button>
+                                </td>
+                                <td>
                                     <button className="btn btn-danger"
                                         onClick={() => {
                                             deleteProduct(

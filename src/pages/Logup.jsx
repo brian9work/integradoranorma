@@ -63,41 +63,42 @@ const Logup = () => {
                      <Input nombre="Nombre"
                         maxLength={50}
                         attributs={{
-                           minLength: '0',
+                           minLength: '1',
                            required: true,
                            name: 'InputLogupName',
                         }}
                      />
-                     <Input nombre="Apellido Paterno"
+                     <Input nombre="Apellido paterno"
                         maxLength={50}
                         attributs={{
-                           minLength: '0',
+                           minLength: '1',
                            required: true,
                            name: 'InputLogupSpelitP',
                         }}
                      />
-                     <Input nombre="Apellido Materno"
+                     <Input nombre="Apellido materno"
                         maxLength={50}
                         attributs={{
-                           minLength: '0',
+                           minLength: '1',
                            required: true,
                            name: 'InputLogupSpelitM',
                         }}
                      />
-                     <Input nombre="Correo Electronico"
+                     <Input nombre="Correo electrónico"
                         maxLength={50}
                         attributs={{
                            type: 'email',
-                           minLength: '0',
+                           minLength: '1',
                            required: true,
                            name: 'InputLogupEmail',
+                           pattern: '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
                         }}
                      />
                      <Input nombre="Contraseña"
                         maxLength={50}
                         attributs={{
                            type: 'password',
-                           minLength: '0',
+                           minLength: '1',
                            required: true,
                            name: 'InputLogupPass',
                         }}
@@ -115,7 +116,7 @@ const Logup = () => {
                         {nav(Rutas.login.path)}
                      }}
                      tipo="sec">
-                        Iniciar Sesion
+                        Iniciar sesión
                   </Button>
                </form>
             </div>

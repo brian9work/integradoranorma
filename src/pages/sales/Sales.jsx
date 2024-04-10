@@ -44,9 +44,9 @@ const Sales = () => {
                      <th className='py-3'>Imagen</th>
                      <th className='py-3'>Producto</th>
                      <th className='py-3'>Categoria</th>
-                     <th className='py-3'>Metodo</th>
-                     <th className='py-3'>Status</th>
-                     <th className='py-3'>Pz</th>
+                     <th className='py-3'>Método</th>
+                     <th className='py-3'>Estatus</th>
+                     <th className='py-3'>Cantidad</th>
                      <th className='py-3'>Precio</th>
                      <th className='py-3'>Total</th>
                      <th className='py-3'></th>

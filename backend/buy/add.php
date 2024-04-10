@@ -51,9 +51,34 @@ $updateUser = "UPDATE user SET id_address = $idAddress WHERE id = $id_user";
 $response=mysqli_query($con,$updateUser);
 if(!$response) response(0,"Hubo un error al actualizar la direccion del usuario");
 
+$mensajes = array();
+
 $json= GetByUserId::getCartByUserId($id_user);
 foreach($json as $cartRow){
-    $insertPayment = "INSERT INTO payment (id_method, id_status) VALUES ('$inputBuyPM', '1')";
+    $id_product=$cartRow['id_product'];
+    $quantity=$cartRow['quantity'];
+    $price=$cartRow['price'];
+    $total=$quantity*$price;
+
+    $sentence = "SELECT stock,name FROM product WHERE id=$id_product";
+    $response=mysqli_query($con,$sentence);
+    $stockByProducts = 1;
+    $nameProduct = "";
+    while ($row = mysqli_fetch_assoc($response)) { 
+        $stockByProducts = $row['stock']; 
+        $nameProduct = $row['name']; 
+    }
+
+    $newStock= $stockByProducts-$quantity;
+    if($newStock < 0){
+        response(0,"No hay productos disponibles para el producto: $nameProduct");
+    }
+
+    $updateStock = "UPDATE product SET stock=$newStock WHERE id=$id_product";
+    $response=mysqli_query($con,$updateStock);
+    if(!$response) response(0,"Hubo un error al actualizar el stock");
+
+    $insertPayment = "INSERT INTO payment (id_method, id_status) VALUES ('$inputBuyPM', '3')";
     $response=mysqli_query($con,$insertPayment);
     if(!$response) response(0,"Hubo un error al insertar el methodo de pago");
 
@@ -62,19 +87,13 @@ foreach($json as $cartRow){
     $idPayment = 1;
     while ($row = mysqli_fetch_assoc($response)) { $idPayment = $row['id']; }
 
-    $insertHistoryProcess ="INSERT INTO history_process (id_process) VALUES ('1')";
+    $insertHistoryProcess ="INSERT INTO history_process (id_process) VALUES ('2')";
     $response=mysqli_query($con,$insertHistoryProcess);
     if(!$response) response(0,"Hubo un error al insertar en el historial de pago");
     $searchHistoryProcess = "SELECT id FROM history_process ORDER BY id DESC LIMIT 1";
     $response=mysqli_query($con,$searchHistoryProcess);
     $idHistoryProcess = 1;
     while ($row = mysqli_fetch_assoc($response)) { $idHistoryProcess = $row['id']; }
-
-    $id_product=$cartRow['id_product'];
-    $quantity=$cartRow['quantity'];
-    $price=$cartRow['price'];
-    $total=$quantity*$price;
-    // echo $id_product." - ".$quantity." - ".$price." - ".$total."\n";
 
     $insertSale = "INSERT INTO sale (id_user, id_product, id_payment, id_process, total, quantity) VALUES ('$id_user', '$id_product', '$idPayment', '$idHistoryProcess', '$total', '$quantity')";
     $response=mysqli_query($con,$insertSale);
@@ -87,43 +106,3 @@ foreach($json as $cartRow){
     
 }
 response(1,"Productos pagados correctamente");
-// print_r($json);
-
-
-
-// response(1,$idPayment);
-
-// $insertSale = "INSERT INTO sale (id_user, id_product, id_payment, id_process, total, quantity, created_at, last_update) VALUES (NULL, '', '', '', '1', '', '1', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
-
-
-
-
-
-// echo "id_user: ". $id_user."\n";
-// echo "inputBuyCountry: ". $inputBuyCountry."\n";
-// echo "inputBuyState: ". $inputBuyState."\n";
-// echo "inputBuylocality: ". $inputBuylocality."\n";
-// echo "inputBuyMainStreet: ". $inputBuyMainStreet."\n";
-// echo "inputBuyStreet1: ". $inputBuyStreet1."\n";
-// echo "inputBuyStreet2: ". $inputBuyStreet2."\n";
-// echo "inputBuyReferences: ". $inputBuyReferences."\n";
-// echo "inputBuyPM: ". $inputBuyPM."\n";
-// echo "inputBuyTitular: ". $inputBuyTitular."\n";
-// echo "inputBuyNumberCard: ". $inputBuyNumberCard."\n";
-// echo "inputBuyExpiration: ". $inputBuyExpiration."\n";
-// echo "inputBuyCVV: ". $inputBuyCVV."\n";
-
-
-
-// if(!Search::search_user($id_user)) die(json_encode(["success" => false,"data" => "El usuario no existe"]));
-
-// $json = array();
-// $json[] = [
-//     "cart" => GetByUserId::getCartByUserId($id_user), 
-//     "address" => GetByUserId::getAddressByUserId($id_user),
-//     "paymentMethods" =>  GetAll::getCatPaymentMethod()
-// ];
-
-// response(1,$json[0]);
-
-

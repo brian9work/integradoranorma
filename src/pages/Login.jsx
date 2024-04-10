@@ -31,7 +31,7 @@ const Login = () => {
          .then(json => {
             if(!json.success) alert(json.data)
             else {
-               alert("Sesion iniciada correctamente");
+               alert("Sesión iniciada correctamente");
                sesionIniciada[1](true);
                nav(Rutas.store.origin)
                localStorage.setItem("sesion", 1)
@@ -55,10 +55,10 @@ const Login = () => {
             </div>
             <div className="formLogin">
                <form className="rounded-5">
-                  <h2 className="mb-3">Inicio De Sesion</h2>
+                  <h2 className="mb-3">Inicio de sesión</h2>
                   <div className="">
                      <Input
-                        nombre="Correo Electronico"
+                        nombre="Correo electrónico"
                         maxLength={50}
                         attributs={{
                            type: 'email',
@@ -82,7 +82,7 @@ const Login = () => {
                      funcion={e => {
                         formulario(e)
                      }}>
-                     Iniciar Sesion
+                     Iniciar sesión
                   </Button>
                   <Button tipo="sec"
                      funcion={e => {

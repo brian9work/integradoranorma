@@ -29,12 +29,14 @@ $quantityPro=mysqli_query($con,$searchInCart);
 $quantityPro=mysqli_fetch_assoc($quantityPro)['quantity'];
 if($quantityPro<=1 and $add==0) response(0,"El producto no puede tener menos de uno");
 
-if($add==0){
-    $updateCart = "UPDATE cart SET quantity=($quantityPro-1) WHERE id_user='$id_user' AND id_product='$id_product';";
-} else {
-    $updateCart = "UPDATE cart SET quantity=($quantityPro+1) WHERE id_user='$id_user' AND id_product='$id_product';";
-}
+$sentence = "SELECT stock FROM product WHERE id=$id_product";
+$response=mysqli_query($con,$sentence);
+$stockByProducts=mysqli_fetch_assoc($response)['stock'];
 
+$quantityPro= $add==0 ? $quantityPro-1 : $quantityPro+1;
+if($quantityPro>$stockByProducts) response(0,"Ya no hay mas productos disponibles");
+
+$updateCart = "UPDATE cart SET quantity=($quantityPro) WHERE id_user='$id_user' AND id_product='$id_product';";
 $resAddToCart=mysqli_query($con,$updateCart);
 if(!$resAddToCart) response(0,"Hubo un error al insertar en el carrito");
 response(1, "Carrito actualizado");

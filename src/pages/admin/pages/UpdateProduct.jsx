@@ -15,11 +15,12 @@ const UpdateProduct = () => {
     
     const loadImage = async (e)=>{
         const imagen = document.getElementById('imagen')
-        const file = e
+        const file = e.target.files[0]
         const reader = new FileReader()
         reader.onload = function (e) {
-            imagen.src = e.target.result
+           imagen.src = e.target.result
         }
+        reader.readAsDataURL(file)
     }
 
     const traerProducto = async () => {
@@ -123,7 +124,7 @@ const UpdateProduct = () => {
                                     <input type="file" name="inputFile" id="inputFile"
                                     style={{display: "none"}}
                                         onChange={(e) => {
-                                            loadImage(e.target.files[0])
+                                            loadImage(e)
                                         }}
                                     />
                                 </div>

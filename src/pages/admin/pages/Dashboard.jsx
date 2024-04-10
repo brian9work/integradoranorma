@@ -10,8 +10,8 @@ import { GrMoney, GrUserAdmin } from "react-icons/gr";
 
 
 const dataMain = [
-    { path: Rutas.admin.products.add, icon: <RiAddFill />, name: "Agregar Producto" },
-    { path: Rutas.admin.products.getAll, icon: <PiStorefrontBold />, name: "Ver Productos" },
+    { path: Rutas.admin.products.add, icon: <RiAddFill />, name: "Agregar producto" },
+    { path: Rutas.admin.products.getAll, icon: <PiStorefrontBold />, name: "Ver productos" },
     { path: Rutas.admin.brands.origin, icon: <FaRegRegistered />, name: "Marcas" },
     { path: Rutas.admin.admins.origin, icon: <GrUserAdmin  />, name: "Administradores" },
     { path: Rutas.admin.users.origin, icon: <LuUsers />, name: "Usuarios" },
