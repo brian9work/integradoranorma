@@ -15,13 +15,17 @@ const Product = () => {
             })
             .catch(err => console.log(err))
     }
-    const deleteProduct = async (id,name) => {
+    const deleteProduct = async (target,id,name) => {
+        // console.log(target)
+        // const comp=document.getElementById("productoAdmin"+id)
         if(confirm("¿Esta seguro de eliminar el producto?: "+name))
         await fetch(RutasBackend.deleteProduct+"?id_product="+id)
             .then(res => res.json())
             .then(data => {
                 alert(data.data)
-                if(data.success) window.location.reload()
+                // if(data.success) {
+                //     comp.parentNode.removeChild(comp)
+                // }
             })
             .catch(err => console.log(err))
     }
@@ -58,7 +62,7 @@ const Product = () => {
                             <h4>Cargando ... </h4>
                         </td> :
                         products.map((product, index) => (
-                            <tr key={index}>
+                            <tr key={index} id={'productoAdmin'+product.id}>
                                 <td>{product.id}</td>
                                 <td>{product.name}</td>
                                 <td>{product.category}</td>
@@ -75,8 +79,9 @@ const Product = () => {
                                 </td>
                                 <td>
                                     <button className="btn btn-danger"
-                                        onClick={() => {
+                                        onClick={(e) => {
                                             deleteProduct(
+                                                e.target,
                                                 product.id,
                                                 product.name
                                             )

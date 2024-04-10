@@ -34,7 +34,6 @@ const AllUsers = () => {
                         <th className='py-3' >Nombre</th>
                         <th className='py-3' >apellidos</th>
                         <th className='py-3' >correo</th>
-                        <th className='py-3' ></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,14 +45,10 @@ const AllUsers = () => {
                             users.map((u, i) => {
                                 return (
                                     <tr key={i} className=''>
-                                        <td>{u.id}:{i + 1}</td>
+                                        <td>#{u.id}.{i + 1}</td>
                                         <td>{u.name}</td>
                                         <td>{u.lastnameF} {u.lastnameM}</td>
                                         <td>{u.email}</td>
-                                        <td>
-                                            <button className="btn btn-primary">Editar</button>
-                                            <button className="btn btn-danger">Eliminar</button>
-                                        </td>
                                     </tr>
                                 )
                             })

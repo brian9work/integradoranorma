@@ -19,6 +19,11 @@ const Product = ({ id, url, name, price }) => {
         })
             .then(res => res.json())
             .then(json => {
+                if(!json.success){
+                    alert(json.data)
+                    nav(Rutas.logup.path)
+                    return;
+                }
                 alert(json.data)
             })
             .catch(err => console.log(err))
