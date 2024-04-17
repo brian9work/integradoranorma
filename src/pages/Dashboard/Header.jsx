@@ -23,16 +23,22 @@ let menuItems = [
 const Header = () => {
    let [menu, setMenu] = useState(false)
    let nav = useNavigate();
-   // let nav = useNavigate();
+
    const { sesionIniciada } = useContext(SaoContext);
-   useEffect(() => {
-      if (!sesionIniciada[0]) {
+   const validSesion= ()=>{
+      console.log("header ",sesionIniciada[0])
+      if (sesionIniciada[0]!=true) {
          menuItems = [
             // { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Salir" },
             { path: Rutas.login.path, icon: <ImSwitch />, text: "ingresar" },
             { path: Rutas.logup.path, icon: <ImSwitch />, text: "Crear cuenta" },
          ]
       }
+
+   }
+   useEffect(() => {
+      validSesion()
+      // }
       // if (!localStorage.getItem("sesion")) {
       //    menuItems = [
       //       // { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Salir" },
@@ -40,7 +46,7 @@ const Header = () => {
       //       { path: Rutas.logup.path, icon: <ImSwitch />, text: "Crear cuenta" },
       //    ]
       // }
-   }, [])
+   }, [sesionIniciada[0]])
    const submit=(e)=>{
       e.preventDefault();
       let busqueda =e.target.busqueda.value

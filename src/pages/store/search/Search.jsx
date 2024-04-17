@@ -27,7 +27,7 @@ export default function Search() {
       <>
          <Header />
          <div className='container mt-5'>
-            <h4>Resultados: </h4>
+            <h3>Resultados de: {search} </h3>
             {/* Search {search} */}
             {
                products.length > 0 &&

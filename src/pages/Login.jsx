@@ -8,6 +8,13 @@ import RoutesBackend from '../constants/RoutesBackend';
 import SaoContext from './Context';
 
 const Login = () => {
+   const regexPatterns = {
+      nombre: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      apellidoPaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      apellidoMaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      correo: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,3}$/,
+      contraseña: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,45}$/,
+    };
    const { sesionIniciada } = useContext(SaoContext);
 
    let nav = useNavigate();
@@ -19,6 +26,9 @@ const Login = () => {
          InputLoginPass,
       } = form
 
+      if(!regexPatterns.correo.test(InputLoginEmail.value)) return alert("Correo inválido")
+      if(!regexPatterns.contraseña.test(InputLoginPass.value)) return alert("Contraseña inválida")
+
       let data = new FormData()
       data.append("email", InputLoginEmail.value)
       data.append("password", InputLoginPass.value)
@@ -29,15 +39,17 @@ const Login = () => {
          body: data
       }).then(res => res.json())
          .then(json => {
-            if(!json.success) alert(json.data)
-            else {
-               alert("Sesión iniciada correctamente");
-               sesionIniciada[1](true);
-               nav(Rutas.store.origin)
-               localStorage.setItem("sesion", 1)
-               localStorage.setItem("iduser", json.id)
-               localStorage.setItem("is_user", json.is_user)
-            }
+            if(!json.success) return alert(json.data)
+
+            alert("Sesión iniciada correctamente");
+            sesionIniciada[1](1===1);
+            // console.log(sesionIniciada)
+            // console.log(sesionIniciada[1]())
+            // console.log(sesionIniciada[0])
+            nav(Rutas.store.origin)
+            localStorage.setItem("sesion", 1)
+            localStorage.setItem("iduser", json.id)
+            localStorage.setItem("is_user", json.is_user)
          })
          .catch(err => console.log(err))
    }
@@ -59,7 +71,7 @@ const Login = () => {
                   <div className="">
                      <Input
                         nombre="Correo electrónico"
-                        maxLength={50}
+                        maxLength={45}
                         attributs={{
                            type: 'email',
                            minLength: '0',
@@ -69,7 +81,7 @@ const Login = () => {
                      />
                      <Input
                         nombre="Contraseña"
-                        maxLength={50}
+                        maxLength={45}
                         attributs={{
                            type: 'password',
                            minLength: '0',

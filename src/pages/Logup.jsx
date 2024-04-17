@@ -9,6 +9,13 @@ import axios from 'axios';
 import SaoContext from './Context';
 
 const Logup = () => {
+   const regexPatterns = {
+      nombre: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      apellidoPaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      apellidoMaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      correo: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,3}$/,
+      contraseña: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,45}$/,
+    };
    const { sesionIniciada } = useContext(SaoContext);
    let nav = useNavigate();
    const formulario = async (e) => {
@@ -21,6 +28,13 @@ const Logup = () => {
          InputLogupEmail,
          InputLogupPass,
       } = form
+
+      if(!regexPatterns.nombre.test(InputLogupName.value)) return alert("Nombre inválido")
+      if(!regexPatterns.apellidoPaterno.test(InputLogupSpelitP.value)) return alert("Apellido paterno inválido")
+      if(!regexPatterns.apellidoMaterno.test(InputLogupSpelitM.value)) return alert("Apellido materno inválido")
+      if(!regexPatterns.correo.test(InputLogupEmail.value)) return alert("Correo inválido")
+      if(!regexPatterns.contraseña.test(InputLogupPass.value)) return alert("Contraseña inválida")
+
 
       let data = new FormData()
       data.append("name", InputLogupName.value)
@@ -61,7 +75,7 @@ const Logup = () => {
                   <h2 className="mb-3">Registrarse</h2>
                   <div className="">
                      <Input nombre="Nombre"
-                        maxLength={50}
+                        maxLength={45}
                         attributs={{
                            minLength: '1',
                            required: true,
@@ -69,7 +83,7 @@ const Logup = () => {
                         }}
                      />
                      <Input nombre="Apellido paterno"
-                        maxLength={50}
+                        maxLength={45}
                         attributs={{
                            minLength: '1',
                            required: true,
@@ -77,7 +91,7 @@ const Logup = () => {
                         }}
                      />
                      <Input nombre="Apellido materno"
-                        maxLength={50}
+                        maxLength={45}
                         attributs={{
                            minLength: '1',
                            required: true,
@@ -85,7 +99,7 @@ const Logup = () => {
                         }}
                      />
                      <Input nombre="Correo electrónico"
-                        maxLength={50}
+                        maxLength={45}
                         attributs={{
                            type: 'email',
                            minLength: '1',
@@ -95,7 +109,7 @@ const Logup = () => {
                         }}
                      />
                      <Input nombre="Contraseña"
-                        maxLength={50}
+                        maxLength={45}
                         attributs={{
                            type: 'password',
                            minLength: '1',
