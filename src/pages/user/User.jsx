@@ -7,6 +7,20 @@ export default function User() {
     const [load, setload] = useState(false);
     const [account, setaccount] = useState({});
 
+    const disabledAccount= async()=>{
+        await fetch(RutasBackend.disabled + "?id_user=" + localStorage.getItem("iduser"))
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+            if(res.success){
+                alert("Tu cuenta ha sido suspendida")
+            } else {
+                alert("Error al suspender")
+            }
+        })
+        .catch(err => { console.log(err) })
+    }
+
     const myAccount = async () => {
         await fetch(RutasBackend.getUserById + "?id_user=" + localStorage.getItem("iduser"))
             .then(res => res.json())
@@ -27,7 +41,7 @@ export default function User() {
                 !load ? <></> :
                 
                 <div className="container mt-5">
-                    <h3>Informacion de mi cuenta</h3>
+                    <h3>Información de mi cuenta</h3>
                     <div className="mb-3">
                         <label htmlFor="nombre" className="form-label">Nombre:</label>
                         <h5 className="form-control-static" id="nombre">
@@ -62,8 +76,16 @@ export default function User() {
                             {account.sale.sale}
                         </h5>
                     </div>
+                    <div className="mt-5">
+                        <button className='btn btn-danger'
+                            onClick={e =>{
+                                disabledAccount()
+                            }}
+                        >Suspender Cuenta</button>
+                    </div>
                 </div>
             }
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </>
         // <div>User</div>
     )

@@ -9,7 +9,7 @@ if(!isset($_POST['id_product'])) die(json_encode(["success" => false,"error" => 
 $id_user = $_POST['id_user'];
 $id_product = $_POST['id_product'];
 
-if(!Search::search_user($id_user)) die(json_encode(["success" => false,"data" => "El usuario no existe"]));
+if(!Search::search_user($id_user)) die(json_encode(["success" => false,"data" => "El usuario no existe o se encuentra suspendido"]));
 if(!Search::search_product($id_product)) die(json_encode(["success" => false,"data" => "El producto no existe"]));
 
 

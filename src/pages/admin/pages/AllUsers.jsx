@@ -3,6 +3,34 @@ import RutasBackend from '../../../constants/RoutesBackend';
 
 const AllUsers = () => {
     const [users, setUsers] = useState([])
+
+    const disabled = async (status) => {
+        // if(status === "activo"){
+            await fetch((status!==1 ? RutasBackend.disabled : RutasBackend.enabled)+ "?id_user=" + localStorage.getItem("iduser"))
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                if(res.success){
+                    alert("La cuenta ha sido suspendida")
+                } else {
+                    alert("Error al suspender")
+                }
+            })
+            .catch(err => { console.log(err) })
+        // } else {
+        //     await fetch(RutasBackend.enabled + "?id_user=" + localStorage.getItem("iduser"))
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         console.log(res)
+        //         if(res.success){
+        //             alert("Tu cuenta ha sido activada")
+        //         } else {
+        //             alert("Error al activar")
+        //         }
+        //     })
+        //     .catch(err => { console.log(err) })
+        // }
+    }
     
     const getUsers = async () => {
         await fetch(RutasBackend.getAllUsers)
@@ -18,7 +46,7 @@ const AllUsers = () => {
     }, [])
 
     return (
-        <div className="container mb-5" >
+        <div className="container mb-5 table-responsive" >
             <div className="row">
                 <div className="col-12 mb-2">
                     <h3>Usuarios</h3>
@@ -34,6 +62,8 @@ const AllUsers = () => {
                         <th className='py-3' >Nombre</th>
                         <th className='py-3' >apellidos</th>
                         <th className='py-3' >correo</th>
+                        {/* <th className='py-3' ></th>
+                        <th className='py-3' ></th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -49,6 +79,14 @@ const AllUsers = () => {
                                         <td>{u.name}</td>
                                         <td>{u.lastnameF} {u.lastnameM}</td>
                                         <td>{u.email}</td>
+                                        {/* <td>{u.status}</td> */}
+                                        {/* <td>
+                                            <button className={`btn ${u.satus!==1 ? "btn-danger" : "btn-success"}`}
+                                                onClick={e =>{
+                                                    disabled(u.status)
+                                                }}
+                                            >Suspender</button>
+                                        </td> */}
                                     </tr>
                                 )
                             })

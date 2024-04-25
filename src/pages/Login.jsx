@@ -26,8 +26,8 @@ const Login = () => {
          InputLoginPass,
       } = form
 
-      if(!regexPatterns.correo.test(InputLoginEmail.value)) return alert("Correo inválido")
-      if(!regexPatterns.contraseña.test(InputLoginPass.value)) return alert("Contraseña inválida")
+      // if(!regexPatterns.correo.test(InputLoginEmail.value)) return alert("Correo inválido")
+      // if(!regexPatterns.contraseña.test(InputLoginPass.value)) return alert("Contraseña inválida")
 
       let data = new FormData()
       data.append("email", InputLoginEmail.value)

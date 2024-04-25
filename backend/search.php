@@ -4,7 +4,7 @@ class Search
 {
     public static function search_user($id) {
         include("../cn.php");
-        $search = "SELECT * FROM user WHERE id='$id'";
+        $search = "SELECT * FROM user WHERE id='$id' AND status=1";
         $resSearch = mysqli_query($con, $search);
         if ($resSearch)
             if (mysqli_num_rows($resSearch) < 1)

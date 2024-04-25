@@ -11,6 +11,7 @@ node_modules
 backend3
 php
 backend/products/assets/products/*
+backend/reports/fpdf
 src/data/media
 
 dist

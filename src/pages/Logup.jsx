@@ -117,6 +117,15 @@ const Logup = () => {
                            name: 'InputLogupPass',
                         }}
                      />
+                     <div>
+                        <ul>
+                           <li><small>Al menos 8 caracteres de longitud.</small></li>
+                           <li><small>Al menos una letra minúscula.</small></li>
+                           <li><small>Al menos una letra mayúscula.</small></li>
+                           <li><small>Al menos un dígito.</small></li>
+                           <li><small>Al menos un carácter especial (!@#$%^&*).</small></li>
+                        </ul>
+                     </div>
                   </div>
                   <Button
                      type='submit'

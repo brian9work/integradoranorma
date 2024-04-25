@@ -3,8 +3,8 @@ const host= "http://localhost/normaint/backend/"
 // const host= "https://portafolio.xantheapp.com/api/integradoranorma/backend/"
 
 const RutasBackend ={
-    imagenes: host+"products",
-    // imagenes:"",
+    // imagenes: host+"products",
+    imagenes:"",
 
     iniciarSesion: host+"users/login.php",
     registrar: host+"users/logup.php",
@@ -28,6 +28,8 @@ const RutasBackend ={
     getAllUsers: host+"users/getAll.php",
     getAdmins: host+"users/getAdmins.php",
     getUserById: host+"users/getById.php",
+    disabled: host+"users/disabled.php",
+    enabled: host+"users/enabled.php",
 
     getAllSales: host+"sales/getAllSales.php",
     getSalesByIdUser: host+"sales/getSaleByIdUser.php",
