@@ -49,7 +49,7 @@ export default function User() {
                         </h5>
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="correo" className="form-label">Correo:</label>
+                        <label htmlFor="correo" className="form-label">Correo electrónico:</label>
                         <h5 className="form-control-static" id="correo">
                             {account.user.email}
                         </h5>

@@ -79,8 +79,8 @@ export const Card=(details)=>{
       <div className="col-8">
          <h5>{details.name}</h5>
          <h6>{details.description}</h6>
-         <h6>Metodo de pago: <b>{details.payment_method}</b> </h6>
-         <h6>Status: <b>{details.payment_status}</b> </h6>
+         <h6>Método de pago: <b>{details.payment_method}</b> </h6>
+         <h6>Estatus: <b>{details.payment_status}</b> </h6>
          <div className="mt-2">
             <p>Fecha de compra: <b>{details.created_at}</b> </p>
          </div>

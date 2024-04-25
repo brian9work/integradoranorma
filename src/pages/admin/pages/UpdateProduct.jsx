@@ -181,7 +181,7 @@ const UpdateProduct = () => {
                             <div className="mt-3 col-12 col-md-6">
                                 {
                                     <Select
-                                        nombre={"Categoria:"}
+                                        nombre={"Categoría:"}
                                         data={categories}
                                         name="selectCategory"
                                     ></Select>
@@ -211,7 +211,7 @@ const UpdateProduct = () => {
                             </div>
                             <div className="mt-3 col-12 col-md-6">
                                 <Input
-                                    nombre="Descripcion:"
+                                    nombre="Detalles del producto:"
                                     maxLength={500}
                                     attributs={{
                                         type: 'text',
@@ -249,7 +249,7 @@ const UpdateProduct = () => {
                             </div>
                             <div className="mt-3 col-12 col-md-6">
                                 <Input
-                                    nombre="Cantidad:"
+                                    nombre="Stock:"
                                     maxLength={50}
                                     attributs={{
                                         type: 'number',

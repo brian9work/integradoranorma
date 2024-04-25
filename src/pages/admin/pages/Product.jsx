@@ -47,9 +47,9 @@ const Product = () => {
                     <tr className=''>
                         <th className='py-3' >#</th>
                         <th className='py-3' >Nombre</th>
-                        <th className='py-3' >Categoria</th>
-                        <th className='py-3' >Cantidad</th>
-                        <th className='py-3' >Detalles</th>
+                        <th className='py-3' >Categoría</th>
+                        <th className='py-3' >Stock</th>
+                        <th className='py-3' >Detalles del producto</th>
                         <th className='py-3' >Precio</th>
                         <th className='py-3' >Imagen</th>
                         <th className='py-3' ></th>

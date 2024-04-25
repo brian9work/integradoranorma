@@ -138,7 +138,7 @@ const AddProduct = () => {
                         </div>
                         <div className="mt-3 col-12 col-md-6">
                            <Input
-                              nombre="Descripcion:"
+                              nombre="Detalles del producto:"
                               maxLength={500}
                               attributs={{
                                  type: 'text',

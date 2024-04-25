@@ -63,7 +63,7 @@ export default function ViewProduct() {
                   <small className='fs-6'>{product.specifications}</small><br />
                   <small className='fs-6'>{product.dimensions}</small><br />
                   <small className='fs-6'>Precio: {product.price}</small><br />
-                  <small className='fs-6'>estock: {product.stock}</small><br />
+                  <small className='fs-6'>stock: {product.stock}</small><br />
                   <br />
                   <button className='btn btn-light border'>{product.category}</button>
                   <br />
