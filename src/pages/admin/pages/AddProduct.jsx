@@ -25,6 +25,14 @@ const AddProduct = () => {
          })
          .catch(err => console.log(err))
    }
+   const regexPatterns = {
+      name: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      description: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,500}$/,
+      specification: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      dimensions: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      quantity: /^0*([0-9]|[1-9][0-9]*)$/,
+      price: /^0*([0-9]|[1-9][0-9]*)$/,
+    };
    const addProduct = async (e) => {
       e.preventDefault()
       const form = e.target
@@ -35,10 +43,21 @@ const AddProduct = () => {
          InputName,
          InputDescription,
          InputSpecification,
-         InputDimencions,
+         InputDimensions,
          InputQuantity,
          InputPrice,
       } = form
+
+      if (!regexPatterns.name.test(InputName.value)) return alert("Nombre inválido solo caracteres alfanuméricos")
+      if (!regexPatterns.description.test(InputDescription.value)) return alert("Descripción inválida solo caracteres alfanuméricos")
+      if (!regexPatterns.specification.test(InputSpecification.value)) return alert("Especificaciones inválidas solo caracteres alfanuméricos")
+      if (!regexPatterns.dimensions.test(InputDimensions.value)) return alert("Dimensiones inválidas solo caracteres alfanuméricos")
+      if (!regexPatterns.quantity.test(InputQuantity.value)) return alert("Cantidad inválida solo caracteres numéricos")
+      if (!regexPatterns.price.test(InputPrice.value)) return alert("Precio inválido solo caracteres numéricos")
+
+      if(InputQuantity.value <=0) return alert("La cantidad no debe ser menor que 0")
+      if(InputPrice.value <=0) return alert("El precio no debe ser menor que 0")
+
       const data = new FormData()
       data.append("id_category", selectCategory.value)
       data.append("id_brand", selectBrand.value)
@@ -46,7 +65,7 @@ const AddProduct = () => {
       data.append("imagen", inputFile.files[0])
       data.append("description", InputDescription.value)
       data.append("specifications", InputSpecification.value)
-      data.append("dimensions", InputDimencions.value)
+      data.append("dimensions", InputDimensions.value)
       data.append("stock", InputQuantity.value)
       data.append("price", InputPrice.value)
       data.append("discount", "0.0")
@@ -126,7 +145,7 @@ const AddProduct = () => {
                         <div className="mt-3 col-12 col-md-6">
                            <Input
                               nombre="Nombre:"
-                              maxLength={50}
+                              maxLength={45}
                               attributs={{
                                  type: 'text',
                                  minLength: '0',
@@ -139,7 +158,7 @@ const AddProduct = () => {
                         <div className="mt-3 col-12 col-md-6">
                            <Input
                               nombre="Detalles del producto:"
-                              maxLength={500}
+                              maxLength={45}
                               attributs={{
                                  type: 'text',
                                  minLength: '0',
@@ -152,7 +171,7 @@ const AddProduct = () => {
                         <div className="mt-3 col-12 col-md-6">
                            <Input
                               nombre="Especificaciones:"
-                              maxLength={50}
+                              maxLength={45}
                               attributs={{
                                  type: 'text',
                                  minLength: '0',
@@ -165,11 +184,11 @@ const AddProduct = () => {
                         <div className="mt-3 col-12 col-md-6">
                            <Input
                               nombre="Dimenciones:"
-                              maxLength={50}
+                              maxLength={45}
                               attributs={{
                                  type: 'text',
                                  minLength: '0',
-                                 name: 'InputDimencions',
+                                 name: 'InputDimensions',
                                  placeholder: ""
                               }}
                            />
@@ -177,7 +196,7 @@ const AddProduct = () => {
                         <div className="mt-3 col-12 col-md-6">
                            <Input
                               nombre="Cantidad:"
-                              maxLength={50}
+                              maxLength={45}
                               attributs={{
                                  type: 'number',
                                  minLength: '0',
@@ -190,7 +209,7 @@ const AddProduct = () => {
                         <div className="mt-3 col-12 col-md-6">
                            <Input
                               nombre="Precio:"
-                              maxLength={50}
+                              maxLength={45}
                               attributs={{
                                  type: 'text',
                                  minLength: '0',

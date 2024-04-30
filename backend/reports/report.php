@@ -68,20 +68,22 @@ $pdf->SetFont('Arial', '', 9);
 $pdf->SetFillColor(255, 255, 255);
 $pdf->cell(20, 7, "#", 1, 0, '', true);
 $pdf->cell(20, 7, "Pz", 1, 0, '', true);
-$pdf->cell(30, 7, "Imagen", 1, 0, '', true);
-$pdf->cell(100, 7, "Nombre", 1, 0, '', true);
+// $pdf->cell(30, 7, "Imagen", 1, 0, '', true);
+$pdf->cell(130, 7, "Nombre", 1, 0, '', true);
 $pdf->ln();
 
 $sentencia = "SELECT SUM(quantity) AS pz, s.id_product, p.name, p.imagen FROM sale s
     INNER JOIN product p ON p.id=s.id_product
-    GROUP BY id_product";
+    GROUP BY id_product
+    ORDER BY pz DESC
+    ";
 $response = mysqli_query($con,$sentencia);
 while ($row = mysqli_fetch_array($response)) {
     $pdf->SetX(20);
     $pdf->cell(20, 7, $row["id_product"], 1);
     $pdf->cell(20, 7, $row["pz"], 1);
-    $pdf->cell(30, 7, substr($row["imagen"],1,20), 1);
-    $pdf->cell(100, 7, $row["name"], 1);
+    // $pdf->cell(30, 7, substr($row["imagen"],1,20), 1);
+    $pdf->cell(130, 7, $row["name"], 1);
     $pdf->Ln();
 }
 

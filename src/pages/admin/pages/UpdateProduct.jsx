@@ -65,7 +65,7 @@ const UpdateProduct = () => {
                     InputName,
                     InputDescription,
                     InputSpecification,
-                    InputDimencions,
+                    InputDimensions,
                     InputQuantity,
                     InputPrice,
                 } = document.getElementById("formUpdateProduct")
@@ -99,13 +99,21 @@ const UpdateProduct = () => {
                 InputName.value = d.name
                 InputDescription.value = d.description
                 InputSpecification.value = d.specifications
-                InputDimencions.value = d.dimensions
+                InputDimensions.value = d.dimensions
                 InputQuantity.value = d.stock
                 InputPrice.value = d.price
                 document.getElementById("imagen").setAttribute("src", RutasBackend.imagenes + d.imagen)
             })
             .catch(err => console.log(err))
     }
+    const regexPatterns = {
+       name: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+       description: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,500}$/,
+       specification: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+       dimensions: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+       quantity: /^\d+$/,
+       price: /^\d+$/,
+     };
     const UpdateProduct = async (e) => {
         e.preventDefault()
         const form = e.target
@@ -116,10 +124,20 @@ const UpdateProduct = () => {
             InputName,
             InputDescription,
             InputSpecification,
-            InputDimencions,
+            InputDimensions,
             InputQuantity,
             InputPrice,
         } = form
+
+        if (!regexPatterns.name.test(InputName.value)) return alert("Nombre inválido solo caracteres alfanuméricos")
+        if (!regexPatterns.description.test(InputDescription.value)) return alert("Descripción inválida solo caracteres alfanuméricos")
+        if (!regexPatterns.specification.test(InputSpecification.value)) return alert("Especificaciones inválidas solo caracteres alfanuméricos")
+        if (!regexPatterns.dimensions.test(InputDimensions.value)) return alert("Dimensiones inválidas solo caracteres alfanuméricos")
+        if (!regexPatterns.quantity.test(InputQuantity.value)) return alert("Cantidad inválida solo caracteres numéricos")
+        if (!regexPatterns.price.test(InputPrice.value)) return alert("Precio inválido solo caracteres numéricos")
+
+        if(InputQuantity.value <=0) return alert("La cantidad no debe ser menor que 0")
+        if(InputPrice.value <=0) return alert("El precio no debe ser menor que 0")
 
         const data = new FormData()
         data.append("id", id_product)
@@ -129,7 +147,7 @@ const UpdateProduct = () => {
         data.append("imagen", inputFile.files[0])
         data.append("description", InputDescription.value)
         data.append("specifications", InputSpecification.value)
-        data.append("dimensions", InputDimencions.value)
+        data.append("dimensions", InputDimensions.value)
         data.append("stock", InputQuantity.value)
         data.append("price", InputPrice.value)
         data.append("discount", "0.0")
@@ -199,7 +217,7 @@ const UpdateProduct = () => {
                             <div className="mt-3 col-12 col-md-6">
                                 <Input
                                     nombre="Nombre:"
-                                    maxLength={50}
+                                    maxLength={45}
                                     attributs={{
                                         type: 'text',
                                         minLength: '0',
@@ -212,7 +230,7 @@ const UpdateProduct = () => {
                             <div className="mt-3 col-12 col-md-6">
                                 <Input
                                     nombre="Detalles del producto:"
-                                    maxLength={500}
+                                    maxLength={45}
                                     attributs={{
                                         type: 'text',
                                         minLength: '0',
@@ -225,7 +243,7 @@ const UpdateProduct = () => {
                             <div className="mt-3 col-12 col-md-6">
                                 <Input
                                     nombre="Especificaciones:"
-                                    maxLength={50}
+                                    maxLength={45}
                                     attributs={{
                                         type: 'text',
                                         minLength: '0',
@@ -238,11 +256,11 @@ const UpdateProduct = () => {
                             <div className="mt-3 col-12 col-md-6">
                                 <Input
                                     nombre="Dimenciones:"
-                                    maxLength={50}
+                                    maxLength={45}
                                     attributs={{
                                         type: 'text',
                                         minLength: '0',
-                                        name: 'InputDimencions',
+                                        name: 'InputDimensions',
                                         placeholder: ""
                                     }}
                                 />
@@ -250,7 +268,7 @@ const UpdateProduct = () => {
                             <div className="mt-3 col-12 col-md-6">
                                 <Input
                                     nombre="Stock:"
-                                    maxLength={50}
+                                    maxLength={45}
                                     attributs={{
                                         type: 'number',
                                         minLength: '0',
@@ -263,7 +281,7 @@ const UpdateProduct = () => {
                             <div className="mt-3 col-12 col-md-6">
                                 <Input
                                     nombre="Precio:"
-                                    maxLength={50}
+                                    maxLength={45}
                                     attributs={{
                                         type: 'text',
                                         minLength: '0',

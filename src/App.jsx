@@ -60,7 +60,6 @@ function Sao(){
 }
 function App() {
    const sesionIniciada = useState(localStorage.getItem("sesion")==="1" ? true : false);
-   console.log(sesionIniciada[0])
    return (
       <>
          <SaoContext.Provider value={{

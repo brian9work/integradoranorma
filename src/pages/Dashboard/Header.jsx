@@ -26,7 +26,7 @@ const Header = () => {
 
    const { sesionIniciada } = useContext(SaoContext);
    const validSesion= ()=>{
-      console.log("header ",sesionIniciada[0])
+      // console.log("header ",sesionIniciada[0])
       if (sesionIniciada[0]!=true) {
          menuItems = [
             // { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Salir" },

@@ -2,18 +2,42 @@ import React, { useEffect, useState } from 'react'
 import Header from '../Dashboard/Header'
 import RutasBackend from '../../constants/RoutesBackend';
 
+const BtnDisabled = ({bol,fn})=>{
+    if(bol){
+        return <button className='btn btn-danger' onClick={fn}>Suspender Cuenta</button>
+    } else {
+        return <button className='btn btn-primary' onClick={fn}>Activar Cuenta</button>
+    }
+
+}
 
 export default function User() {
+    const [disabled, setDisabled] = useState(1);
     const [load, setload] = useState(false);
     const [account, setaccount] = useState({});
 
     const disabledAccount= async()=>{
-        await fetch(RutasBackend.disabled + "?id_user=" + localStorage.getItem("iduser"))
+        const body = new FormData();
+        if(disabled){
+            if(window.confirm("Esta seguro de eliminar su cuenta")){
+                body.append("email",window.prompt("Escriba su correo"))
+                body.append("password",window.prompt("Escriba su contraseña"))
+            }
+        }
+
+        await fetch(
+                        RutasBackend.disabled + 
+                        "?id_user=" + localStorage.getItem("iduser") +
+                        "&status=" + !disabled
+                    ,{
+                        method: "POST",
+                        body: body
+                    })
         .then(res => res.json())
         .then(res => {
             console.log(res)
             if(res.success){
-                alert("Tu cuenta ha sido suspendida")
+                alert(res.data)
             } else {
                 alert("Error al suspender")
             }
@@ -26,6 +50,8 @@ export default function User() {
             .then(res => res.json())
             .then(res => {
                 setaccount(res.data)
+                setDisabled(res.data.user.status==="1" ? 1 : 0)
+                console.log(disabled)
                 setload(true)
             })
             .catch(err => { console.log(err) })
@@ -39,7 +65,6 @@ export default function User() {
             <Header />
             {
                 !load ? <></> :
-                
                 <div className="container mt-5">
                     <h3>Información de mi cuenta</h3>
                     <div className="mb-3">
@@ -77,11 +102,13 @@ export default function User() {
                         </h5>
                     </div>
                     <div className="mt-5">
-                        <button className='btn btn-danger'
+                        <BtnDisabled bol={disabled} fn={e =>{disabledAccount()}} />
+                        {/* // {btnDisabled(false,disabledAccount())} */}
+                        {/* <button className='btn btn-danger'
                             onClick={e =>{
                                 disabledAccount()
                             }}
-                        >Suspender Cuenta</button>
+                        >Suspender Cuenta</button> */}
                     </div>
                 </div>
             }

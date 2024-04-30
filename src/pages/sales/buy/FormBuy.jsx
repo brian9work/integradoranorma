@@ -53,6 +53,7 @@ const FormBuy = ({paymentMethod}) => {
                            <img src={pm.imagen} alt={pm.payment_method}
                               style={{ width: '100px', height: '50px' }}
                            />
+                           <h6 htmlFor={"flexRadioDefault" + index} className='text-center'>{pm.payment_method}</h6>
                         </label>
                         <input className="form-check-input" type="radio" name="inputBuyPM" id={"flexRadioDefault" + index}
                            style={{ width: '25px', height: '25px' }}
