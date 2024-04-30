@@ -7,7 +7,7 @@ include("../utils.php");
 if(!isset($_POST['id_user'])) die(json_encode(["success" => false,"error" => "Error a recibir el id del usuario"]));
 $id_user = $_POST['id_user'];
 
-if(!search::search_user($id_user)) response(0,"El usuario no existe");
+if(!search::search_user($id_user)) response(0,"El usuario no existe o se encuentra suspendido");
 
 $getProducts = "SELECT * FROM cart c
     INNER JOIN product p ON c.id_product=p.id
@@ -17,6 +17,6 @@ $json = array();
 while ($row = mysqli_fetch_assoc($resGetProducts)) {
     $json[] = $row;
 }
-die(json_encode(["success" => false,"data" => $json]));
+die(json_encode(["success" => true,"data" => $json]));
 
 

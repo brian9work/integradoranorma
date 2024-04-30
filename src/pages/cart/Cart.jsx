@@ -101,6 +101,12 @@ const Cart = () => {
         })
             .then(res => res.json())
             .then(json => {
+                console.log(json)
+                if(!json.success){
+                    alert(json.data)
+                    // nav(Rutas.store.origin)
+                    return
+                }
                 if (json.data.length <= 0) {
                     alert("Carrito vacio por favor escoja algo")
                     nav(Rutas.store.origin)
