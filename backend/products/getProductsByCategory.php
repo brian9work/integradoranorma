@@ -19,11 +19,16 @@ $sentenciaSesion = "SELECT p.id,p.name,p.imagen,p.description,p.dimensions,p.sto
     ORDER BY RAND()
 ";
 
+$getGifs = "SELECT * FROM gifs";
+$resGifs=mysqli_query($con,$getGifs);
+$allGifs = array();
+while ($rowGifs = mysqli_fetch_assoc($resGifs)) { $allGifs[] = $rowGifs['id_product']; }
 
 $resUser=mysqli_query($con,$sentenciaSesion);
 
 $json = array();
 while ($row = mysqli_fetch_assoc($resUser)) {
+    $row["isGif"] = in_array($row['id'], $allGifs) ? 1 : 0;
     $json[] = $row;
 }
 response(

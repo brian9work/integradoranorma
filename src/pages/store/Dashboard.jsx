@@ -6,6 +6,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 import RutasBrackend from '../../constants/RoutesBackend'
 import Products from '../../components/Products';
 import Loader from '../../components/Loader';
+import Recommendations from '../../components/Recommendations';
+import Rutas from '../../constants/Routes';
+import RutasBackend from '../../constants/RoutesBackend';
 
 const tipoDeTienda = () => {
     const { type } = useParams()
@@ -20,6 +23,7 @@ const tipoDeTienda = () => {
 const Dashboard = () => {
     const [imagen, ruta] = tipoDeTienda();
     const [products, setProducts] = useState([])
+    const [recomendations, setRecomendations] = useState([])
 
     const getProducts = async (ruta)=>{
         await fetch(ruta,{
@@ -31,9 +35,20 @@ const Dashboard = () => {
         })
         .catch(err => console.log(err))
     }
+    const getRecommnedations = async ()=>{
+        await fetch(RutasBackend.recommendations+"?id_user="+localStorage.getItem("iduser"),{
+            method: "GET",
+        })
+        .then(res => res.json())
+        .then(json => {
+            setRecomendations(json.data)
+        })
+        .catch(err => console.log(err))
+    }
 
     useEffect(() => {
         getProducts(ruta)
+        getRecommnedations()
     },[ruta])
 
     return (
@@ -42,10 +57,19 @@ const Dashboard = () => {
             <Presentation i={imagen} />
             <Categorias />
             {
+                (!recomendations) ? <Loader /> : 
+                <Products 
+                    data={{
+                        typeofProducts: "Recomendaciones:",
+                        data: recomendations
+                    }}
+                />
+            }
+            {
                 (!products) ? <Loader /> : 
                     <Products 
                         data={{
-                            typeofProducts: "Recomendados",
+                            typeofProducts: "Productos:",
                             data: products
                         }}
                     />

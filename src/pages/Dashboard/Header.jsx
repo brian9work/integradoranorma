@@ -9,6 +9,7 @@ import { MdStorefront } from "react-icons/md";
 import { BsBagHeart } from "react-icons/bs";
 import SaoContext from '../Context';
 import { useNavigate } from "react-router-dom";
+import { FaRegImages } from "react-icons/fa6";
 
 
 let menuItems = [
@@ -18,6 +19,7 @@ let menuItems = [
    { path: Rutas.cart.path, icon: <FiShoppingCart />, text: "Carrito" },
    { path: Rutas.sales.path, icon: <BsBagHeart />, text: "Pedidos" },
    { path: Rutas.closeSesion.path, icon: <ImSwitch />, text: "Cerrar sesión" },
+   { path: Rutas.models.path, icon: <FaRegImages />, text: "Modelos en 3D" },
 ]
 
 const Header = () => {

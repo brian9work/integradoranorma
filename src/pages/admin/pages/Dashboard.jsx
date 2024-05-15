@@ -17,6 +17,7 @@ const dataMain = [
     // { path: Rutas.admin.brands.origin, icon: <FaRegRegistered />, name: "Marcas" },
     { path: Rutas.admin.admins.origin, icon: <GrUserAdmin  />, name: "Administradores" },
     { path: Rutas.admin.users.origin, icon: <LuUsers />, name: "Usuarios" },
+    { path: Rutas.admin.reports.origin, icon: <GrDocumentPdf />, name: "Generar Reporte" },
 ]
 const ComponentMain = ({ path, icon, children }) => {
     let nav = useNavigate();

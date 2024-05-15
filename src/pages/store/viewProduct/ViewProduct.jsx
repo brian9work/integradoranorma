@@ -55,7 +55,8 @@ export default function ViewProduct() {
             <h3>Producto #{id}</h3>
             <div className="mt-3 row">
                <div className="col-6">
-                  <img src={RutasBackend.imagenes + "/" + product.imagen} alt={product.name} className="img-fluid" />
+                  {/* <img src={RutasBackend.imagenes + "/" + product.imagen} alt={product.name} className="img-fluid" /> */}
+                  <img src={product.gif} alt={product.name+" / "+product.gif} className="img-fluid" />
                </div>
                <div className="col-6">
                   <h4>{product.name}</h4>
@@ -66,7 +67,6 @@ export default function ViewProduct() {
                   <small className='fs-6'>stock: {product.stock}</small><br />
                   <br />
                   <button className='btn btn-light border'>{product.category}</button>
-                  <br />
                   <button className='btn btn-light border'>{product.brand}</button>
                   <br /><br />
                   <form onSubmit={e =>{

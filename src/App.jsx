@@ -23,12 +23,14 @@ import Buy from './pages/sales/Buy';
 import Header from './pages/Dashboard/Header';
 import DetailsOfBuy from './pages/admin/pages/DetailsOfBuy';
 import User from './pages/user/User';
+import Models from './pages/models/Models';
 
-function Sao(){
+function Sao({Children}){
    return (
       <div>
          {/* <BrowserRouter basename='/'> */}
          {/* <Route exact path={'/'} element={<SaoHome />} /> */}
+         
          <BrowserRouter basename='/integradoranorma'>
             <Routes>
                {/* <Route exact path={Rutas.sesion.path} element={<SaoHome />} />
@@ -45,11 +47,13 @@ function Sao(){
                <Route exact path={Rutas.store.path+"/:type"} element={<Dashboard />} /> 
                <Route exact path={Rutas.store.search+"/:search"} element={<Search />} /> 
                <Route exact path={Rutas.store.viewProduct+"/:id"} element={<ViewProduct />} /> 
+
                <Route exact path={Rutas.sales.path} element={<Sales />} />
                <Route exact path={Rutas.sales.details+"/:id"} element={<OrderDetails />} /> 
                <Route exact path={Rutas.sales.buy} element={<Buy />} /> 
                <Route exact path={Rutas.closeSesion.path} element={<CloseSesion />} /> 
                <Route exact path={Rutas.cart.path} element={<Cart />} /> 
+               <Route exact path={Rutas.models.path} element={<Models />} /> 
                <Route exact path={Rutas.admin.path+"/:page"} element={<Admin />} /> 
                <Route exact path={Rutas.admin.sales.details} element={<DetailsOfBuy />} /> 
               
@@ -65,7 +69,9 @@ function App() {
          <SaoContext.Provider value={{
             sesionIniciada:sesionIniciada,
          }}>
-            <Sao></Sao>
+            <Sao>
+               {/* <Header /> */}
+            </Sao>
          </SaoContext.Provider>
       </>
    )

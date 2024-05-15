@@ -14,6 +14,7 @@ import Brands from './admin/pages/Brands';
 import AllUsers from './admin/pages/AllUsers';
 import Sales from './admin/pages/Sales';
 import Admins from './admin/pages/Admins';
+import Report from './admin/pages/Report';
 
 const typeOfPage = () => {
     const { page } = useParams()
@@ -51,6 +52,12 @@ const typeOfPage = () => {
         <>
             <Nav>Agregar Producto</Nav>
             <AddProduct />
+        </>
+    )
+    if (page === "reports") return (
+        <>
+            <Nav> Generar reporte</Nav>
+            <Report />
         </>
     )
     const tmpPage = page.split("?")

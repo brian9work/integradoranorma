@@ -24,6 +24,7 @@ const RutasBackend ={
     getProductById: host+"products/getById.php",
     deleteProduct: host+"products/delete.php",
     searchProduct: host+"products/search.php",
+    recommendations: host+"products/recommendations.php",
 
     getAllUsers: host+"users/getAll.php",
     getAdmins: host+"users/getAdmins.php",

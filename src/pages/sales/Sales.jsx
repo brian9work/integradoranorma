@@ -100,7 +100,7 @@ const Sales = () => {
                                           onClick={() => {
                                              nav(Rutas.sales.details+"/"+u.id)
                                           }}
-                                          className="btn btn-info text-light">Detalles ss</button>
+                                          className="btn btn-info text-light">Detalles</button>
                                     </span>
                                  </td>
                               </tr>

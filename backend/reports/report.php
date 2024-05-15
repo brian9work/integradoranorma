@@ -21,6 +21,11 @@
         GROUP BY p.id_category;
     ";
 */
+if(!isset($_GET['ds'])) die("Error: fecha de inicio no recibida");
+if(!isset($_GET['de'])) die("Error: fecha de final no recibida");
+
+$ds = $_GET['ds'];
+$de = $_GET['de'];
 
 
 require "./fpdf/fpdf.php";
@@ -30,29 +35,32 @@ $pdf = new FPDF('P', 'mm', 'A4');
 $pdf->AddPage();
 $pdf->Image("./assets/portada.png", 0, 0, $width, 300);
 
+$pdf->SetFont('Arial', 'B', 20);
+$pdf->Text(67,199, $ds." - ".$de);
+
 $pdf->AddPage();
 $pdf->Image("./assets/p1.png", 0, 0, $width, 300);
 
 
 $pdf->SetTextColor(10, 10, 10);
 $pdf->SetFont('Arial', 'B', 30);
-
-$sentencia = "SELECT COUNT(*) AS usuarios FROM `user` WHERE id_user=3 and status=1;";
+// WHERE r.created_at BETWEEN '$ds' AND '$de'
+$sentencia = "SELECT COUNT(*) AS usuarios FROM `user` WHERE id_user=3 and status=1 and created_at BETWEEN '$ds' AND '$de';";
 $response = mysqli_query($con,$sentencia);
 $usuarios = mysqli_fetch_assoc($response)['usuarios'];
 $pdf->Text(115, 78, $usuarios);
 
-$sentencia = "SELECT COUNT(*) AS usuarios FROM `user` WHERE id_user=3 and status=0;";
+$sentencia = "SELECT COUNT(*) AS usuarios FROM `user` WHERE id_user=3 and status=0 and created_at BETWEEN '$ds' AND '$de';";
 $response = mysqli_query($con,$sentencia);
 $usuarios2 = mysqli_fetch_assoc($response)['usuarios'];
 $pdf->Text(155, 124, $usuarios2);
 
-$sentencia = "SELECT SUM(total) AS ventas FROM sale";
+$sentencia = "SELECT SUM(total) AS ventas FROM sale WHERE created_at BETWEEN '$ds' AND '$de'";
 $response = mysqli_query($con,$sentencia);
 $ventas = mysqli_fetch_assoc($response)['ventas'];
 $pdf->Text(140,173, $ventas);
 
-$sentencia = "SELECT COUNT(*) AS productos FROM sale";
+$sentencia = "SELECT COUNT(*) AS productos FROM sale WHERE created_at BETWEEN '$ds' AND '$de'";
 $response = mysqli_query($con,$sentencia);
 $productos = mysqli_fetch_assoc($response)['productos'];
 $pdf->Text(175,223, $productos);
@@ -74,6 +82,7 @@ $pdf->ln();
 
 $sentencia = "SELECT SUM(quantity) AS pz, s.id_product, p.name, p.imagen FROM sale s
     INNER JOIN product p ON p.id=s.id_product
+    WHERE s.created_at BETWEEN '$ds' AND '$de'
     GROUP BY id_product
     ORDER BY pz DESC
     ";
@@ -94,7 +103,8 @@ $pdf->SetFont('Arial', 'B', 35);
 
 $sentencia = "SELECT SUM(p.id_category) AS cantidad, p.id_category, cc.category FROM product p
     INNER JOIN cat_category cc ON cc.id=p.id_category
-    GROUP BY id_category";
+    GROUP BY id_category
+    ";
 $response = mysqli_query($con,$sentencia);
 $i=0;
 while ($row = mysqli_fetch_array($response)) {
@@ -113,7 +123,8 @@ $sentencia = "SELECT
     FROM sale s
         INNER JOIN product p ON p.id=s.id_product
         INNER JOIN cat_category cc ON cc.id=p.id_category
-        GROUP BY p.id_category;
+    WHERE s.created_at BETWEEN '$ds' AND '$de'
+    GROUP BY p.id_category;
 ";
 $response = mysqli_query($con,$sentencia);
 $a=0;

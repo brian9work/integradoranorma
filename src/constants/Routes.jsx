@@ -15,6 +15,9 @@ const Rutas ={
     user:{
         path: '/micuenta',
     },
+    models:{
+        path: '/modelos',
+    },
     closeSesion:{ 
         path:'/store/closeSesion'
     },
@@ -47,6 +50,9 @@ const Rutas ={
         },
         admins:{
             origin: '/admin/admins',
+        },
+        reports:{
+            origin: '/admin/reports',
         }
     },
 }

@@ -7,7 +7,7 @@ import Button from './Button';
 import Rutas from '../constants/Routes';
 
 
-const Product = ({ id, url, name, price }) => {
+const Product = ({ id, url, name, price, gif }) => {
     const nav = useNavigate();
     const addToCart = async ({ id_user, id_product }) => {
         let data = new FormData()
@@ -42,6 +42,7 @@ const Product = ({ id, url, name, price }) => {
                         <div className='col-12'>
                             <h5 className="card-title fs-6">{name}</h5>
                             <h6 className="card-subtitle mb-2 fs-6" style={{ color: "#fe6347" }}>$ {price}</h6>
+                            <b>{gif ? <button className='btn btn-light border'>Gif</button> : ""}</b>
                         </div>
                         <div className="col-12 fs-1 text-end" style={{ cursor: "pointer" }}>
                             <Button
@@ -74,7 +75,6 @@ const Product = ({ id, url, name, price }) => {
 const Products = ({ data }) => {
     return (
         <div className='mt-5 container mx-auto'>
-            
             <h3>{data.typeofProducts}</h3>
             <div className=" row">
                 {
@@ -86,6 +86,7 @@ const Products = ({ data }) => {
                                 url={product.imagen}
                                 name={product.name}
                                 price={product.price}
+                                gif={product.isGif}
                             />
                         )
                     })
