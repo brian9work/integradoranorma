@@ -18,6 +18,19 @@ const Buy = () => {
    const [arrayProducts, setArrayProducts] = useState([])
    const [arrayAddress, setArrayAddress] = useState([[]])
    const [arrayPaymentMethod, setArrayPaymentMethod] = useState([])
+   
+   function getSelectedValue() {
+      const radios = document.querySelectorAll('input[name="inputBuyPM"]');
+      let selectedValue = 1;
+      
+      for (const radio of radios) {
+          if (radio.checked) {
+              selectedValue = radio.value;
+              break;
+            }
+         }
+      return selectedValue
+  }
 
    const getData=async()=>{
       const d = new FormData()
@@ -67,7 +80,7 @@ const Buy = () => {
       data.append("inputBuyStreet1",inputBuyStreet1.value)
       data.append("inputBuyStreet2",inputBuyStreet2.value)
       data.append("inputBuyReferences",inputBuyReferences.value)
-      data.append("inputBuyPM","1")
+      data.append("inputBuyPM",getSelectedValue())
       data.append("inputBuyTitular",inputBuyTitular.value)
       data.append("inputBuyNumberCard",inputBuyNumberCard.value)
       data.append("inputBuyExpiration",inputBuyExpiration.value)

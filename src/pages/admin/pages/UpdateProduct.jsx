@@ -107,13 +107,13 @@ const UpdateProduct = () => {
             .catch(err => console.log(err))
     }
     const regexPatterns = {
-       name: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
-       description: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,500}$/,
-       specification: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
-       dimensions: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
-       quantity: /^\d+$/,
-       price: /^\d+$/,
-     };
+       name: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
+       description: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
+       specification: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{0,45}$/,
+       dimensions: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
+       quantity: /^0*([0-9]|[1-9][0-9]*)$/,
+       price: /^0*([0-9]|[1-9][0-9]*)$/,
+    };
     const UpdateProduct = async (e) => {
         e.preventDefault()
         const form = e.target

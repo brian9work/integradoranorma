@@ -26,13 +26,13 @@ const AddProduct = () => {
          .catch(err => console.log(err))
    }
    const regexPatterns = {
-      name: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
-      description: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,500}$/,
-      specification: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
-      dimensions: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      name: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
+      description: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
+      specification: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{0,45}$/,
+      dimensions: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
       quantity: /^0*([0-9]|[1-9][0-9]*)$/,
       price: /^0*([0-9]|[1-9][0-9]*)$/,
-    };
+   };
    const addProduct = async (e) => {
       e.preventDefault()
       const form = e.target
@@ -55,8 +55,8 @@ const AddProduct = () => {
       if (!regexPatterns.quantity.test(InputQuantity.value)) return alert("Cantidad inválida solo caracteres numéricos")
       if (!regexPatterns.price.test(InputPrice.value)) return alert("Precio inválido solo caracteres numéricos")
 
-      if(InputQuantity.value <=0) return alert("La cantidad no debe ser menor que 0")
-      if(InputPrice.value <=0) return alert("El precio no debe ser menor que 0")
+      if (InputQuantity.value <= 0) return alert("La cantidad no debe ser menor que 0")
+      if (InputPrice.value <= 0) return alert("El precio no debe ser menor que 0")
 
       const data = new FormData()
       data.append("id_category", selectCategory.value)
@@ -127,7 +127,7 @@ const AddProduct = () => {
                         <div className="mt-3 col-12 col-md-6">
                            {categories.length > 0 &&
                               <Select
-                                 nombre={"Categoria:"}
+                                 nombre={"Categoria: *"}
                                  data={categories}
                                  name="selectCategory"
                               ></Select>
@@ -136,7 +136,7 @@ const AddProduct = () => {
                         <div className="mt-3 col-12 col-md-6">
                            {brands.length > 0 &&
                               <Select
-                                 nombre={"Marca:"}
+                                 nombre={"Marca: *"}
                                  data={brands}
                                  name="selectBrand"
                               ></Select>
@@ -144,7 +144,7 @@ const AddProduct = () => {
                         </div>
                         <div className="mt-3 col-12 col-md-6">
                            <Input
-                              nombre="Nombre:"
+                              nombre="Nombre: *"
                               maxLength={45}
                               attributs={{
                                  type: 'text',
@@ -157,7 +157,7 @@ const AddProduct = () => {
                         </div>
                         <div className="mt-3 col-12 col-md-6">
                            <Input
-                              nombre="Detalles del producto:"
+                              nombre="Detalles del producto: *"
                               maxLength={45}
                               attributs={{
                                  type: 'text',
@@ -183,7 +183,7 @@ const AddProduct = () => {
                         </div>
                         <div className="mt-3 col-12 col-md-6">
                            <Input
-                              nombre="Dimenciones:"
+                              nombre="Dimenciones: *"
                               maxLength={45}
                               attributs={{
                                  type: 'text',
@@ -195,7 +195,7 @@ const AddProduct = () => {
                         </div>
                         <div className="mt-3 col-12 col-md-6">
                            <Input
-                              nombre="Cantidad:"
+                              nombre="Cantidad: *"
                               maxLength={45}
                               attributs={{
                                  type: 'number',
@@ -208,7 +208,7 @@ const AddProduct = () => {
                         </div>
                         <div className="mt-3 col-12 col-md-6">
                            <Input
-                              nombre="Precio:"
+                              nombre="Precio: *"
                               maxLength={45}
                               attributs={{
                                  type: 'text',
