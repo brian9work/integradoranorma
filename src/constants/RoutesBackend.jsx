@@ -8,6 +8,7 @@ const RutasBackend ={
 
     iniciarSesion: host+"users/login.php",
     registrar: host+"users/logup.php",
+    addAdmin: host+"users/addAdmin.php",
     store: host+"products/getProductsByCategory.php",
     
     addToCart: host+"cart/add.php",

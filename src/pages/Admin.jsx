@@ -15,6 +15,7 @@ import AllUsers from './admin/pages/AllUsers';
 import Sales from './admin/pages/Sales';
 import Admins from './admin/pages/Admins';
 import Report from './admin/pages/Report';
+import AddAdmin from './admin/pages/addAdmin';
 
 const typeOfPage = () => {
     const { page } = useParams()
@@ -22,6 +23,12 @@ const typeOfPage = () => {
         <>
             <Nav>Administradores</Nav>
             <Admins/>
+        </>
+    )
+    if (page === "addadmin") return (
+        <>
+            <Nav><b>Administradores</b> / Agregar</Nav>
+            <AddAdmin />
         </>
     )
     if (page === "sales") return (

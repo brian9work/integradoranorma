@@ -10,9 +10,9 @@ import SaoContext from './Context';
 
 const Logup = () => {
    const regexPatterns = {
-      nombre: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
-      apellidoPaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
-      apellidoMaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+      nombre: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
+      apellidoPaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
+      apellidoMaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
       correo: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,3}$/,
       contraseña: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,45}$/,
     };

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import RutasBackend from '../../../constants/RoutesBackend';
 import { Button } from '../../../components/InputSec';
+import { useNavigate } from "react-router-dom";
+import Rutas from '../../../constants/Routes';
 
 const Admins = () => {
+    let nav = useNavigate();
     const [admins, setAdmins] = useState([])
     
     const getAdmins = async () => {
@@ -21,7 +24,14 @@ const Admins = () => {
     return (
         <div className="container mb-5" >
             <div className="container-fluid mt-5 row justify-content-end">
-                {/* <button className="btn btn-primary col py-2" style={{maxWidth: "250px"}}>Agregar administrador</button> */}
+                <button 
+                    className="btn btn-primary col py-2" 
+                    style={{maxWidth: "250px"}}
+                    onClick={e => {
+                        console.log("click")
+                        nav(Rutas.admin.addAdmin.origin)
+                    }}    
+                >Agregar administrador</button>
             </div>
             <div className="row">
                 <div className="col-12 mb-2">

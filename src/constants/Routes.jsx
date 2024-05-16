@@ -51,6 +51,9 @@ const Rutas ={
         admins:{
             origin: '/admin/admins',
         },
+        addAdmin:{
+            origin: '/admin/addadmin',
+        },
         reports:{
             origin: '/admin/reports',
         }
