@@ -39,7 +39,6 @@ export default function ViewProduct() {
             if(json.data[0].name === undefined){
                nav(Rutas.store.origin)
             }
-            console.log(product)
          })
          .catch(err => console.log(err))
    }
@@ -55,8 +54,12 @@ export default function ViewProduct() {
             <h3>Producto #{id}</h3>
             <div className="mt-3 row">
                <div className="col-6">
-                  {/* <img src={RutasBackend.imagenes + "/" + product.imagen} alt={product.name} className="img-fluid" /> */}
-                  <img src={product.gif} alt={product.name+" / "+product.gif} className="img-fluid" />
+                  {console.log(product)}
+                  {console.log(product.isGif)}
+                  {console.log(product.gif)}
+                  <img src={
+                     product.isGif ? product.gif : "https://xihmai.com/sao/backend/products" + product.gif
+                  } alt={product.name+" / "+product.gif} className="img-fluid" />
                </div>
                <div className="col-6">
                   <h4>{product.name}</h4>
