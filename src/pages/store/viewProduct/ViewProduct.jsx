@@ -54,9 +54,6 @@ export default function ViewProduct() {
             <h3>Producto #{id}</h3>
             <div className="mt-3 row">
                <div className="col-6">
-                  {console.log(product)}
-                  {console.log(product.isGif)}
-                  {console.log(product.gif)}
                   <img src={
                      product.isGif ? product.gif : "https://xihmai.com/sao/backend/products" + product.gif
                   } alt={product.name+" / "+product.gif} className="img-fluid" />

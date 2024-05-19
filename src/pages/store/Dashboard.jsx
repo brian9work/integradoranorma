@@ -41,6 +41,9 @@ const Dashboard = () => {
         })
         .then(res => res.json())
         .then(json => {
+            if(json.success === false) {
+                return console.log(json.data)
+            }
             setRecomendations(json.data)
         })
         .catch(err => console.log(err))
