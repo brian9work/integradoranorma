@@ -52,19 +52,6 @@ const Dashboard = () => {
                     </ComponentMain>
                 )
             })}
-            
-        <a className="container col-6 col-md-4"
-            style={{ textDecoration: "none" }}
-            target='_blank'
-            href='http://localhost/normaint/backend/reports/report.php'
-        >
-            <div className="card mb-3 rounded-4" style={{ width: "95%", cursor: "pointer" }}>
-                <span className='text-center fs-1'>
-                    <GrDocumentPdf />
-                </span>
-                <p className='text-center'>Reportes</p>
-            </div>
-        </a>
         </div>
     );
 }

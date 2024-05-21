@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../Dashboard/Header'
 import RutasBackend from '../../constants/RoutesBackend';
+import ChanguePassword from './ChanguePassword';
 
 const BtnDisabled = ({bol,fn})=>{
     if(bol){
@@ -12,6 +13,7 @@ const BtnDisabled = ({bol,fn})=>{
 }
 
 export default function User() {
+    const [page, setPage] = useState(0);
     const [disabled, setDisabled] = useState(1);
     const [load, setload] = useState(false);
     const [account, setaccount] = useState({});
@@ -44,14 +46,19 @@ export default function User() {
         })
         .catch(err => { console.log(err) })
     }
+    const changePassword = async()=>{
+        if(window.confirm("¿Esta seguro de cambiar su contraseña?")){
+            setPage(1)
+        }
+    }
 
     const myAccount = async () => {
         await fetch(RutasBackend.getUserById + "?id_user=" + localStorage.getItem("iduser"))
             .then(res => res.json())
             .then(res => {
+                setPage(0)
                 setaccount(res.data)
                 setDisabled(res.data.user.status==="1" ? 1 : 0)
-                console.log(disabled)
                 setload(true)
             })
             .catch(err => { console.log(err) })
@@ -64,13 +71,14 @@ export default function User() {
         <>
             <Header />
             {
+                page === 1 ? <ChanguePassword setPage={setPage} />:
                 !load ? <></> :
                 <div className="container mt-5">
                     <h3>Información de mi cuenta</h3>
                     <div className="mb-3">
                         <label htmlFor="nombre" className="form-label">Nombre:</label>
                         <h5 className="form-control-static" id="nombre">
-                            {account.user.name} {account.user.lastnameM} {account.user.lastnameF} 
+                            {account.user.name} {account.user.lastnameF} {account.user.lastnameM} 
                         </h5>
                     </div>
                     <div className="mb-3">
@@ -101,14 +109,15 @@ export default function User() {
                             {account.sale.sale}
                         </h5>
                     </div>
-                    <div className="mt-5">
-                        <BtnDisabled bol={disabled} fn={e =>{disabledAccount()}} />
-                        {/* // {btnDisabled(false,disabledAccount())} */}
-                        {/* <button className='btn btn-danger'
-                            onClick={e =>{
-                                disabledAccount()
-                            }}
-                        >Suspender Cuenta</button> */}
+                    <div className="row mt-4">
+                        <div className="col-4 col-lg-3">
+                            <BtnDisabled bol={disabled} fn={e =>{disabledAccount()}} />
+                        </div>
+                        <div className="col-4 col-lg-3">
+                            <button className='btn btn-warning' 
+                                onClick={e => {changePassword()}}
+                            >Cambiar Contraseña</button>
+                        </div>
                     </div>
                 </div>
             }

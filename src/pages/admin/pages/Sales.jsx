@@ -107,7 +107,7 @@ const Sales = () => {
                                     onClick={() => {
                                        nav(Rutas.admin.sales.detailsOrigin + u.id)
                                     }}
-                                 >Editar</button>
+                                 >Ver</button>
                               </td>
                               <td>
                                  <button className="btn btn-danger">Eliminar</button>

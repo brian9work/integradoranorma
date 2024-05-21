@@ -61,14 +61,14 @@ const DetailsOfBuy = () => {
                         {ComponentOrderDetail(historyProcess, details.id_process)}
                     </div>
                 }
-                <Button
+                {/* <Button
                     type="button"
                     funcion={()=>{
                         actualizarEstado()
                     }}
                 >
                     Actualizar Proceso
-                </Button>
+                </Button> */}
             </div>
         </>
     );
