@@ -1,10 +1,10 @@
 
-// const host= "http://localhost/normaint/backend/"
-const host= "https://xihmai.com/sao/backend/"
+const host= "http://localhost/normaint/backend/"
+// const host= "https://xihmai.com/sao/backend/"
 
 const RutasBackend ={
-    imagenes: host+"products",
-    // imagenes:"",
+    // imagenes: host+"products",
+    imagenes:"",
 
     iniciarSesion: host+"users/login.php",
     registrar: host+"users/logup.php",

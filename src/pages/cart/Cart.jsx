@@ -6,11 +6,11 @@ import Button from '../../components/Button';
 import { useNavigate, useParams } from 'react-router-dom'
 
 const Product = ({ data }) => {
-    const [pz,setPz] = useState(parseInt(data.quantity))
+    const [pz, setPz] = useState(parseInt(data.quantity))
     let nav = useNavigate();
     const deleteProduct = (id_product) => {
-        const comp=document.getElementById("productInCart"+id_product)
-        
+        const comp = document.getElementById("productInCart" + id_product)
+
         let data = new FormData()
         data.append("id_user", localStorage.getItem("iduser"))
         data.append("id_product", id_product)
@@ -41,7 +41,7 @@ const Product = ({ data }) => {
             .then(json => {
                 alert(json.data)
                 if (json.success) {
-                    setPz(type? pz+1 : pz-1 )
+                    setPz(type ? pz + 1 : pz - 1)
                     // data={
                     //     ...data,
                     //     quantity:5
@@ -51,33 +51,39 @@ const Product = ({ data }) => {
             .catch(err => console.log(err))
     }
     return (
-        <div className='productCartSao shadow-sm mb-4 py-2 px-3 rounded-3 row' 
-            id={'productInCart'+data.id_product}
-            style={{ maxHeight: "250px" }}>
-            <div className='col-4 productCartSaoImg'
+        <div className='productCartSao shadow-sm mb-4 py-2 px-3 rounded-3 row'
+            id={'productInCart' + data.id_product}
+            >
+            <div className='col-lg-4 col-md-4 col-12 productCartSaoImg'
                 style={{ backgroundImage: `url(${RutasBackend.imagenes}${data.imagen})` }}
             >
             </div>
-            <div className="col-5">
+            <div className="col-lg-5 col-md-5 col-12 mt-3 mt-md-0">
                 <h5>{data.name}</h5>
                 <p>{data.description}</p>
             </div>
-            <div className="col-3 row" style={{ height: "50%" }}>
+            <div className="col-lg-3 col-md-3 col-12 row mt-3 mt-lg-0" style={{ height: "50%" }}>
                 <span className='col-12 '>Costo: <b>$ {data.price}</b></span>
                 <span className='col-12 mb-3'>Total: <b> ${data.price * pz}</b></span>
-                <span className="input-group-text col-4"
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => {
-                        quantity(0, data.id_product)
-                    }}
-                >-</span>
-                <span className="input-group-text col-4 bg-white">{pz}</span>
-                <span className="input-group-text col-4"
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => {
-                        quantity(1, data.id_product)
-                    }}
-                >+</span>
+                <div className="col-4 d-flex align-items-center justify-content-center">
+                    <span className="input-group-text"
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => {
+                            quantity(0, data.id_product)
+                        }}
+                    >-</span>
+                </div>
+                <div className="col-4 d-flex align-items-center justify-content-center bg-white">
+                    <span className="input-group-text">{pz}</span>
+                </div>
+                <div className="col-4 d-flex align-items-center justify-content-center">
+                    <span className="input-group-text"
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => {
+                            quantity(1, data.id_product)
+                        }}
+                    >+</span>
+                </div>
                 <button className='btn btn-danger mt-3'
                     onClick={(e) => {
                         deleteProduct(data.id_product)
@@ -102,7 +108,7 @@ const Cart = () => {
             .then(res => res.json())
             .then(json => {
                 console.log(json)
-                if(!json.success){
+                if (!json.success) {
                     alert(json.data)
                     // nav(Rutas.store.origin)
                     return
@@ -143,7 +149,7 @@ const Cart = () => {
                                 />
                             )
                         })
-                    } 
+                    }
                 </div>
                 <div className="container mb-5 shadow-sm py-3 col-12 col-md-4">
                     <h5>Resumen del pedido:</h5>

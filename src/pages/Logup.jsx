@@ -29,11 +29,11 @@ const Logup = () => {
          InputLogupPass,
       } = form
 
-      if(!regexPatterns.nombre.test(InputLogupName.value)) return alert("Nombre inválido")
-      if(!regexPatterns.apellidoPaterno.test(InputLogupSpelitP.value)) return alert("Apellido paterno inválido")
-      if(!regexPatterns.apellidoMaterno.test(InputLogupSpelitM.value)) return alert("Apellido materno inválido")
-      if(!regexPatterns.correo.test(InputLogupEmail.value)) return alert("Correo inválido")
-      if(!regexPatterns.contraseña.test(InputLogupPass.value)) return alert("Contraseña inválida")
+      if(regexPatterns.nombre.test(InputLogupName.value)===false) return alert("Nombre inválido")
+      if(regexPatterns.apellidoPaterno.test(InputLogupSpelitP.value)===false) return alert("Apellido paterno inválido")
+      if(regexPatterns.apellidoMaterno.test(InputLogupSpelitM.value)===false) return alert("Apellido materno inválido")
+      if(regexPatterns.correo.test(InputLogupEmail.value)===false) return alert("Correo inválido")
+      if(regexPatterns.contraseña.test(InputLogupPass.value)===false) return alert("Contraseña inválida")
 
 
       let data = new FormData()

@@ -53,12 +53,12 @@ export default function ViewProduct() {
          <div className='container mt-5'>
             <h3>Producto #{id}</h3>
             <div className="mt-3 row">
-               <div className="col-6">
+               <div className="col-md-6 col-12">
                   <img src={
                      product.isGif ? product.gif : "https://xihmai.com/sao/backend/products" + product.gif
                   } alt={product.name+" / "+product.gif} className="img-fluid" />
                </div>
-               <div className="col-6">
+               <div className="col-md-6 col-12 mt-4 mt-md-1">
                   <h4>{product.name}</h4>
                   <small className='fs-6'>{product.description}</small><br />
                   <small className='fs-6'>{product.specifications}</small><br />

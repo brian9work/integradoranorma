@@ -15,19 +15,19 @@ const Product = () => {
             })
             .catch(err => console.log(err))
     }
-    const deleteProduct = async (target,id,name) => {
+    const deleteProduct = async (target, id, name) => {
         // console.log(target)
         // const comp=document.getElementById("productoAdmin"+id)
-        if(confirm("¿Esta seguro de eliminar el producto?: "+name))
-        await fetch(RutasBackend.deleteProduct+"?id_product="+id)
-            .then(res => res.json())
-            .then(data => {
-                alert(data.data)
-                // if(data.success) {
-                //     comp.parentNode.removeChild(comp)
-                // }
-            })
-            .catch(err => console.log(err))
+        if (confirm("¿Esta seguro de eliminar el producto?: " + name))
+            await fetch(RutasBackend.deleteProduct + "?id_product=" + id)
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.data)
+                    // if(data.success) {
+                    //     comp.parentNode.removeChild(comp)
+                    // }
+                })
+                .catch(err => console.log(err))
     }
 
     useEffect(() => {
@@ -42,57 +42,59 @@ const Product = () => {
                     <h3>Productos</h3>
                 </div>
             </div>
-            <table className="table table-striped shadow-sm">
-                <thead>
-                    <tr className=''>
-                        <th className='py-3' >#</th>
-                        <th className='py-3' >Nombre</th>
-                        <th className='py-3' >Categoría</th>
-                        <th className='py-3' >Stock</th>
-                        <th className='py-3' >Detalles del producto</th>
-                        <th className='py-3' >Precio</th>
-                        <th className='py-3' >Imagen</th>
-                        <th className='py-3' ></th>
-                        <th className='py-3' ></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {(!products) ?
-                        <td className='text-center py-4' colSpan="7">
-                            <h4>Cargando ... </h4>
-                        </td> :
-                        products.map((product, index) => (
-                            <tr key={index} id={'productoAdmin'+product.id}>
-                                <td>{product.id}</td>
-                                <td>{product.name}</td>
-                                <td>{product.category}</td>
-                                <td>{product.stock}</td>
-                                <td>{product.description}</td>
-                                <td>$ {product.price} MXN</td>
-                                <td><img src={RutasBackend.imagenes+product.imagen} alt={product.imagen} style={{ width: '50px' }} /></td>
-                                <td>
-                                    <button className="btn btn-primary"
-                                        onClick={() => {
-                                            nav(Rutas.admin.products.update+product.id)
-                                        }}
-                                    >Editar</button>
-                                </td>
-                                <td>
-                                    <button className="btn btn-danger"
-                                        onClick={(e) => {
-                                            deleteProduct(
-                                                e.target,
-                                                product.id,
-                                                product.name
-                                            )
-                                        }}
-                                    >Eliminar</button>
-                                </td>
-                            </tr>
-                        ))}
-                </tbody>
-            </table>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <div className="table-responsive">
+                <table className="table table-striped shadow-sm">
+                    <thead>
+                        <tr className=''>
+                            <th className='py-3' >#</th>
+                            <th className='py-3' >Nombre</th>
+                            <th className='py-3' >Categoría</th>
+                            <th className='py-3' >Stock</th>
+                            <th className='py-3' >Detalles del producto</th>
+                            <th className='py-3' >Precio</th>
+                            <th className='py-3' >Imagen</th>
+                            <th className='py-3' ></th>
+                            <th className='py-3' ></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {(!products) ?
+                            <td className='text-center py-4' colSpan="7">
+                                <h4>Cargando ... </h4>
+                            </td> :
+                            products.map((product, index) => (
+                                <tr key={index} id={'productoAdmin' + product.id}>
+                                    <td>{product.id}</td>
+                                    <td>{product.name}</td>
+                                    <td>{product.category}</td>
+                                    <td>{product.stock}</td>
+                                    <td>{product.description}</td>
+                                    <td>$ {product.price} MXN</td>
+                                    <td><img src={RutasBackend.imagenes + product.imagen} alt={product.imagen} style={{ width: '50px' }} /></td>
+                                    <td>
+                                        <button className="btn btn-primary"
+                                            onClick={() => {
+                                                nav(Rutas.admin.products.update + product.id)
+                                            }}
+                                        >Editar</button>
+                                    </td>
+                                    <td>
+                                        <button className="btn btn-danger"
+                                            onClick={(e) => {
+                                                deleteProduct(
+                                                    e.target,
+                                                    product.id,
+                                                    product.name
+                                                )
+                                            }}
+                                        >Eliminar</button>
+                                    </td>
+                                </tr>
+                            ))}
+                    </tbody>
+                </table>
+            </div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
     );
 }

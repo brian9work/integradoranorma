@@ -10,10 +10,10 @@ const UpdateProduct = () => {
     const { page } = useParams()
     const id_product = window.location.search.split("?")[1]
     const [categories, setCategories] = useState([
+        {id: 1,text: "papeleria" },
         {id: 2,text: "electronica"},
         {id: 3,text: "moviliario"},
         {id: 4,text: "ofertas"},
-        {id: 1,text: "papeleria" }
     ])
     const [brands, setBrands] = useState([
         {id:1,text: "marca"},
@@ -79,11 +79,12 @@ const UpdateProduct = () => {
                 // )
 
                 selectCategory.innerHTML = 
-                    `<option value="${d.id_category}">${d.category}</option>`;
+                    `<option value="${d.id_category}">${d.category} - ${d.id_category}</option>`;
                 selectCategory.innerHTML +=
-                    categories.filter((ca) => ca.id != d.id_category).map((category) =>{
+                    // categories.filter((ca) => ca.id != d.id_category).map((category) =>{
+                    categories.map((category) =>{
                         return (`
-                            <option value="${category.id}">${category.text}</option>`
+                            <option value="${category.id}">${category.text} - ${category.id}</option>`
                         )
                     })
                 // `<option value="${d.id_category}">${d.category}</option>`
@@ -91,7 +92,7 @@ const UpdateProduct = () => {
                 selectBrand.innerHTML = 
                 `<option value="${d.id_brand}">${d.brand}</option>`;
                 selectBrand.innerHTML+= 
-                brands.filter((br) => br.id != d.id_brand).map((brand) =>{
+                brands.map((brand) =>{
                     return (`
                         <option value="${brand.id}">${brand.text}</option>`
                     )
