@@ -63,8 +63,8 @@ const Sales = () => {
                      sales.map((u, i) => {
                         return (
                            <tr key={i} className='' style={{ fontSize: "15px" }} >
-                              <td className='py-3'>{u.id}</td>
-                              <td className='py-3'>{u.id_user}</td>
+                              <td className='py-3'><b>#{u.id}</b></td>
+                              <td className='py-3'> {u.id_user}</td>
                               <td className='py-3'>{u.email}</td>
                               <td className='py-3'>
                                  <img src={RutasBackend.imagenes + u.imagen}

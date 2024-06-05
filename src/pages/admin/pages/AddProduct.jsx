@@ -30,8 +30,8 @@ const AddProduct = () => {
       description: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
       specification: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{0,45}$/,
       dimensions: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
-      quantity: /^0*([0-9]|[1-9][0-9]*)$/,
-      price: /^0*([0-9]|[1-9][0-9]*)$/,
+      quantity: /^1*([1-9]|[1-9][1-9]*)$/,
+      price: /^1*([1-9]|[1-9][1-9]*)$/,
    };
    const addProduct = async (e) => {
       e.preventDefault()
@@ -183,7 +183,7 @@ const AddProduct = () => {
                         </div>
                         <div className="mt-3 col-12 col-md-6">
                            <Input
-                              nombre="Dimenciones: *"
+                              nombre="Dimensiones: *"
                               maxLength={45}
                               attributs={{
                                  type: 'text',

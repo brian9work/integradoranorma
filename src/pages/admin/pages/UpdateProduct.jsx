@@ -16,24 +16,25 @@ const UpdateProduct = () => {
         {id: 4,text: "ofertas"},
     ])
     const [brands, setBrands] = useState([
-        {id:1,text: "marca"},
-        {id:2,text: "hp"},
-        {id:3,text: "empos"},
-        {id:4,text: "canon"},
-        {id:5,text: "sony"},
-        {id:6,text: "kingston"},
-        {id:7,text: "ikea"},
-        {id:8,text: "hon"},
-        {id:9,text: "office star"},
-        {id:10,text: "ashley"},
-        {id:11,text: "steelcase"},
-        {id:12,text: "hni"},
-        {id:13,text: "post-it"},
-        {id:14,text: "five star"},
-        {id:15,text: "bik"},
-        {id:16,text: "faber-caste"},
-        {id:17,text: "papermate"},
-        {id:18,text: "papermatesharpie"}
+        {id:1,text: "Desconocida"},
+        {id:2,text: "Desconocidas"},
+        {id:3,text: "hp"},
+        {id:4,text: "empos"},
+        {id:5,text: "canon"},
+        {id:6,text: "sony"},
+        {id:7,text: "kingston"},
+        {id:8,text: "ikea"},
+        {id:9,text: "hon"},
+        {id:10,text: "office star"},
+        {id:11,text: "ashley"},
+        {id:12,text: "steelcase"},
+        {id:13,text: "hni"},
+        {id:14,text: "post-it"},
+        {id:15,text: "five star"},
+        {id:16,text: "bik"},
+        {id:17,text: "faber-caste"},
+        {id:18,text: "papermate"},
+        {id:19,text: "papermatesharpie"}
     ])
 
     const loadImage = async (e) => {
@@ -112,8 +113,8 @@ const UpdateProduct = () => {
        description: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
        specification: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{0,45}$/,
        dimensions: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
-       quantity: /^0*([0-9]|[1-9][0-9]*)$/,
-       price: /^0*([0-9]|[1-9][0-9]*)$/,
+       quantity: /^1*([1-9]|[1-9][1-9]*)$/,
+       price: /^1*([1-9]|[1-9][1-9]*)$/,
     };
     const UpdateProduct = async (e) => {
         e.preventDefault()
@@ -256,7 +257,7 @@ const UpdateProduct = () => {
                             </div>
                             <div className="mt-3 col-12 col-md-6">
                                 <Input
-                                    nombre="Dimenciones:"
+                                    nombre="Dimensiones:"
                                     maxLength={45}
                                     attributs={{
                                         type: 'text',

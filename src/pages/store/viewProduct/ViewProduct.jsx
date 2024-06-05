@@ -22,9 +22,10 @@ export default function ViewProduct() {
       })
           .then(res => res.json())
           .then(json => {
+            alert(json.data);
             if(!json.success){
                 alert(json.data)
-                nav(Rutas.logup.path)
+                nav(Rutas.store.origin)
                 return;
             }
           })
@@ -66,8 +67,8 @@ export default function ViewProduct() {
                   <small className='fs-6'>Precio: {product.price}</small><br />
                   <small className='fs-6'>stock: {product.stock}</small><br />
                   <br />
-                  <button className='btn btn-light border'>{product.category}</button>
-                  <button className='btn btn-light border'>{product.brand}</button>
+                  <button className='btn btn-light border' disabled>{product.category}</button>
+                  <button className='btn btn-light border ms-2' disabled>{product.brand}</button>
                   <br /><br />
                   <form onSubmit={e =>{
                            addToCart(e,{

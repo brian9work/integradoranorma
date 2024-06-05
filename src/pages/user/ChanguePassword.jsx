@@ -85,7 +85,7 @@ export default function ChanguePassword({setPage}) {
                                 nombre="Contraseña"
                                 maxLength={45}
                                 attributs={{
-                                    type: 'text',
+                                    type: 'password',
                                     minLength: '0',
                                     required: true,
                                     name: 'password1',
@@ -99,7 +99,7 @@ export default function ChanguePassword({setPage}) {
                                 nombre="Confirmar Contraseña"
                                 maxLength={45}
                                 attributs={{
-                                    type: 'text',
+                                    type: 'password',
                                     minLength: '0',
                                     required: true,
                                     name: 'password2',

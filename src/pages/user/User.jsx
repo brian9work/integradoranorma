@@ -28,21 +28,22 @@ export default function User() {
         }
 
         await fetch(
-                        RutasBackend.disabled + 
-                        "?id_user=" + localStorage.getItem("iduser") +
-                        "&status=" + !disabled
-                    ,{
-                        method: "POST",
-                        body: body
-                    })
+                RutasBackend.disabled + 
+                "?id_user=" + localStorage.getItem("iduser") +
+                "&status=" + !disabled
+            ,{
+                method: "POST",
+                body: body
+            }
+        )
         .then(res => res.json())
         .then(res => {
             console.log(res)
-            if(res.success){
-                alert(res.data)
-            } else {
+            if(!res.success) {
                 alert("Error al suspender")
             }
+            alert(res.data)
+            window.location.reload()
         })
         .catch(err => { console.log(err) })
     }

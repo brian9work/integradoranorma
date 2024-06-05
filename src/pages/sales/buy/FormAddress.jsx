@@ -19,31 +19,31 @@ const FormAddress = ({address}) => {
     }
     const Inputs = [
         {
-            nombre: 'Estado:', maxLength: 100,
+            nombre: 'Estado:', maxLength: 45,
             attributs: { type: 'text', minLength: '1', required: true, name: 'inputBuyState', placeholder: '',
             defaultValue : valuesAddress.inputBuyState
             }
         },
         {
-            nombre: 'Localidad:', maxLength: 100,
+            nombre: 'Localidad:', maxLength: 45,
             attributs: { type: 'text', minLength: '1', required: true, name: 'inputBuylocality', placeholder: '',
             defaultValue : valuesAddress.inputBuylocality
             }
         },
         {
-            nombre: 'Calle principal:', maxLength: 100,
+            nombre: 'Calle principal:', maxLength: 45,
             attributs: { type: 'text', minLength: '1', required: true, name: 'inputBuyMainStreet', placeholder: '',
             defaultValue : valuesAddress.inputBuyMainStreet
             }
         },
         {
-            nombre: 'Calle 1:', maxLength: 100,
+            nombre: 'Calle 1:', maxLength: 45,
             attributs: { type: 'text', minLength: '1', required: false, name: 'inputBuyStreet1', placeholder: '',
             defaultValue : valuesAddress.inputBuyStreet1
             }
         },
         {
-            nombre: 'Calle 2:', maxLength: 100,
+            nombre: 'Calle 2:', maxLength: 45,
             attributs: { type: 'text', minLength: '1', required: false, name: 'inputBuyStreet2', placeholder: '',
             defaultValue : valuesAddress.inputBuyStreet2
             }

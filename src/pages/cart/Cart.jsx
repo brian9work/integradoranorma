@@ -54,15 +54,15 @@ const Product = ({ data }) => {
         <div className='productCartSao shadow-sm mb-4 py-2 px-3 rounded-3 row'
             id={'productInCart' + data.id_product}
             >
-            <div className='col-lg-4 col-md-4 col-12 productCartSaoImg'
+            <div className='col-lg-5 col-12 productCartSaoImg'
                 style={{ backgroundImage: `url(${RutasBackend.imagenes}${data.imagen})` }}
             >
             </div>
-            <div className="col-lg-5 col-md-5 col-12 mt-3 mt-md-0">
+            <div className="col-lg-4 col-12 mt-3 mt-md-0">
                 <h5>{data.name}</h5>
                 <p>{data.description}</p>
             </div>
-            <div className="col-lg-3 col-md-3 col-12 row mt-3 mt-lg-0" style={{ height: "50%" }}>
+            <div className="col-lg-3 col-12 row mt-3 mt-lg-0 cantidad-pz" style={{ height: "50%" }}>
                 <span className='col-12 '>Costo: <b>$ {data.price}</b></span>
                 <span className='col-12 mb-3'>Total: <b> ${data.price * pz}</b></span>
                 <div className="col-4 d-flex align-items-center justify-content-center">

@@ -21,7 +21,7 @@ const Product = ({ id, url, name, price, gif }) => {
             .then(json => {
                 if(!json.success){
                     alert(json.data)
-                    nav(Rutas.logup.path)
+                    nav(Rutas.store.origin)
                     return;
                 }
                 alert(json.data)
@@ -42,7 +42,7 @@ const Product = ({ id, url, name, price, gif }) => {
                         <div className='col-12'>
                             <h5 className="card-title fs-6">{name}</h5>
                             <h6 className="card-subtitle mb-2 fs-6" style={{ color: "#fe6347" }}>$ {price}</h6>
-                            <b>{gif ? <button className='btn btn-light border'>Gif</button> : ""}</b>
+                            <b>{gif ? <button className='btn btn-light border' disabled>Gif</button> : ""}</b>
                         </div>
                         <div className="col-12 fs-1 text-end" style={{ cursor: "pointer" }}>
                             <Button

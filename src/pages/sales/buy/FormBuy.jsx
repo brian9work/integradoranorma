@@ -27,7 +27,7 @@ const Inputs = [
       attributs: { type: 'tel', minLength: '16', required: true, name: 'inputBuyNumberCard' }
    }, {
       nombre: 'Fecha de vencimiento', maxLength: 7,
-      attributs: { type: 'text', minLength: '4', required: true, name: 'inputBuyExpiration', placeholder: 'MM / YYYY' }
+      attributs: { type: 'text', minLength: '6', required: true, name: 'inputBuyExpiration', placeholder: 'MM / YYYY' }
    }, {
       nombre: 'CVV', maxLength: 3,
       attributs: { type: 'number', minLength: '3', required: true, name: 'inputBuyCVV' }

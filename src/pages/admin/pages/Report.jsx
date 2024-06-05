@@ -36,7 +36,7 @@ export default function Report() {
 
         console.log(fullDate(dateStart))
 
-        window.open(`http://localhost/normaint/backend/reports/report.php?ds=${fullDate(dateStart)}&de=${fullDate(dateEnd)}`)
+        window.open(`https://xihmai.com/sao/backend/reports/report.php?ds=${fullDate(dateStart)}&de=${fullDate(dateEnd)}`)
         // await 
     }
     return (

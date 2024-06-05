@@ -22,7 +22,7 @@ const dataMain = [
 const ComponentMain = ({ path, icon, children }) => {
     let nav = useNavigate();
     return (
-        <div className="container col-6 col-md-4"
+        <div className="container col-12 col-md-4"
             onClick={() => {
                 nav(path)
             }}
@@ -40,7 +40,7 @@ const ComponentMain = ({ path, icon, children }) => {
 {/* <FaRegAddressBook /> */}
 const Dashboard = () => {
     return (
-        <div className="container mt-5 row mx-auto">
+        <div className="container mt-5 row mx-auto mb-5">
             {dataMain.map((d, i) => {
                 return (
                     <ComponentMain
@@ -52,6 +52,7 @@ const Dashboard = () => {
                     </ComponentMain>
                 )
             })}
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
     );
 }

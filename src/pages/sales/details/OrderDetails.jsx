@@ -32,7 +32,7 @@ export const ComponentOrderDetail = (orderDetails,id_process) => {
    return orderDetails.map((data, i) => {
       return (
          <div 
-            key={i} className="container-fluid col-2"
+            key={i} className="container-fluid col-md-2 col-12"
             style={{ opacity: (!((i+1)<=parseInt(id_process))) ? "0.5" : "1" }}
          >
             <div className="row">
