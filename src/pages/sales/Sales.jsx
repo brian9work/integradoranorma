@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../Dashboard/Header';
 import RutasBackend from '../../constants/RoutesBackend';
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Rutas from '../../constants/Routes';
 
 const Sales = () => {
@@ -70,7 +70,7 @@ const Sales = () => {
                                        alt="" />
                                  </td>
                                  <td className=''>
-                                    <span>{u.name_product}</span>
+                                    <span>{(u.name_product).slice(0,20)}</span>
                                  </td>
                                  <td className=''>
                                     <span>{u.category}</span>

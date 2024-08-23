@@ -1,6 +1,6 @@
 
-// const host= "http://localhost/normaint/backend/"
-const host= "https://xihmai.com/sao/backend/"
+const host= "http://localhost/normaint/backend/"
+// const host= "https://xihmai.com/sao/backend/"
 
 const RutasBackend ={
     imagenes: host+"products",
@@ -43,6 +43,7 @@ const RutasBackend ={
     getAllPaymentInformation: host+"buy/getAllPaymentInformation.php",
     addPayment: host+"buy/add.php",
     updateProcess: host+"buy/updateProcess.php",
+    report: host+"reports/report.php",
 
 
 

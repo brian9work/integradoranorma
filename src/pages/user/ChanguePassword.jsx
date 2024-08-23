@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../Dashboard/Header'
+// import React, { useEffect, useState } from 'react'
+// import Header from '../Dashboard/Header'
 import RutasBackend from '../../constants/RoutesBackend';
 import { Button, Input } from '../../components/InputSec';
 
@@ -24,6 +24,7 @@ export default function ChanguePassword({setPage}) {
         body.append("id_user", localStorage.getItem("iduser"))
         body.append("password", password1.value)
 
+        if(window.confirm("¿Esta seguro de cambiar su contraseña?")){
         await fetch(RutasBackend.changuePassword,{
                 method: "POST",
                 body: body
@@ -39,6 +40,7 @@ export default function ChanguePassword({setPage}) {
                 }
             })
             .catch(err => { console.log(err) })
+        }
 
 
 

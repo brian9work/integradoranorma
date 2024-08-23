@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import Images from '../assets/Images';
 import Input from '../components/Input';
 import Button from '../components/Button';
@@ -8,13 +8,13 @@ import RoutesBackend from '../constants/RoutesBackend';
 import SaoContext from './Context';
 
 const Login = () => {
-   const regexPatterns = {
-      nombre: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
-      apellidoPaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
-      apellidoMaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
-      correo: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,3}$/,
-      contraseña: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,45}$/,
-    };
+   // const regexPatterns = {
+   //    nombre: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+   //    apellidoPaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+   //    apellidoMaterno: /^[a-zA-ZáéíóúÁÉÍÓÚüÜ]{1,45}$/,
+   //    correo: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,3}$/,
+   //    contraseña: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,45}$/,
+   //  };
    const { sesionIniciada } = useContext(SaoContext);
 
    let nav = useNavigate();
@@ -97,13 +97,10 @@ const Login = () => {
                      Iniciar sesión
                   </Button>
                   <Button tipo="sec"
-                     funcion={e => {
+                     funcion={()=> {
                         { nav(Rutas.logup.path) }
                      }}
                   >
-                     {/* <a href="./logup"> */}
-                        Registrarse
-                     {/* </a> */}
                   </Button>
                </form>
             </div>

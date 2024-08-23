@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Input, Select, Button } from '../../../components/InputSec';
 import RutasBackend from '../../../constants/RoutesBackend';
 import { useNavigate } from "react-router-dom";
@@ -30,8 +30,8 @@ const AddProduct = () => {
       description: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
       specification: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{0,45}$/,
       dimensions: /^[0-9a-zA-ZáéíóúÁÉÍÓÚüÜ\ ]{1,45}$/,
-      quantity: /^1*([1-9]|[1-9][1-9]*)$/,
-      price: /^1*([1-9]|[1-9][1-9]*)$/,
+      quantity: /^[1-9]\d*$/,
+      price: /^[1-9]\d*$/,
    };
    const addProduct = async (e) => {
       e.preventDefault()

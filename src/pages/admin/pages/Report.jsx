@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import { Button, Input } from '../../../components/InputSec'
+import RutasBackend from '../../../constants/RoutesBackend'
 
 export default function Report() {
     const createReport = async(e)=>{
@@ -36,7 +36,8 @@ export default function Report() {
 
         console.log(fullDate(dateStart))
 
-        window.open(`https://xihmai.com/sao/backend/reports/report.php?ds=${fullDate(dateStart)}&de=${fullDate(dateEnd)}`)
+        
+        window.open(`${RutasBackend.report}?ds=${fullDate(dateStart)}&de=${fullDate(dateEnd)}`)
         // await 
     }
     return (

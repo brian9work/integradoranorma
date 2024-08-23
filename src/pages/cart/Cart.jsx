@@ -21,6 +21,7 @@ const Product = ({ data }) => {
             .then(res => res.json())
             .then(json => {
                 alert(json.data)
+                window.location.reload()
                 if (json.success) {
                     comp.parentNode.removeChild(comp)
                     // window.location.reload()
@@ -40,6 +41,7 @@ const Product = ({ data }) => {
             .then(res => res.json())
             .then(json => {
                 alert(json.data)
+                window.location.reload()
                 if (json.success) {
                     setPz(type ? pz + 1 : pz - 1)
                     // data={

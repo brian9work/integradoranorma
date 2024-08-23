@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../Dashboard/Header'
 import RutasBackend from '../../constants/RoutesBackend';
 import ChanguePassword from './ChanguePassword';
@@ -21,36 +21,39 @@ export default function User() {
     const disabledAccount= async()=>{
         const body = new FormData();
         if(disabled){
-            if(window.confirm("Esta seguro de eliminar su cuenta")){
-                body.append("email",window.prompt("Escriba su correo"))
-                body.append("password",window.prompt("Escriba su contraseña"))
+            body.append("email",window.prompt("Escriba su correo"))
+            body.append("password",window.prompt("Escriba su contraseña"))
+            
+            if(!window.confirm("¿Esta seguro de suspender su cuenta?")){
+                return;
             }
         }
 
-        await fetch(
-                RutasBackend.disabled + 
-                "?id_user=" + localStorage.getItem("iduser") +
-                "&status=" + !disabled
-            ,{
-                method: "POST",
-                body: body
-            }
-        )
-        .then(res => res.json())
-        .then(res => {
-            console.log(res)
-            if(!res.success) {
-                alert("Error al suspender")
-            }
-            alert(res.data)
-            window.location.reload()
-        })
-        .catch(err => { console.log(err) })
+            await fetch(
+                    RutasBackend.disabled + 
+                    "?id_user=" + localStorage.getItem("iduser") +
+                    "&status=" + !disabled
+                ,{
+                    method: "POST",
+                    body: body
+                }
+            )
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                if(!res.success) {
+                    alert("Error al suspender")
+                }
+                alert(res.data)
+                window.location.reload()
+            })
+            .catch(err => { console.log(err) })
+        
     }
     const changePassword = async()=>{
-        if(window.confirm("¿Esta seguro de cambiar su contraseña?")){
+        // if(window.confirm("¿Esta seguro de cambiar su contraseña?")){
             setPage(1)
-        }
+        // }
     }
 
     const myAccount = async () => {
@@ -112,11 +115,11 @@ export default function User() {
                     </div>
                     <div className="row mt-4">
                         <div className="col-4 col-lg-3">
-                            <BtnDisabled bol={disabled} fn={e =>{disabledAccount()}} />
+                            <BtnDisabled bol={disabled} fn={() =>{disabledAccount()}} />
                         </div>
                         <div className="col-4 col-lg-3">
                             <button className='btn btn-warning' 
-                                onClick={e => {changePassword()}}
+                                onClick={() => {changePassword()}}
                             >Cambiar Contraseña</button>
                         </div>
                     </div>
