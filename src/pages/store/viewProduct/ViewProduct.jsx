@@ -56,7 +56,8 @@ export default function ViewProduct() {
             <div className="mt-3 row">
                <div className="col-md-6 col-12">
                   <img src={
-                     product.isGif ? product.gif : "https://xihmai.com/sao/backend/products" + product.gif
+                     RutasBackend.imagenes+""+product.gif
+                     // product.isGif ? product.gif : "https://xihmai.com/sao/backend/products" + product.gif
                   } alt={product.name+" / "+product.gif} className="img-fluid" />
                </div>
                <div className="col-md-6 col-12 mt-4 mt-md-1">

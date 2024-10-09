@@ -25,13 +25,13 @@ import DetailsOfBuy from './pages/admin/pages/DetailsOfBuy';
 import User from './pages/user/User';
 import Models from './pages/models/Models';
 
-function Sao({Children}){
+function Sao({}){
    return (
       <div>
          {/* <BrowserRouter basename='/'> */}
          {/* <Route exact path={'/'} element={<SaoHome />} /> */}
          
-         <BrowserRouter basename='/integradoranorma'>
+         <BrowserRouter basename='/integradora'>
             <Routes>
                {/* <Route exact path={Rutas.sesion.path} element={<SaoHome />} />
                <Route exact path={Rutas.furniture.path} element={<Furniture />} />
