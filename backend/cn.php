@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect('localhost','root','','as');
+    $con = mysqli_connect('localhost','root','','integradora');
     // $con = mysqli_connect('localhost','u110497593_root','W&D*Ah?W9h0*[ewf3r32f_.,23k532d','u110497593_sao');
     mysqli_set_charset($con, "utf8");
     if(!$con){
