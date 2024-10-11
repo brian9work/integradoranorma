@@ -101,6 +101,7 @@ const Login = () => {
                         { nav(Rutas.logup.path) }
                      }}
                   >
+                     Registrarse
                   </Button>
                </form>
             </div>
