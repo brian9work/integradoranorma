@@ -40,6 +40,8 @@ const UpdateProduct = () => {
     const loadImage = async (e) => {
         const imagen = document.getElementById('imagen')
         const file = e.target.files[0]
+        if(!file) return
+        if(!file.type.includes("image/")) return alert("Selecciones un formato de imagen")
         const reader = new FileReader()
         reader.onload = function (e) {
             imagen.src = e.target.result
@@ -193,6 +195,7 @@ const UpdateProduct = () => {
                                     </label>
                                     <input type="file" name="inputFile" id="inputFile"
                                         style={{ display: "none" }}
+                                        accept='image/*'
                                         onChange={(e) => {
                                             loadImage(e)
                                         }}
