@@ -26,8 +26,8 @@ const Inputs = [
       nombre: 'Número de tarjeta', maxLength: 16,
       attributs: { type: 'tel', minLength: '16', required: true, name: 'inputBuyNumberCard' }
    }, {
-      nombre: 'Fecha de vencimiento', maxLength: 7,
-      attributs: { type: 'text', minLength: '6', required: true, name: 'inputBuyExpiration', placeholder: 'MM / YYYY' }
+      nombre: 'Fecha de vencimiento. (Seleccione el primer dia del mes)', maxLength: 7,
+      attributs: { type: 'date', minLength: '6', required: true, name: 'inputBuyExpiration', placeholder: 'MM / YYYY' }
    }, {
       nombre: 'CVV', maxLength: 3,
       attributs: { type: 'number', minLength: '3', required: true, name: 'inputBuyCVV' }

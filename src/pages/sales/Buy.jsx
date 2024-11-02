@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Dashboard/Header';
 import Loader from '../../components/Loader';
-import Input from '../../components/Input';
 import FormAddress from './buy/FormAddress';
 import { useNavigate } from "react-router-dom";
 import FormBuy from './buy/FormBuy';
@@ -9,7 +8,6 @@ import Cart from './buy/Cart';
 import RutasBackend from '../../constants/RoutesBackend';
 import { Button } from '../../components/InputSec';
 import Rutas from '../../constants/Routes';
-// import Button from '../../components/Button';
 
 
 const Buy = () => {
@@ -81,6 +79,23 @@ const Buy = () => {
       data.append("inputBuyStreet2",inputBuyStreet2.value)
       data.append("inputBuyReferences",inputBuyReferences.value)
       data.append("inputBuyPM",getSelectedValue())
+
+      const expression = {
+         titular: /^[a-zA-Z\s]{1,40}$/,
+         numberCard: /^[0-9]{16}$/,
+         cvv: /^[0-9]{3}$/
+      }
+
+      let date= new Date()
+      let dateExpirationValue= new Date(inputBuyExpiration.value)
+
+      if(dateExpirationValue < date) { return alert("La fecha de expiracion no es válida") }
+
+      if(!expression.titular.test(inputBuyTitular.value)) { return alert("El titular no es válido") }
+      if(!expression.numberCard.test(inputBuyNumberCard.value)) { return alert("El numero de tarjeta no es válido") }
+
+      if(!expression.cvv.test(inputBuyCVV.value)) { return alert("El CVV no es válido") }
+
       data.append("inputBuyTitular",inputBuyTitular.value)
       data.append("inputBuyNumberCard",inputBuyNumberCard.value)
       data.append("inputBuyExpiration",inputBuyExpiration.value)
