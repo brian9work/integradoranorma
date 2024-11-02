@@ -1,31 +1,18 @@
 <?php
-// Sentencias
-/*
-"SELECT COUNT(*) AS ventas FROM `sale`";
-"SELECT COUNT(*) AS usuarios FROM `user` WHERE id_user=3 and status=1;";
-"SELECT COUNT(*) AS usuarios FROM `user` WHERE id_user=3 and status=0;";
-"SELECT SUM(quantity) AS pz, s.id_product, p.name, p.imagen FROM sale s
-    INNER JOIN product p ON p.id=s.id_product
-    GROUP BY id_product";
-"SELECT SUM(p.id_category) AS cantidad, p.id_category, cc.category FROM product p
-    INNER JOIN cat_category cc ON cc.id=p.id_category
-    GROUP BY id_category;";
-"SELECT SUM(total) FROM sale";
-"SELECT 
-    SUM(s.quantity) AS productos_vendidos, 
-    SUM(s.total) AS dinero, 
-    s.id_product, cc.category 
-    FROM sale s
-        INNER JOIN product p ON p.id=s.id_product
-        INNER JOIN cat_category cc ON cc.id=p.id_category
-        GROUP BY p.id_category;
-    ";
-*/
 if(!isset($_GET['ds'])) die("Error: fecha de inicio no recibida");
 if(!isset($_GET['de'])) die("Error: fecha de final no recibida");
 
 $ds = $_GET['ds'];
 $de = $_GET['de'];
+
+function validateDate($date) {
+    $d = DateTime::createFromFormat('Y-m-d', $date);
+    return $d && $d->format('Y-m-d') === $date;
+}
+
+if(!validateDate($ds) ||!validateDate($de)) die("Error: fechas no válidas");
+
+
 
 
 require "./fpdf/fpdf.php";
