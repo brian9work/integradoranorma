@@ -14,10 +14,10 @@ if($status=="0"){
     } else{
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $sentence = "SELECT * FROM user WHERE email='$email' AND password='$password'";
+        $sentence = "SELECT * FROM user WHERE email='$email' AND password='$password' and id='$id'";
         $response=mysqli_query($con,$sentence);
         if(mysqli_num_rows($response)==0){
-            die(json_encode(["success" => false,"error" => "Correo o contraseña incorrectos"]));
+            die(json_encode(["success" => false,"data" => "Correo o contraseña incorrectos"]));
         }
     }
 }
