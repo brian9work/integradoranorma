@@ -1,5 +1,6 @@
 
-const host= "http://localhost/normaint/backend/"
+const host= "http://localhost/integradora/backend/"
+// const host= "http://localhost/normaint/backend/"
 // const host= "https://xihmai.com/sao/backend/"
 
 const RutasBackend ={
